@@ -19,5 +19,7 @@ DRV8825_HandleTypeDef hdrv8825_1 = {
   .TimChannel = TIM_CHANNEL_1,
   .Speed = 0,
   .DirPort = DRV8825_DIR_GPIO_Port,
-  .DirPin = DRV8825_DIR_Pin
+  .DirPin = DRV8825_DIR_Pin,
+  .EnblPort = DRV8825_ENABLE_GPIO_Port,
+  .EnblPin = DRV8825_ENABLE_Pin
 };

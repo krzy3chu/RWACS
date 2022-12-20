@@ -18,24 +18,39 @@ HAL_StatusTypeDef DRV8825_Start(DRV8825_HandleTypeDef* hdrv8825){
 }
 
 HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType speed){
+
+	// Protect from setting speed higher than maximum
 	if(speed > DRV8825_MaxSpeed || speed < -DRV8825_MaxSpeed){
 		return HAL_ERROR;
 	}
+
+	// Skip rest of function body if speed is already set to target speed
+	if(speed == hdrv8825->Speed)
+		return HAL_OK;
 	hdrv8825->Speed = speed;
+
+	// Operate direction pin, transform speed to absolute value, handle zero speed exception
 	if(speed > 0){
 		HAL_GPIO_WritePin(hdrv8825->DirPort, hdrv8825->DirPin, GPIO_PIN_SET);
 	}else if(speed < 0){
 		HAL_GPIO_WritePin(hdrv8825->DirPort, hdrv8825->DirPin, GPIO_PIN_RESET);
 		speed *= -1;
 	}else{
-		__HAL_TIM_SET_AUTORELOAD(hdrv8825->Tim, 0xFFFFFFFF);  // if speed is set to 0, set ARR and CCR to maximum value
+		HAL_GPIO_WritePin(hdrv8825->EnblPort, hdrv8825->EnblPin, GPIO_PIN_SET);
+		__HAL_TIM_SET_AUTORELOAD(hdrv8825->Tim, 0xFFFFFFFF);
 		__HAL_TIM_SET_COMPARE(hdrv8825->Tim, hdrv8825->TimChannel, 0xFFFFFFFF);
 		return HAL_OK;
 	}
-	if(__HAL_TIM_GET_COUNTER(hdrv8825->Tim) > DRV8825_TimArrSpeed){ // protect from setting to ARR lower value than current counter value
+	HAL_GPIO_WritePin(hdrv8825->EnblPort, hdrv8825->EnblPin, GPIO_PIN_RESET);
+
+	// Set proper values to ARR and CCR timer registers
+	__HAL_TIM_SET_AUTORELOAD(hdrv8825->Tim, DRV8825_TimArrSpeed);
+	__HAL_TIM_SET_COMPARE(hdrv8825->Tim, hdrv8825->TimChannel, DRV8825_TimArrSpeed - DRV8825_PulseWidthCycles);
+
+	// Protect from setting to ARR lower value than current counter value
+	if(__HAL_TIM_GET_COUNTER(hdrv8825->Tim) > DRV8825_TimArrSpeed){
 		__HAL_TIM_SET_COUNTER(hdrv8825->Tim, 0);
 	}
-	__HAL_TIM_SET_AUTORELOAD(hdrv8825->Tim, DRV8825_TimArrSpeed);
-	__HAL_TIM_SET_COMPARE(hdrv8825->Tim, hdrv8825->TimChannel, DRV8825_TimArrSpeed / 2);
+
 	return HAL_OK;
 }
