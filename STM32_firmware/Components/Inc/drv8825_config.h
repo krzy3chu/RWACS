@@ -12,12 +12,13 @@
 #define INC_DRV8825_CONFIG_H_
 
 /* Includes ------------------------------------------------------------------*/
+
 #include "drv8825.h"
 
 /* Public variables ----------------------------------------------------------*/
 
 /**
-  * @brief DRV8825 step motor driver handler object
+  * @brief: DRV8825 step motor driver handler object
   */
 extern DRV8825_HandleTypeDef hdrv8825_1;
 
