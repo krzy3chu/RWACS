@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "drv8825_config.h"
+#include "encoder_config.h"
 
 /* USER CODE END Includes */
 
@@ -48,6 +49,8 @@
 
 /* USER CODE BEGIN PV */
 
+int16_t speed;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,6 +61,13 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
+
+/*  NOTE: Occupied GPIO lines: 12, 13										  */
+}
 
 /* USER CODE END 0 */
 
@@ -101,7 +111,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  DRV8825_SetSpeed(&hdrv8825_1, 20);
+	  DRV8825_SetSpeed(&hdrv8825_1, speed);
 	  HAL_Delay(1);
 
     /* USER CODE END WHILE */
