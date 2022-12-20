@@ -16,14 +16,23 @@
 
 /* Define --------------------------------------------------------------------*/
 
-#define DRV8825_MaxSpeedType 	1000		/* Maximum absolute value of motor rotational speed expressed in [RPM]					*/
-#define DRV8825_PulseWidthType 	10			/* Width of pulse applied to STEP pin on DRV8825 board, expressed in milliseconds [ms]	*/
+#define DRV8825_MaxSpeed 			1000		/* Maximum absolute value of motor rotational speed expressed in [RPM]					*/
+#define DRV8825_PulseWidthUs 		10			/* Width of pulse applied to STEP pin on DRV8825 board, expressed in microseconds [us]	*/
+#define DRV8825_StepsPerRevolution 	(200*16)	/* Number of motor steps per full shaft revolution multiplied by microstep resolution	*/
 
 #define DRV8825_TimType 		TIM_HandleTypeDef*
 #define DRV8825_TimChannelType	uint32_t
 #define DRV8825_SpeedType 		int16_t
 #define DRV8825_DirPortType 	GPIO_TypeDef*
 #define DRV8825_DirPinType		uint16_t
+
+/* Macros --------------------------------------------------------------------*/
+
+/* Width of pulse applied to STEP pin on DRV8825 board, expressed in system clock cycles */
+#define DRV8825_PulseWidthCycles ( DRV8825_PulseWidthUs * HAL_RCC_GetSysClockFreq() / 1000000 )
+
+/* Value of Auto-Reload Register in timer, calculated based on target speed */
+#define DRV8825_TimArrSpeed ( ( HAL_RCC_GetSysClockFreq() / speed * 60 / DRV8825_StepsPerRevolution ) - 1 )
 
 /* Typedef -------------------------------------------------------------------*/
 
