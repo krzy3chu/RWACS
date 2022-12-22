@@ -34,6 +34,8 @@
  * </table>
  */
 
+#include "stm32f7xx_hal.h"
+#include "stm32f7xx_hal_i2c.h"
 #include "driver_mpu6050_interface.h"
 
 /**
@@ -99,7 +101,7 @@ uint8_t mpu6050_interface_iic_write(uint8_t addr, uint8_t reg, uint8_t *buf, uin
  */
 void mpu6050_interface_delay_ms(uint32_t ms)
 {
-
+	HAL_Delay(ms);
 }
 
 /**
@@ -109,7 +111,7 @@ void mpu6050_interface_delay_ms(uint32_t ms)
  */
 void mpu6050_interface_debug_print(const char *const fmt, ...)
 {
-
+	//send debug info to desktop
 }
 
 /**
