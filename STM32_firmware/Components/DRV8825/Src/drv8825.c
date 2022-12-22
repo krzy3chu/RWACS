@@ -15,7 +15,17 @@
 /* Public function -----------------------------------------------------------*/
 
 HAL_StatusTypeDef DRV8825_Start(DRV8825_HandleTypeDef* hdrv8825){
-	 return HAL_TIM_PWM_Start(hdrv8825->Tim, hdrv8825->TimChannel);
+	// Initial timer configuration
+	__HAL_TIM_SET_PRESCALER(hdrv8825->Tim, 0);
+	__HAL_TIM_SET_AUTORELOAD(hdrv8825->Tim, 0xffffffff);
+	__HAL_TIM_SET_COMPARE(hdrv8825->Tim, hdrv8825->Tim->Channel, 0xffffffff);
+
+	// GPIO pins configuration
+	HAL_GPIO_WritePin(DRV8825_DIR_GPIO_Port, DRV8825_DIR_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(DRV8825_ENABLE_GPIO_Port, DRV8825_ENABLE_Pin, GPIO_PIN_SET);
+
+	// Start timer in PWM mode
+	return HAL_TIM_PWM_Start(hdrv8825->Tim, hdrv8825->TimChannel);
 }
 
 HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType speed){

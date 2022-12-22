@@ -18,7 +18,7 @@
 /* Public variables ----------------------------------------------------------*/
 
 /**
-  * @brief: DRV8825 step motor driver handler object
+  * @brief DRV8825 step motor driver handler object
   */
 extern DRV8825_HandleTypeDef hdrv8825_1;
 
