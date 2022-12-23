@@ -24,7 +24,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "driver_mpu6050_basic.h"
+//#include "driver_mpu6050_basic.h"
+#include "mpu6050_2.h"
 
 /* USER CODE END Includes */
 
@@ -46,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+MPU6050_t MPU6050;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,6 +58,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 
 /* USER CODE END 0 */
 
@@ -92,11 +94,7 @@ int main(void)
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
-
-  uint8_t res = 0;
-  mpu6050_address_t addr = MPU6050_ADDRESS_AD0_LOW>>1;
-
-
+  while(MPU6050_Init(&hi2c2)==1);
 
 
   /* USER CODE END 2 */
@@ -106,15 +104,10 @@ int main(void)
   while (1)
   {
 
-	  res = mpu6050_basic_init(addr);
-	  if (res != 0)
-	  {
-	      return 1;
-	  }
+	  MPU6050_Read_All(&hi2c2, &MPU6050);
+	  //HAL_Delay (100);
+
     /* USER CODE END WHILE */
-
-
-
 
     /* USER CODE BEGIN 3 */
   }
