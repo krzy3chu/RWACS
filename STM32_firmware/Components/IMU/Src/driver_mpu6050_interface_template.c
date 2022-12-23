@@ -38,6 +38,8 @@
 #include "stm32f7xx_hal_i2c.h"
 #include "driver_mpu6050_interface.h"
 #include "mpu6050_config.h"
+#include "i2c.h"
+#include "usart.h"
 
 /**
  * @brief  interface iic bus init
@@ -60,6 +62,7 @@ uint8_t mpu6050_interface_iic_init(void)
  */
 uint8_t mpu6050_interface_iic_deinit(void)
 {
+	HAL_I2C_DeInit(&hi2c2);
     return 0;
 }
 
@@ -76,7 +79,11 @@ uint8_t mpu6050_interface_iic_deinit(void)
  */
 uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-	return HAL_I2C_Master_Receive(mpu6050.i2c_handle, addr<<1, buf, len, HAL_MAX_DELAY);
+	uint8_t mask = 0b10000000;
+	if(mask & addr)
+		return HAL_I2C_Master_Receive(&hi2c2, addr, buf, len, HAL_MAX_DELAY);
+	else
+		return HAL_I2C_Master_Receive(&hi2c2, addr<<1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
@@ -92,7 +99,7 @@ uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint
  */
 uint8_t mpu6050_interface_iic_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-	return HAL_I2C_Master_Transmit(mpu6050.i2c_handle, addr<<1, buf, len, HAL_MAX_DELAY);
+	return HAL_I2C_Master_Transmit(&hi2c2, addr<<1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
@@ -112,7 +119,7 @@ void mpu6050_interface_delay_ms(uint32_t ms)
  */
 void mpu6050_interface_debug_print(const char *const fmt, ...)
 {
-	//send debug info to desktop
+	HAL_UART_Transmit(&huart3, (uint8_t*)fmt, strlen(fmt), HAL_MAX_DELAY);
 }
 
 /**
