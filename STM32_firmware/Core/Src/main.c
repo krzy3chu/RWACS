@@ -24,7 +24,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "driver_mpu6050_basic.h"
+#include "driver_mpu6050_dmp.h"
+#include "driver_mpu6050_interface.h"
 
 
 /* USER CODE END Includes */
@@ -47,8 +48,20 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-  float g[3];
-  float dps[3];
+uint32_t status = 0;
+uint32_t i;
+uint32_t times;
+uint32_t cnt;
+uint16_t len;
+uint8_t (*g_gpio_irq)(void) = NULL;
+static int16_t gs_accel_raw[128][3];
+static float gs_accel_g[128][3];
+static int16_t gs_gyro_raw[128][3];
+static float gs_gyro_dps[128][3];
+static int32_t gs_quat[128][4];
+static float gs_pitch[128];
+static float gs_roll[128];
+static float gs_yaw[128];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,9 +111,10 @@ int main(void)
 
   /* init */
   mpu6050_address_t addr = MPU6050_ADDRESS_AD0_LOW;
-  if(mpu6050_basic_init(addr) != 0) return 1;
+  if(mpu6050_dmp_init(addr, mpu6050_interface_receive_callback,
+		  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback)!=0) return 1;
 
-  //HAL_Delay(10);
+  mpu6050_interface_delay_ms(500);
 
   /* USER CODE END 2 */
 
@@ -108,11 +122,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  len = 128;
+	  status = mpu6050_dmp_read_all(gs_accel_raw, gs_accel_g,
+	                               gs_gyro_raw, gs_gyro_dps,
+	                               gs_quat,
+	                               gs_pitch, gs_roll, gs_yaw,
+	                               &len);
+
+	    /* delay 500 ms */
+	    mpu6050_interface_delay_ms(100);
+
+
+
 	  char buf[12];
-
-	  mpu6050_basic_read(g, dps);
-
-	  snprintf(buf, 12, "dps:%d\n", (int)dps[0]);
+	  snprintf(buf, 12, "%d\n", (int)(gs_yaw[0]*10));
 	  HAL_UART_Transmit(&huart3, buf, strlen(buf), HAL_MAX_DELAY);
 
 
