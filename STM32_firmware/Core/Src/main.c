@@ -24,8 +24,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "driver_mpu6050_basic.h"
-#include "mpu6050_2.h"
+#include "driver_mpu6050_basic.h"
+
 
 /* USER CODE END Includes */
 
@@ -47,7 +47,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-MPU6050_t MPU6050;
+  float g[3];
+  float dps[3];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -94,8 +95,12 @@ int main(void)
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
-  while(MPU6050_Init(&hi2c2)==1);
 
+  /* init */
+  mpu6050_address_t addr = MPU6050_ADDRESS_AD0_LOW;
+  if(mpu6050_basic_init(addr) != 0) return 1;
+
+  //HAL_Delay(10);
 
   /* USER CODE END 2 */
 
@@ -103,9 +108,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  char buf[12];
 
-	  MPU6050_Read_All(&hi2c2, &MPU6050);
-	  //HAL_Delay (100);
+	  mpu6050_basic_read(g, dps);
+
+	  snprintf(buf, 12, "dps:%d\n", (int)dps[0]);
+	  HAL_UART_Transmit(&huart3, buf, strlen(buf), HAL_MAX_DELAY);
+
 
     /* USER CODE END WHILE */
 

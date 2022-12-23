@@ -3796,6 +3796,9 @@ uint8_t mpu6050_init(mpu6050_handle_t *handle)
         
         return 4;                                                                   /* return error */
     }
+
+    handle->delay_ms(10);                                                           /* delay 10 ms */
+
     timeout = 100;                                                                  /* set the timeout 1000 ms */
     while (timeout != 0)                                                            /* check the timeout */
     {

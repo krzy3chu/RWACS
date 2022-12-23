@@ -62,7 +62,6 @@ uint8_t mpu6050_interface_iic_init(void)
  */
 uint8_t mpu6050_interface_iic_deinit(void)
 {
-	HAL_I2C_DeInit(&hi2c2);
     return 0;
 }
 
@@ -79,11 +78,7 @@ uint8_t mpu6050_interface_iic_deinit(void)
  */
 uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-	uint8_t mask = 0b10000000;
-	if(mask & addr)
-		return HAL_I2C_Master_Receive(&hi2c2, addr, buf, len, HAL_MAX_DELAY);
-	else
-		return HAL_I2C_Master_Receive(&hi2c2, addr<<1, buf, len, HAL_MAX_DELAY);
+    return HAL_I2C_Mem_Read(&hi2c2, addr, reg, 1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
@@ -99,7 +94,7 @@ uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint
  */
 uint8_t mpu6050_interface_iic_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-	return HAL_I2C_Master_Transmit(&hi2c2, addr<<1, buf, len, HAL_MAX_DELAY);
+	return HAL_I2C_Mem_Write(&hi2c2, addr, reg, 1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
