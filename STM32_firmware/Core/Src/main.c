@@ -21,6 +21,8 @@
 #include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
+#include "driver_mpu6050_dmp.h"
+#include "mpu6050_config.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -90,6 +92,26 @@ int main(void)
   MX_USART3_UART_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
+
+  uint32_t i;
+  uint32_t times;
+  uint32_t cnt;
+  uint16_t len;
+  uint8_t (*g_gpio_irq)(void) = NULL;
+  static int16_t gs_accel_raw[128][3];
+  static float gs_accel_g[128][3];
+  static int16_t gs_gyro_raw[128][3];
+  static float gs_gyro_dps[128][3];
+  static int32_t gs_quat[128][4];
+  static float gs_pitch[128];
+  static float gs_roll[128];
+  static float gs_yaw[128];
+
+  if (mpu6050_dmp_init(mpu6050.address, mpu6050_interface_receive_callback,
+		  	  	  	  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback) != 0)
+  {
+      return 1;
+  }
 
   /* USER CODE END 2 */
 

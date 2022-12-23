@@ -37,6 +37,7 @@
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx_hal_i2c.h"
 #include "driver_mpu6050_interface.h"
+#include "mpu6050_config.h"
 
 /**
  * @brief  interface iic bus init
@@ -75,7 +76,7 @@ uint8_t mpu6050_interface_iic_deinit(void)
  */
 uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-    return 0;
+	return HAL_I2C_Master_Receive(mpu6050.i2c_handle, addr<<1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
@@ -91,7 +92,7 @@ uint8_t mpu6050_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint
  */
 uint8_t mpu6050_interface_iic_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-    return 0;
+	return HAL_I2C_Master_Transmit(mpu6050.i2c_handle, addr<<1, buf, len, HAL_MAX_DELAY);
 }
 
 /**
