@@ -21,6 +21,10 @@
 #include "usart.h"
 #include "gpio.h"
 
+#include "rwacs_uart.h"
+#include "string.h"
+#include "stdio.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -89,13 +93,19 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+
+	  uint8_t Rx_data[10] = {0};
+
+	  RWACS_print("received: %d\n", Rx_data[0]);
+
+	  /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
