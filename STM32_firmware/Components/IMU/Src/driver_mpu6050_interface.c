@@ -35,9 +35,7 @@
  */
 
 #include "stm32f7xx_hal.h"
-#include "stm32f7xx_hal_i2c.h"
 #include "driver_mpu6050_interface.h"
-#include "mpu6050_config.h"
 #include "i2c.h"
 #include "usart.h"
 
@@ -50,6 +48,7 @@
  */
 uint8_t mpu6050_interface_iic_init(void)
 {
+	MX_I2C2_Init();
     return 0;
 }
 
@@ -62,7 +61,7 @@ uint8_t mpu6050_interface_iic_init(void)
  */
 uint8_t mpu6050_interface_iic_deinit(void)
 {
-    return 0;
+    return HAL_I2C_DeInit(&hi2c2);
 }
 
 /**
@@ -115,7 +114,10 @@ void mpu6050_interface_delay_ms(uint32_t ms)
 void mpu6050_interface_debug_print(const char *const fmt, ...)
 {
 	HAL_UART_Transmit(&huart3, (uint8_t*)fmt, strlen(fmt), HAL_MAX_DELAY);
+	//RWACS_prinf(fmt);
 }
+
+
 
 /**
  * @brief     interface receive callback

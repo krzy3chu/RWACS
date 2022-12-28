@@ -24,9 +24,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
 #include "driver_mpu6050_dmp.h"
 #include "driver_mpu6050_interface.h"
-
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 
 /* USER CODE END Includes */
 
@@ -108,10 +109,7 @@ int main(void)
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
-
-  /* init */
-  mpu6050_address_t addr = MPU6050_ADDRESS_AD0_LOW;
-  if(mpu6050_dmp_init(addr, mpu6050_interface_receive_callback,
+  if(mpu6050_dmp_init(MPU6050_ADDRESS_AD0_LOW, mpu6050_interface_receive_callback,
 		  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback)!=0) return 1;
 
   mpu6050_interface_delay_ms(500);
@@ -129,15 +127,10 @@ int main(void)
 	                               gs_pitch, gs_roll, gs_yaw,
 	                               &len);
 
-	    /* delay 500 ms */
-	    mpu6050_interface_delay_ms(100);
+	  /* delay 500 ms */
+	  mpu6050_interface_delay_ms(100);
 
-
-
-	  char buf[12];
-	  snprintf(buf, 12, "%d\n", (int)(gs_yaw[0]*10));
-	  HAL_UART_Transmit(&huart3, buf, strlen(buf), HAL_MAX_DELAY);
-
+	  printf("yaw: %d\n", (int)(gs_yaw[0]));
 
     /* USER CODE END WHILE */
 
@@ -203,6 +196,14 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+PUTCHAR_PROTOTYPE
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the USART1 and Loop until the end of transmission */
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
+  return ch;
+}
 
 /* USER CODE END 4 */
 
