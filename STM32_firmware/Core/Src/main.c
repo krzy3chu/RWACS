@@ -101,9 +101,11 @@ int main(void)
   while (1)
   {
 
-	  uint8_t Rx_data[10] = {0};
+//	  uint8_t Rx_data[10] = {0};
+//
+//	  RWACS_read(Rx_data, 1);
 
-	  RWACS_print("received: %d\n", Rx_data[0]);
+	  RWACS_print("received %d\n", 11);
 
 	  /* USER CODE END WHILE */
 

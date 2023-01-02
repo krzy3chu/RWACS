@@ -15,6 +15,7 @@
 #include "usart.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 
 /* Typedef -------------------------------------------------------------------*/
@@ -22,12 +23,6 @@
 /* Define --------------------------------------------------------------------*/
 
 /* Macro ---------------------------------------------------------------------*/
-
-#ifdef __GNUC__
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif
 
 /* Private variables ---------------------------------------------------------*/
 
@@ -37,31 +32,46 @@
 
 /* Private function ----------------------------------------------------------*/
 
-PUTCHAR_PROTOTYPE
-{
-  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-  return ch;
-}
-
 /* Public function -----------------------------------------------------------*/
 
-HAL_StatusTypeDef RWACS_print(const char *fmt, ...)
+HAL_StatusTypeDef RWACS_print(const char* fmt, ...)
 {
-	HAL_DMA_StateTypeDef status;
     va_list args;
+    char* msg;
+    int msg_size;
+
     va_start(args, fmt);
-    if(vprintf(fmt, args)>0)
-    {
-    	status = HAL_OK;
-    }
-    else status = HAL_ERROR;
-
+    msg_size = vsnprintf(NULL, 0, fmt, args);
     va_end(args);
+    if(msg_size < 0){
+    	return HAL_ERROR;
+    }
 
-    return status;
+    msg = malloc(msg_size + 1);
+    if(msg == NULL){
+    	free(msg);
+    	return HAL_ERROR;
+   	}
+
+    va_start(args, fmt);
+    msg_size = vsnprintf(msg, msg_size + 1, fmt, args);
+    va_end(args);
+    if(msg_size < 0){
+    	free(msg);
+    	return HAL_ERROR;
+    }
+
+    if(HAL_UART_Transmit(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size, HAL_MAX_DELAY) != HAL_OK){
+    	free(msg);
+    	return HAL_ERROR;
+    }
+
+    free(msg);
+    return HAL_OK;
 }
 
-    HAL_StatusTypeDef RWACS_read(uint8_t* pData, uint16_t Size)
+
+HAL_StatusTypeDef RWACS_receive(uint8_t* pData, uint16_t Size)
 {
 	return HAL_UART_Receive(CURRENT_UART_HANDLE, pData, Size, HAL_MAX_DELAY);
 }
