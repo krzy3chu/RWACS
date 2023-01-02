@@ -100,14 +100,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  uint32_t receiver, data;
 
-//	  uint8_t Rx_data[10] = {0};
-//
-//	  RWACS_read(Rx_data, 1);
+	  RWACS_receive(&receiver, &data);
+	  RWACS_print("receiver:%d, data:%d\n", receiver, data);
 
-	  RWACS_print("received %d\n", 11);
-
-	  /* USER CODE END WHILE */
+	  /* USER CODE END WHILE */S
 
     /* USER CODE BEGIN 3 */
   }

@@ -32,6 +32,6 @@
 
 HAL_StatusTypeDef RWACS_print(const char *fmt, ...);
 
-HAL_StatusTypeDef RWACS_read(uint8_t* pData, uint16_t Size);
+HAL_StatusTypeDef RWACS_receive(uint32_t* receiver, uint32_t* data);
 
 #endif /* INC_RWACS_H_ */

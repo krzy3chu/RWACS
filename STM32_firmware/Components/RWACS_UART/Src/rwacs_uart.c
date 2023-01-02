@@ -16,6 +16,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /* Typedef -------------------------------------------------------------------*/
@@ -71,7 +72,13 @@ HAL_StatusTypeDef RWACS_print(const char* fmt, ...)
 }
 
 
-HAL_StatusTypeDef RWACS_receive(uint8_t* pData, uint16_t Size)
+HAL_StatusTypeDef RWACS_receive(uint32_t* receiver, uint32_t* data)
 {
-	return HAL_UART_Receive(CURRENT_UART_HANDLE, pData, Size, HAL_MAX_DELAY);
+	uint32_t msg[2];
+	if(HAL_UART_Receive(CURRENT_UART_HANDLE, (uint8_t*)msg, sizeof(msg), HAL_MAX_DELAY) != HAL_OK){
+		return HAL_ERROR;
+	}
+	*receiver = msg[0];
+	*data = msg[1];
+	return HAL_OK;
 }
