@@ -27,6 +27,8 @@
 
 #include "drv8825_config.h"
 #include "encoder_config.h"
+#include "arm_math.h"
+#include "fir.h"
 
 /* USER CODE END Includes */
 
@@ -46,9 +48,10 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-/* USER CODE BEGIN PV */
 
-int16_t speed;
+/* USER CODE BEGIN PV */
+float32_t speed, speed_filtered;
+arm_fir_instance_f32 S;
 
 /* USER CODE END PV */
 
@@ -63,7 +66,7 @@ void SystemClock_Config(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	speed = (float32_t) ENC_UpdateCounter(&henc1, GPIO_Pin);
 
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
 }
@@ -104,13 +107,19 @@ int main(void)
 
   DRV8825_Start(&hdrv8825_1);
 
+  // FIR initialization
+  float32_t state[FIR_LENGTH];
+  memset(state, 0, sizeof(state));
+  arm_fir_init_f32(&S, FIR_LENGTH, (float32_t*) FIR_b, state, 1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  DRV8825_SetSpeed(&hdrv8825_1, speed);
+	  arm_fir_f32(&S, &speed, &speed_filtered, 1);
+	  DRV8825_SetSpeed(&hdrv8825_1, (float) speed_filtered);
 	  HAL_Delay(1);
 
     /* USER CODE END WHILE */

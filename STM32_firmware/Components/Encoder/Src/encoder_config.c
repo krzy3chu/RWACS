@@ -26,5 +26,5 @@ ENC_HandleTypeDef henc1 = {
   .Counter  = 0,
   .CounterMax = 400,
   .CounterMin = -400,
-  .Step = 20
+  .Step = 400
 };
