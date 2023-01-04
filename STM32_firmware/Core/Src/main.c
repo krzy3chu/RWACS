@@ -105,7 +105,7 @@ int main(void)
 	  RWACS_receive(&receiver, &data);
 	  RWACS_print("receiver:%d, data:%d\n", receiver, data);
 
-	  /* USER CODE END WHILE */S
+	  /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
