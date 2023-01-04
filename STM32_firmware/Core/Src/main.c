@@ -29,7 +29,6 @@
 #include "drv8825_config.h"
 #include "encoder_config.h"
 #include "driver_mpu6050_dmp.h"
-#include "driver_mpu6050_interface.h"
 
 /* USER CODE END Includes */
 
@@ -41,7 +40,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 
 /* USER CODE END PD */
 
@@ -125,10 +123,9 @@ int main(void)
 
   DRV8825_Start(&hdrv8825_1);
 
-  if(mpu6050_dmp_init(MPU6050_ADDRESS_AD0_LOW, mpu6050_interface_receive_callback,
-		  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback)!=0) return 1;
+  MPU6050_Init();
 
-  mpu6050_interface_delay_ms(500);
+  HAL_Delay(500);
 
   /* USER CODE END 2 */
 
@@ -139,17 +136,10 @@ int main(void)
 	  DRV8825_SetSpeed(&hdrv8825_1, speed);
 	  HAL_Delay(1);
 
-	  len = 128;
-	  status = mpu6050_dmp_read_all(gs_accel_raw, gs_accel_g,
-								   gs_gyro_raw, gs_gyro_dps,
-								   gs_quat,
-								   gs_pitch, gs_roll, gs_yaw,
-								   &len);
+	  MPU6050_Get_Yaw(gs_yaw);
 
 	  /* delay 500 ms */
-	  mpu6050_interface_delay_ms(100);
-
-	  printf("yaw: %d\n", (int)(gs_yaw[0]));
+	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
 

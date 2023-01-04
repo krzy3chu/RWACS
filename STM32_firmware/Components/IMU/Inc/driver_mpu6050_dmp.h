@@ -38,6 +38,8 @@
 #define DRIVER_MPU6050_DMP_H
 
 #include "driver_mpu6050_interface.h"
+#include "stm32f7xx_hal.h"
+
 
 #ifdef __cplusplus
 extern "C"{
@@ -154,6 +156,23 @@ uint8_t mpu6050_dmp_read_all(int16_t (*accel_raw)[3], float (*accel_g)[3],
  * @note       none
  */
 uint8_t mpu6050_dmp_get_pedometer_counter(uint32_t *cnt);
+
+
+/**
+ * @brief     MPU6050 init function
+ * @return    status code
+ * @note      return code uses HAL_StatusTypeDef
+ */
+HAL_StatusTypeDef MPU6050_Init();
+
+
+/**
+ * @brief     	MPU6050 get yaw function
+ * @param[out]	*yaw points to a yaw buffer
+ * @return    	status code
+ * @note      	return code uses HAL_StatusTypeDef
+ */
+HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw);
 
 /**
  * @}

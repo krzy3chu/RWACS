@@ -925,3 +925,33 @@ uint8_t mpu6050_dmp_deinit(void)
     
     return 0;
 }
+
+/**
+ * @brief     MPU6050 init function
+ * @return    status code
+ * @note      return code uses HAL_StatusTypeDef
+ */
+HAL_StatusTypeDef MPU6050_Init()
+{
+	return mpu6050_dmp_init(MPU6050_ADDRESS_AD0_LOW, mpu6050_interface_receive_callback,
+			  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback);
+}
+
+/**
+ * @brief     	MPU6050 get yaw function
+ * @param[out]	*yaw points to a yaw buffer
+ * @return    	status code
+ * @note      	return code uses HAL_StatusTypeDef
+ */
+HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw)
+{
+	uint16_t len = 128;
+
+    if (mpu6050_dmp_read(&gs_handle, NULL, NULL,
+                         NULL, NULL, NULL,
+                         NULL, NULL, yaw, &len) != 0)
+	{
+		return HAL_ERROR;
+	}
+	return HAL_OK;
+}
