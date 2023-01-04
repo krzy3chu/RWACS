@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -27,6 +28,8 @@
 
 #include "drv8825_config.h"
 #include "encoder_config.h"
+#include "driver_mpu6050_dmp.h"
+#include "driver_mpu6050_interface.h"
 
 /* USER CODE END Includes */
 
@@ -38,6 +41,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,10 +51,24 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
 /* USER CODE BEGIN PV */
 
 int16_t speed;
+
+uint32_t status = 0;
+uint32_t i;
+uint32_t times;
+uint32_t cnt;
+uint16_t len;
+uint8_t (*g_gpio_irq)(void) = NULL;
+static int16_t gs_accel_raw[128][3];
+static float gs_accel_g[128][3];
+static int16_t gs_gyro_raw[128][3];
+static float gs_gyro_dps[128][3];
+static int32_t gs_quat[128][4];
+static float gs_pitch[128];
+static float gs_roll[128];
+static float gs_yaw[128];
 
 /* USER CODE END PV */
 
@@ -101,9 +120,15 @@ int main(void)
   MX_GPIO_Init();
   MX_USART3_UART_Init();
   MX_TIM2_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
   DRV8825_Start(&hdrv8825_1);
+
+  if(mpu6050_dmp_init(MPU6050_ADDRESS_AD0_LOW, mpu6050_interface_receive_callback,
+		  mpu6050_interface_dmp_tap_callback, mpu6050_interface_dmp_orient_callback)!=0) return 1;
+
+  mpu6050_interface_delay_ms(500);
 
   /* USER CODE END 2 */
 
@@ -113,6 +138,18 @@ int main(void)
   {
 	  DRV8825_SetSpeed(&hdrv8825_1, speed);
 	  HAL_Delay(1);
+
+	  len = 128;
+	  status = mpu6050_dmp_read_all(gs_accel_raw, gs_accel_g,
+								   gs_gyro_raw, gs_gyro_dps,
+								   gs_quat,
+								   gs_pitch, gs_roll, gs_yaw,
+								   &len);
+
+	  /* delay 500 ms */
+	  mpu6050_interface_delay_ms(100);
+
+	  printf("yaw: %d\n", (int)(gs_yaw[0]));
 
     /* USER CODE END WHILE */
 
