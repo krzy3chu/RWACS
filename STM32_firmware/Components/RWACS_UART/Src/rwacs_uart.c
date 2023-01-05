@@ -1,9 +1,9 @@
 /**
   ****************************************************************************
-  * @file		: bh1750.cpp
+  * @file		: rwacs_uart.c
   * @author  	: Mateusz Koza
-  * @date    	: Nov 16, 2022
-  * @brief   	: bh1750 source code file
+  * @date    	: Jan 5, 2023
+  * @brief   	: rwacs_uart source code file
   *
   ****************************************************************************
   */
@@ -50,7 +50,6 @@ HAL_StatusTypeDef RWACS_print(const char* fmt, ...)
 
     msg = malloc(msg_size + 1);
     if(msg == NULL){
-    	free(msg);
     	return HAL_ERROR;
    	}
 
