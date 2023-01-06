@@ -1,9 +1,9 @@
 /**
   ****************************************************************************
-  * @file		: bh1750.h
+  * @file		: rwacs_uart.h
   * @author  	: Mateusz Koza
-  * @date    	: Nov 16, 2022
-  * @brief   	: bh1750 configuration header file
+  * @date    	: Jan 5, 2022
+  * @brief   	: rwacs_uart configuration header file
   *
   ****************************************************************************
   */
