@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "rwacs_uart.h"
 
 /* USER CODE END Includes */
 
@@ -87,8 +88,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART3_UART_Init();
   MX_DMA_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -98,9 +99,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  uint32_t receiver, data;
+	  uint32_t receiver =0 , data = 0;
 
-	  RWACS_receive(&receiver, &data);
+	  //RWACS_receive(&receiver, &data);
 	  RWACS_print("receiver:%d, data:%d\n", receiver, data);
 
     /* USER CODE END WHILE */
