@@ -172,7 +172,7 @@ HAL_StatusTypeDef MPU6050_Init();
  * @return    	status code
  * @note      	return code uses HAL_StatusTypeDef
  */
-HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw);
+HAL_StatusTypeDef MPU6050_GetYaw(float *yaw);
 
 /**
  * @}

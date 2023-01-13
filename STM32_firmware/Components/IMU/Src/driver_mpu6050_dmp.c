@@ -943,7 +943,7 @@ HAL_StatusTypeDef MPU6050_Init()
  * @return    	status code
  * @note      	return code uses HAL_StatusTypeDef
  */
-HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw)
+HAL_StatusTypeDef MPU6050_GetYaw(float *yaw)
 {
 	static float gs_yaw[128];
 	uint16_t len = 128;
@@ -953,6 +953,13 @@ HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw)
 	{
 		return HAL_ERROR;
 	}
-    *yaw = gs_yaw[0];
+    float _yaw = gs_yaw[0] * (-4);
+    while(_yaw > 180){
+    	_yaw -= 360;
+    }
+    while(_yaw < -180){
+		_yaw += 360;
+	}
+    *yaw = _yaw;
 	return HAL_OK;
 }

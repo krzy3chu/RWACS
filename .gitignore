@@ -4,3 +4,6 @@ Release/
 .settings
 *.launch
 .metadata
+
+# PyCharm
+.idea/

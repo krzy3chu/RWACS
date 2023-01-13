@@ -59,7 +59,7 @@ typedef struct {
  * @param[in]: hdrv8825: DRV8825 handler
  * @retval: HAL status from PWM start function
  */
-HAL_StatusTypeDef DRV8825_Start(DRV8825_HandleTypeDef* hdrv8825);
+HAL_StatusTypeDef DRV8825_Init(DRV8825_HandleTypeDef* hdrv8825);
 
 /**
  * @brief: Set timer, Dir and Enbl pins properly according to target speed
@@ -68,6 +68,6 @@ HAL_StatusTypeDef DRV8825_Start(DRV8825_HandleTypeDef* hdrv8825);
  * @retval: HAL_OK: speed is setup properly
  * @retval: HAL_ERROR: absolute value of target speed is higher than maximum motor rotational speed set in DRV8825_MaxSpeed definition
  */
-HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType speed);
+HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType* speed);
 
 #endif /* INC_DRV8825_H_ */

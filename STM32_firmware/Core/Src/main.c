@@ -26,9 +26,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "drv8825_config.h"
-#include "encoder_config.h"
 #include "driver_mpu6050_dmp.h"
+#include "drv8825_config.h"
+#include "fir.h"
+#include "encoder_config.h"
 
 /* USER CODE END Includes */
 
@@ -52,7 +53,8 @@
 
 /* USER CODE BEGIN PV */
 
-float speed = 0;
+float32_t speed = 0;
+float32_t speed_filtered;
 float angle;
 
 /* USER CODE END PV */
@@ -76,8 +78,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
-		MPU6050_Get_Yaw(&angle);
-		DRV8825_SetSpeed(&hdrv8825_1, speed);
+		MPU6050_GetYaw(&angle);
+		FIR_Filter(&hfir1, &speed, &speed_filtered);
+		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
 	}
 }
 
@@ -117,9 +120,11 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  DRV8825_Start(&hdrv8825_1);
   MPU6050_Init();
   HAL_Delay(500);
+
+  DRV8825_Init(&hdrv8825_1);
+  FIR_Init(&hfir1);
   HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
