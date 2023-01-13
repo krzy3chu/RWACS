@@ -27,15 +27,60 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+static uint32_t msg[2];
+
+static Controller_HandleTypeDef* hcntrl1;
+
 /* Public variables ----------------------------------------------------------*/
 
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private function ----------------------------------------------------------*/
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	uint32_t id = msg[0];
+	uint32_t data = msg[1];
+
+	switch(id)
+	{
+		case KP:
+			hcntrl1->kp = data;
+			RWACS_Print("kp changed\n");
+			break;
+
+		case KI:
+			hcntrl1->ki = data;
+			RWACS_Print("ki changed\n");
+			break;
+
+		case KD:
+			hcntrl1->kd = data;
+			RWACS_Print("kd changed\n");
+			break;
+
+		case REF:
+			hcntrl1->ref = data;
+			RWACS_Print("ref changed\n");
+			break;
+
+		default:
+			RWACS_Print("invalid id\n");
+			break;
+	}
+
+	RWACS_Receive();
+}
+
 /* Public function -----------------------------------------------------------*/
 
-HAL_StatusTypeDef RWACS_print(const char* fmt, ...)
+void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl)
+{
+	hcntrl1 = hcntrl;
+}
+
+
+HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
 {
     va_list args;
     char* msg;
@@ -71,13 +116,10 @@ HAL_StatusTypeDef RWACS_print(const char* fmt, ...)
 }
 
 
-HAL_StatusTypeDef RWACS_receive(uint32_t* receiver, uint32_t* data)
+HAL_StatusTypeDef RWACS_Receive()
 {
-	uint32_t msg[2];
-	if(HAL_UART_Receive(CURRENT_UART_HANDLE, (uint8_t*)msg, sizeof(msg), HAL_MAX_DELAY) != HAL_OK){
+	if(HAL_UART_Receive_DMA(CURRENT_UART_HANDLE, (uint8_t*)msg, sizeof(msg)) != HAL_OK){
 		return HAL_ERROR;
 	}
-	*receiver = msg[0];
-	*data = msg[1];
 	return HAL_OK;
 }

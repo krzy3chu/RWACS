@@ -92,6 +92,16 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  Controller_HandleTypeDef hcntrl1 = {
+		  .kp = 0,
+		  .ki = 0,
+		  .kd = 0,
+		  .ref = 0
+  };
+
+  RWACS_UART_Init(&hcntrl1);
+
+  RWACS_Receive();
 
   /* USER CODE END 2 */
 
@@ -99,10 +109,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  uint32_t receiver =0 , data = 0;
 
-	  //RWACS_receive(&receiver, &data);
-	  RWACS_print("receiver:%d, data:%d\n", receiver, data);
+//	RWACS_print("receiver:%d, data:%d\n", 5, 21);
+
 
     /* USER CODE END WHILE */
 

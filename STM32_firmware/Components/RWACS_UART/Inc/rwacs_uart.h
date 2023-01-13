@@ -20,6 +20,20 @@
 
 /* Typedef -------------------------------------------------------------------*/
 
+typedef struct {
+	uint32_t kp;
+	uint32_t ki;
+	uint32_t kd;
+	uint32_t ref;
+} Controller_HandleTypeDef;
+
+typedef enum {
+	KP,
+	KI,
+	KD,
+	REF
+} RWACS_ReceiveCodes;
+
 /* Define --------------------------------------------------------------------*/
 
 /* Macro ---------------------------------------------------------------------*/
@@ -30,8 +44,10 @@
 
 /* Public function prototypes ------------------------------------------------*/
 
-HAL_StatusTypeDef RWACS_print(const char *fmt, ...);
+void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl);
 
-HAL_StatusTypeDef RWACS_receive(uint32_t* receiver, uint32_t* data);
+HAL_StatusTypeDef RWACS_Print(const char *fmt, ...);
+
+HAL_StatusTypeDef RWACS_Receive();
 
 #endif /* INC_RWACS_H_ */
