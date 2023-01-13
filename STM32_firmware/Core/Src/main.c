@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -30,6 +31,7 @@
 #include "drv8825_config.h"
 #include "fir.h"
 #include "encoder_config.h"
+#include "rwacs_uart.h"
 
 /* USER CODE END Includes */
 
@@ -114,10 +116,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART3_UART_Init();
-  MX_TIM2_Init();
+  MX_DMA_Init();
   MX_I2C2_Init();
+  MX_TIM2_Init();
   MX_TIM3_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
   MPU6050_Init();
@@ -126,6 +129,8 @@ int main(void)
   DRV8825_Init(&hdrv8825_1);
   FIR_Init(&hfir1);
   HAL_TIM_Base_Start_IT(&htim3);
+
+  RWACS_Print("Hello RWACS ;)\n");
 
   /* USER CODE END 2 */
 
