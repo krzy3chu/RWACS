@@ -44,24 +44,24 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 	switch(id)
 	{
-		case KP:
-			hcntrl1->kp = data;
+		case PROPORTIONAL_GAIN:
+			hcntrl1->proportional_gain = data;
 			RWACS_Print("kp changed\n");
 			break;
 
-		case KI:
-			hcntrl1->ki = data;
+		case INTEGRAL_GAIN:
+			hcntrl1->integral_gain = data;
 			RWACS_Print("ki changed\n");
 			break;
 
-		case KD:
-			hcntrl1->kd = data;
+		case DERIVATIVE_GAIN:
+			hcntrl1->derivative_gain = data;
 			RWACS_Print("kd changed\n");
 			break;
 
-		case REF:
-			hcntrl1->ref = data;
-			RWACS_Print("ref changed\n");
+		case SETPOINT:
+			hcntrl1->setpoint = data;
+			RWACS_Print("setpoint changed\n");
 			break;
 
 		default:
@@ -74,11 +74,16 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 /* Public function -----------------------------------------------------------*/
 
+HAL_StatusTypeDef RWACS_Print_Controller_State(int16_t* setpoint , int16_t* output,
+											   int16_t* filtered_setpoint, int16_t* controller_output)
+{
+	return RWACS_Print("%d: %d, %d, %d, %d\n", CONTROLLER_STATE, *setpoint, *output, *filtered_setpoint, *controller_output);
+}
+
 void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl)
 {
 	hcntrl1 = hcntrl;
 }
-
 
 HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
 {

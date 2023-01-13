@@ -93,11 +93,15 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   Controller_HandleTypeDef hcntrl1 = {
-		  .kp = 0,
-		  .ki = 0,
-		  .kd = 0,
-		  .ref = 0
+		  .proportional_gain = 0,
+		  .integral_gain = 0,
+		  .derivative_gain = 0,
+		  .setpoint= 0
   };
+
+  int16_t setpoint=1, output=2, filtered_setpoint=3, controller_output=4;
+
+  RWACS_Print_Controller_State(&setpoint, &output, &filtered_setpoint, &controller_output);
 
   RWACS_UART_Init(&hcntrl1);
 
