@@ -945,13 +945,14 @@ HAL_StatusTypeDef MPU6050_Init()
  */
 HAL_StatusTypeDef MPU6050_Get_Yaw(float *yaw)
 {
+	static float gs_yaw[128];
 	uint16_t len = 128;
-
-    if (mpu6050_dmp_read(&gs_handle, NULL, NULL,
-                         NULL, NULL, NULL,
-                         NULL, NULL, yaw, &len) != 0)
+    if ( mpu6050_dmp_read(&gs_handle, NULL, NULL,
+							NULL, NULL, NULL,
+							NULL, NULL, gs_yaw, &len) != 0)
 	{
 		return HAL_ERROR;
 	}
+    *yaw = gs_yaw[0];
 	return HAL_OK;
 }

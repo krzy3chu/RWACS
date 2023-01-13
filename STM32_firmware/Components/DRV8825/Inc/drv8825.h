@@ -21,7 +21,7 @@
 #define DRV8825_TimChannelType	uint32_t
 #define DRV8825_PortType 		GPIO_TypeDef*
 #define DRV8825_PinType			uint16_t
-#define DRV8825_SpeedType 		int16_t
+#define DRV8825_SpeedType 		float
 #define DRV8825_MaxSpeedType	uint16_t
 #define DRV8825_PulseWidthType	uint16_t
 #define DRV8825_StepsPerRevType uint16_t

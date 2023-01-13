@@ -49,24 +49,11 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+
 /* USER CODE BEGIN PV */
 
-int16_t speed;
-
-uint32_t status = 0;
-uint32_t i;
-uint32_t times;
-uint32_t cnt;
-uint16_t len;
-uint8_t (*g_gpio_irq)(void) = NULL;
-static int16_t gs_accel_raw[128][3];
-static float gs_accel_g[128][3];
-static int16_t gs_gyro_raw[128][3];
-static float gs_gyro_dps[128][3];
-static int32_t gs_quat[128][4];
-static float gs_pitch[128];
-static float gs_roll[128];
-static float gs_yaw[128];
+float speed = 0;
+float angle;
 
 /* USER CODE END PV */
 
@@ -84,6 +71,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
 
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim->Instance == TIM3){
+		MPU6050_Get_Yaw(&angle);
+		DRV8825_SetSpeed(&hdrv8825_1, speed);
+	}
 }
 
 /* USER CODE END 0 */
@@ -119,13 +114,13 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM2_Init();
   MX_I2C2_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
   DRV8825_Start(&hdrv8825_1);
-
   MPU6050_Init();
-
   HAL_Delay(500);
+  HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
 
@@ -133,14 +128,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  DRV8825_SetSpeed(&hdrv8825_1, speed);
-	  HAL_Delay(1);
-
-	  MPU6050_Get_Yaw(gs_yaw);
-
-	  /* delay 500 ms */
-	  HAL_Delay(100);
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
