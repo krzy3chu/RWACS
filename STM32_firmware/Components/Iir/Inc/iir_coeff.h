@@ -3,7 +3,7 @@
 *
 * This file should not be edited directly, any changes will be
 * overwritten next time the script is run.
-* Make any changes to the file 'fir.py', not this file.
+* Make any changes to the file 'iir.py', not this file.
 *
 * Source code for csnake is available at:
 * https://gitlab.com/andrejr/csnake
@@ -12,11 +12,11 @@
 * https://pypi.org/project/csnake
 */
 
-#ifndef INC_FIR_H_
-#define INC_FIR_H_
+#ifndef INC_IIR_H_
+#define INC_IIR_H_
 
-#define FIR_LENGTH 41
+#define IIR_NUM_STAGES 3
 
-extern float FIR_coeffs[41];
+extern float IIR_coeffs[15];
 
-#endif /* INC_FIR_H_ */
+#endif /* INC_IIR_H_ */

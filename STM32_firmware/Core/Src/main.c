@@ -29,7 +29,7 @@
 
 #include "driver_mpu6050_dmp.h"
 #include "drv8825_config.h"
-#include "fir.h"
+#include "iir_config.h"
 #include "encoder_config.h"
 #include "rwacs_uart.h"
 
@@ -42,7 +42,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
 
 /* USER CODE END PD */
 
@@ -81,7 +80,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
 		MPU6050_GetYaw(&angle);
-		FIR_Filter(&hfir1, &speed, &speed_filtered);
+		IIR_Filter(&hiir1, &speed, &speed_filtered);
 		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
 	}
 }
@@ -127,7 +126,7 @@ int main(void)
   HAL_Delay(500);
 
   DRV8825_Init(&hdrv8825_1);
-  FIR_Init(&hfir1);
+  IIR_Init(&hiir1);
   HAL_TIM_Base_Start_IT(&htim3);
 
   RWACS_Print("Hello RWACS ;)\n");
