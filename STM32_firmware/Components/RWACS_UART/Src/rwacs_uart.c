@@ -74,10 +74,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 /* Public function -----------------------------------------------------------*/
 
-HAL_StatusTypeDef RWACS_Print_Controller_State(int16_t* setpoint, int16_t* output,
-											   int16_t* filtered_setpoint, int16_t* controller_output)
+HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
+											   float* filtered_setpoint, float* controller_output)
 {
-	return RWACS_Print("@ %d, %d, %d, %d\n", *setpoint, *output, *filtered_setpoint, *controller_output);
+	return RWACS_Print("@ %f, %f, %f, %f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
 }
 
 void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl)

@@ -4,3 +4,7 @@ Release/
 .settings
 .launch
 .metadata
+
+RWACS_GUI/venv/
+RWACS_GUI/__pycache__/
+RWACS_GUI/.vscode/

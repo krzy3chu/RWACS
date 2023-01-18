@@ -99,13 +99,13 @@ int main(void)
 		  .setpoint= 0
   };
 
-  int16_t setpoint=1, output=2, filtered_setpoint=3, controller_output=4;
 
-  RWACS_Print_Controller_State(&setpoint, &output, &filtered_setpoint, &controller_output);
+
+  float setpoint, output, filtered_setpoint, controller_output;
 
   RWACS_UART_Init(&hcntrl1);
 
-  RWACS_Receive();
+  //RWACS_Receive();
 
   /* USER CODE END 2 */
 
@@ -113,8 +113,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  setpoint=2, output=1, filtered_setpoint=4, controller_output=3;
+	  RWACS_Print_Controller_State(&setpoint, &output, &filtered_setpoint, &controller_output);
+	  HAL_Delay(50);
+	  setpoint=1, output=2, filtered_setpoint=3, controller_output=4;
+	  RWACS_Print_Controller_State(&setpoint, &output, &filtered_setpoint, &controller_output);
+	  HAL_Delay(50);
 
-//	RWACS_print("receiver:%d, data:%d\n", 5, 21);
+	  //	RWACS_print("receiver:%d, data:%d\n", 5, 21);
 
 
     /* USER CODE END WHILE */

@@ -44,8 +44,8 @@ typedef enum {
 
 /* Public function prototypes ------------------------------------------------*/
 
-HAL_StatusTypeDef RWACS_Print_Controller_State(int16_t* setpoint , int16_t* output,
-											   int16_t* filtered_setpoint, int16_t* controller_output);
+HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint , float* output,
+											   float* filtered_setpoint, float* controller_output);
 
 void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl);
 
