@@ -56,6 +56,7 @@
 									<listOptionValue builtIn="false" value="../Components/Fir/Inc"/>
 									<listOptionValue builtIn="false" value="../Components/RWACS_UART/Inc"/>
 									<listOptionValue builtIn="false" value="../Components/Iir/Inc"/>
+									<listOptionValue builtIn="false" value="../Components/Derivative_Limiter/Inc"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1499825681" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -194,5 +195,12 @@
 			<autodiscovery enabled="false" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/STM32_firmware"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/STM32_firmware"/>
+		</configuration>
+	</storageModule>
 </cproject>

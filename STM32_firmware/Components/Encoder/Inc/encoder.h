@@ -34,7 +34,7 @@ typedef struct {
   int16_t Counter;
   int16_t CounterMax;
   int16_t CounterMin;
-  uint8_t Step;
+  uint16_t Step;
 } ENC_HandleTypeDef;
 
 /* Public function prototypes ------------------------------------------------*/

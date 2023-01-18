@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from csnake import CodeWriter, Variable
 
-rank = 6        # continuous transfer function rank
+rank = 8        # continuous transfer function rank
 zeroes = -100   # zeroes value
 fs = 200        # sampling time [Hz]
 T = 0.3         # step response end time [s]

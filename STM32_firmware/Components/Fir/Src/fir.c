@@ -18,6 +18,7 @@
 void FIR_Init(FIR_HandleTypeDef* hfir)
 {
 	hfir->State	= calloc(hfir->Length, sizeof(float32_t));
+	hfir->Fir = malloc(sizeof(arm_fir_instance_f32));
 	arm_fir_init_f32(hfir->Fir, hfir->Length, hfir->Coeffs, hfir->State, 1);
 }
 

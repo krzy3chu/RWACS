@@ -22,7 +22,7 @@ DRV8825_HandleTypeDef hdrv8825_1 = {
   .EnblPort = DRV8825_ENABLE_GPIO_Port,
   .EnblPin = DRV8825_ENABLE_Pin,
   .Speed = 0,
-  .MaxSpeed = 400,
+  .MaxSpeed = 2400,
   .PulseWidthUs = 10,
   .StepsPerRev = 200 * 16
 };

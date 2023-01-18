@@ -29,9 +29,10 @@
 
 #include "driver_mpu6050_dmp.h"
 #include "drv8825_config.h"
-#include "iir_config.h"
+#include "derivative_limiter_config.h"
 #include "encoder_config.h"
 #include "rwacs_uart.h"
+#include "arm_math.h"
 
 /* USER CODE END Includes */
 
@@ -54,9 +55,9 @@
 
 /* USER CODE BEGIN PV */
 
-float32_t speed = 0;
+float32_t angle_meas;
+float32_t speed;
 float32_t speed_filtered;
-float angle;
 
 /* USER CODE END PV */
 
@@ -72,15 +73,14 @@ void SystemClock_Config(void);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
-
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
-		MPU6050_GetYaw(&angle);
-		IIR_Filter(&hiir1, &speed, &speed_filtered);
+		MPU6050_GetYaw(&angle_meas);
+		DXX_Limit(&hdxx1, &speed, &speed_filtered);
 		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
 	}
 }
@@ -124,9 +124,8 @@ int main(void)
 
   MPU6050_Init();
   HAL_Delay(500);
-
   DRV8825_Init(&hdrv8825_1);
-  IIR_Init(&hiir1);
+
   HAL_TIM_Base_Start_IT(&htim3);
 
   RWACS_Print("Hello RWACS ;)\n");

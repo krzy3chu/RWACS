@@ -24,7 +24,7 @@ ENC_HandleTypeDef henc1 = {
   .BTN_Port = ENC_BTN_GPIO_Port,
   .BTN_Pin = ENC_BTN_Pin,
   .Counter  = 0,
-  .CounterMax = 400,
-  .CounterMin = -400,
-  .Step = 25
+  .CounterMax = 2400,
+  .CounterMin = -2400,
+  .Step = 300
 };

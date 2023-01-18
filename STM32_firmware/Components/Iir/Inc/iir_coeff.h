@@ -15,8 +15,8 @@
 #ifndef INC_IIR_H_
 #define INC_IIR_H_
 
-#define IIR_NUM_STAGES 3
+#define IIR_NUM_STAGES 4
 
-extern float IIR_coeffs[15];
+extern float IIR_coeffs[20];
 
 #endif /* INC_IIR_H_ */
