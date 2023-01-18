@@ -2,6 +2,18 @@ import glob2 as glob
 import serial
 
 
+def decode_csv(data: bytes) -> list[float]:
+    """Decode data that is in bytes and convert it into a list of floats
+
+     Args:
+        data (bytes): bytes to interpret and convert to a list
+
+     Returns:
+        list[float]: decoded csv data
+    """
+    return [float(idx) for idx in data.decode().split(', ')]
+
+
 class Uart:
     """A class used to easily connect to uart with desired baudrate
     """
@@ -31,14 +43,3 @@ class Uart:
         receiver_id = int(receiver_id).to_bytes(4, 'little')
         data = int(data).to_bytes(4, 'little')
         self.__serial.write(receiver_id + data)
-
-    def decode_csv(self, data: bytes) -> list[float]:
-        """Decode data that is in bytes and convert it into a list of floats
-
-        Args:
-            data (bytes): bytes to interpret and convert to a list
-
-        Returns:
-            list[float]: decoded csv data
-        """
-        return [float(idx) for idx in data.decode().split(', ')]
