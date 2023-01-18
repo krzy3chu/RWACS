@@ -5,5 +5,11 @@ Release/
 *.launch
 .metadata
 
+<<<<<<< HEAD
 # PyCharm
 .idea/
+=======
+RWACS_GUI/venv/
+RWACS_GUI/__pycache__/
+RWACS_GUI/.vscode/
+>>>>>>> feature-uart

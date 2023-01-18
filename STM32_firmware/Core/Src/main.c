@@ -55,9 +55,10 @@
 
 /* USER CODE BEGIN PV */
 
-float32_t angle_meas;
-float32_t speed;
-float32_t speed_filtered;
+float32_t setpoint = 0;
+float32_t angle_meas = 0;
+float32_t speed = 0;
+float32_t speed_filtered = 0;
 
 /* USER CODE END PV */
 
@@ -82,6 +83,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		MPU6050_GetYaw(&angle_meas);
 		DXX_Limit(&hdxx1, &speed, &speed_filtered);
 		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
+
+		RWACS_Print_Controller_State(&setpoint, &angle_meas, &speed_filtered, &speed);
 	}
 }
 
