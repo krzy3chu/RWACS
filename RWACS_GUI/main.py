@@ -91,7 +91,7 @@ if __name__ == '__main__':
                             errors += 1
                             if errors > 9:
                                 errors = 0
-                                print("Unable to decode and plot")
+                                print("Unable to decode and plot:", message)
                                 break
                     else:
                         print(message.decode())
