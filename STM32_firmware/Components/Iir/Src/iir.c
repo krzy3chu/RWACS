@@ -11,13 +11,14 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "iir.h"
-#include <stdlib.h>  // calloc
+#include <stdlib.h>  // calloc, malloc
 
 /* Public function -----------------------------------------------------------*/
 
 void IIR_Init(IIR_HandleTypeDef* hiir)
 {
 	hiir->State	= calloc(4 * hiir->NumStages, sizeof(float32_t));
+	hiir->Iir = malloc(sizeof(arm_biquad_casd_df1_inst_f32));
 	arm_biquad_cascade_df1_init_f32(hiir->Iir, hiir->NumStages, hiir->Coeffs, hiir->State);
 }
 

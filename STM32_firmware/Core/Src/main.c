@@ -28,11 +28,11 @@
 /* USER CODE BEGIN Includes */
 
 #include "driver_mpu6050_dmp.h"
+#include "pid_config.h"
 #include "drv8825_config.h"
 #include "derivative_limiter_config.h"
 #include "encoder_config.h"
 #include "rwacs_uart.h"
-#include "arm_math.h"
 
 /* USER CODE END Includes */
 
@@ -52,7 +52,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
 /* USER CODE BEGIN PV */
 
 float32_t setpoint = 0;
@@ -73,7 +72,7 @@ void SystemClock_Config(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	setpoint = ENC_UpdateCounter(&henc1, GPIO_Pin);
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
 }
 
@@ -81,6 +80,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
 		MPU6050_GetYaw(&angle_meas);
+		PID_Control(&hpid1, &setpoint, &angle_meas, &speed);
 		DXX_Limit(&hdxx1, &speed, &speed_filtered);
 		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
 
@@ -125,13 +125,12 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  MPU6050_Init();
-  HAL_Delay(500);
+//  MPU6050_Init();
+//  HAL_Delay(500);
   DRV8825_Init(&hdrv8825_1);
+  PID_Init(&hpid1);
 
   HAL_TIM_Base_Start_IT(&htim3);
-
-  RWACS_Print("Hello RWACS ;)\n");
 
   /* USER CODE END 2 */
 
