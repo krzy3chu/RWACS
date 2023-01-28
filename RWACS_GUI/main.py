@@ -1,9 +1,26 @@
+"""
+    This file makes it easy to interact with the RWACS
+    """
+
 from enum import Enum
-
+from threading import Thread
 import PySimpleGUI as sg
+from uart import Uart
 
-from real_time_plot import RealTimePlot
-from uart import Uart, decode_csv
+RECORDING = False
+BAUDRATE = 115200
+
+
+def record_logs():
+    """
+    Save uart data to a csv file
+    """
+    try:
+        with open("log.csv", "w", encoding="utf-8") as csv_file:
+            while RECORDING is True:
+                csv_file.write(uart.read())
+    except NameError:
+        print("Rwacs is not connected")
 
 
 class ControllerIDs(Enum):
@@ -14,15 +31,6 @@ class ControllerIDs(Enum):
     KD = 2
     SETPOINT = 3
 
-
-BAUDRATE = 112500
-
-NROWS = 2
-NCOLS = 2
-X_LIM = 20
-
-CSV_SYMBOL = 64
-CSV_LEN = NROWS * NCOLS
 
 if __name__ == '__main__':
 
@@ -40,7 +48,8 @@ if __name__ == '__main__':
               [sg.Text('setpoint:'), sg.Push(), sg.InputText(),
                sg.Button('set', key=ControllerIDs.SETPOINT.name)],
 
-              [sg.Button('Connect'), sg.Button('Run')],
+              [sg.Button('Connect'), sg.Push(), sg.Button(
+                  'Record logs'), sg.Button('Stop recording')],
               [sg.Multiline(size=(60, 10), autoscroll=True, write_only=True, reroute_stdout=True)]]
 
     window = sg.Window('Rwacs settings', layout)
@@ -55,47 +64,33 @@ if __name__ == '__main__':
         elif event == 'Connect':
             try:
                 uart = Uart(BAUDRATE)
-                plot = RealTimePlot(NROWS, NCOLS, X_LIM)
-                print("Rwacs connected")
+                print("Rwacs is connected")
             except IndexError:
-                print("Rwacs unable to connect")
+                print("Rwacs is unable to connect")
 
         elif event in [id.name for id in ControllerIDs]:
             current_id = ControllerIDs[event].value
             try:
-                data = int(values[current_id])
+                data = float(values[current_id])
             except ValueError:
-                print("Enter data in correct format")
+                print("Enter data in the correct form")
                 continue
             try:
                 uart.send(current_id, data)
                 print("Sent: " + str(data) + " to " + event)
             except NameError:
-                print("Rwacs disconnected")
+                print("Rwacs is not connected")
 
-        elif event == 'Run':
-            errors = 0
-            try:
-                uart.read()
-                while True:
-                    message = uart.read()
-                    if message[0] == CSV_SYMBOL:
-                        try:
-                            csv_data = decode_csv(message[1:])
-                            print(message.decode())
-                            if len(csv_data) != CSV_LEN:
-                                raise ValueError(
-                                    "Data differs from what was declared")
-                            plot.update(csv_data)
-                        except ValueError:
-                            errors += 1
-                            if errors > 9:
-                                errors = 0
-                                print("Unable to decode and plot:", message)
-                                break
-                    else:
-                        print(message.decode())
-            except NameError:
-                print("Rwacs disconnected")
+        elif event == 'Record logs':
+            if RECORDING is False:
+                RECORDING = True
+                thread = Thread(target=record_logs)
+                thread.start()
+            else:
+                print("Logs are already being recorded")
+
+        elif event == 'Stop recording':
+            RECORDING = False
+            print("Recording stopped")
 
     window.close()

@@ -1,5 +1,6 @@
 import glob2 as glob
 import serial
+import struct
 
 
 def decode_csv(data: bytes) -> list[float]:
@@ -32,7 +33,7 @@ class Uart:
         """
         return self.__serial.readline()
 
-    def send(self, receiver_id: int, data: int):
+    def send(self, receiver_id:int, data:float):
         """Send data to a desired receiver
 
         Args:
@@ -40,6 +41,6 @@ class Uart:
             data (int): data sent to the receiver
         """
 
-        receiver_id = int(receiver_id).to_bytes(4, 'little')
-        data = int(data).to_bytes(4, 'little')
+        receiver_id = receiver_id.to_bytes(4, 'little')
+        data = bytearray(struct.pack("f", data))
         self.__serial.write(receiver_id + data)
