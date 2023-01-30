@@ -40,32 +40,27 @@ static Controller_HandleTypeDef* hcntrl1;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	uint32_t id = msg[0];
-	uint32_t data = msg[1];
+	float data = (float)msg[1];
 
 	switch(id)
 	{
 		case PROPORTIONAL_GAIN:
 			hcntrl1->proportional_gain = data;
-			RWACS_Print("kp changed\n");
 			break;
 
 		case INTEGRAL_GAIN:
 			hcntrl1->integral_gain = data;
-			RWACS_Print("ki changed\n");
 			break;
 
 		case DERIVATIVE_GAIN:
 			hcntrl1->derivative_gain = data;
-			RWACS_Print("kd changed\n");
 			break;
 
 		case SETPOINT:
 			hcntrl1->setpoint = data;
-			RWACS_Print("setpoint changed\n");
 			break;
 
 		default:
-			RWACS_Print("invalid id\n");
 			break;
 	}
 
@@ -77,7 +72,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
 											   float* filtered_setpoint, float* controller_output)
 {
-	return RWACS_Print("@ %f, %f, %f, %f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
+	return RWACS_Print("%f, %f, %f, %f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
 }
 
 void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl)
