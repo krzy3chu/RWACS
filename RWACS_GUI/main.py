@@ -4,23 +4,36 @@
 
 from enum import Enum
 from threading import Thread
+import numpy as np
+import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 from uart import Uart
 
-RECORDING = False
 BAUDRATE = 115200
+CSV_FILE = "log.csv"
+RECORDING = False
 
 
 def record_logs():
     """
-    Save uart data to a csv file
+    Save uart data to the csv file
     """
+    uart.read()
     try:
-        with open("log.csv", "w", encoding="utf-8") as csv_file:
+        with open(CSV_FILE, "w", encoding="utf-8") as csv_file:
             while RECORDING is True:
-                csv_file.write(uart.read())
+                csv_file.write(uart.read().decode())
     except NameError:
         print("Rwacs is not connected")
+
+
+def plot_logs():
+    """
+    Plot received data
+    """
+    plt.plot(np.genfromtxt(CSV_FILE, delimiter=',')[:,0:2])
+    plt.grid()
+    plt.show()
 
 
 class ControllerIDs(Enum):
@@ -49,7 +62,7 @@ if __name__ == '__main__':
                sg.Button('set', key=ControllerIDs.SETPOINT.name)],
 
               [sg.Button('Connect'), sg.Push(), sg.Button(
-                  'Record logs'), sg.Button('Stop recording')],
+                  'Record logs'), sg.Button('Stop recording'), sg.Button('Plot')],
               [sg.Multiline(size=(60, 10), autoscroll=True, write_only=True, reroute_stdout=True)]]
 
     window = sg.Window('Rwacs settings', layout)
@@ -86,11 +99,18 @@ if __name__ == '__main__':
                 RECORDING = True
                 thread = Thread(target=record_logs)
                 thread.start()
+                print("Recording started")
             else:
                 print("Logs are already being recorded")
 
         elif event == 'Stop recording':
             RECORDING = False
             print("Recording stopped")
+
+        elif event == 'Plot':
+            try:
+                plot_logs()
+            except ValueError:
+                print("CSV file has to be repaired")
 
     window.close()

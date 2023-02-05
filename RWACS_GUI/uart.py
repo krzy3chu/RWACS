@@ -1,6 +1,6 @@
+import struct
 import glob2 as glob
 import serial
-import struct
 
 
 def decode_csv(data: bytes) -> list[float]:
@@ -44,3 +44,9 @@ class Uart:
         receiver_id = receiver_id.to_bytes(4, 'little')
         data = bytearray(struct.pack("f", data))
         self.__serial.write(receiver_id + data)
+        
+    def reset(self):
+        """Reset the buffer
+
+        """
+        self.__serial.reset_input_buffer()
