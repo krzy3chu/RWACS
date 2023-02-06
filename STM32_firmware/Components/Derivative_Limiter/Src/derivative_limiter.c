@@ -16,62 +16,24 @@
 
 /* Public function -----------------------------------------------------------*/
 
-void DXX_Init(DXX_HandleTypeDef* hdxx){
-	memset(hdxx->state_in, 0, sizeof(hdxx->state_in));
-	memset(hdxx->state_out, 0, sizeof(hdxx->state_out));
+void DX_Init(DX_HandleTypeDef* hdx){
+	memset(hdx->state, 0, sizeof(hdx->state));
 }
 
-void DXX_Limit(DXX_HandleTypeDef* hdxx, float* in, float* out)
+void DX_Limit(DX_HandleTypeDef* hdx, float* in, float* out)
 {
-	hdxx->state_in[0] = hdxx->state_in[1];
-	hdxx->state_in[1] = *in;
-	hdxx->state_out[0] = hdxx->state_out[1];
-	hdxx->state_out[1] = hdxx->state_out[2];
-	hdxx->state_out[2] = *in;
+	hdx->state[0] = hdx->state[1];
+	hdx->state[1] = *in;
 
-	float din = (hdxx->state_in[1] - hdxx->state_in[0]) * hdxx->fs;
-	float dx1a = (hdxx->state_out[1] - hdxx->state_out[0]) * hdxx->fs;
-
-// ---------- protect from overshooting ---------- //
-   float dtr =  pow((dx1a - din), 2) / (2 * hdxx->dxx_limit);   		// distance on vertical axis to meet with reference signal
-   if(fabs(hdxx->state_in[0] - hdxx->state_out[1]) <= dtr && hdxx->state_in[0] != hdxx->state_out[1])	// if actual difference is lower than dtr
-   {
-	   float pull = 0;		// pulls output signal up if positive, down if negative
-
-	   if(hdxx->state_in[1] > hdxx->state_out[1]){		// if reference signal is greater than output
-		   if(din < dx1a){
-			   pull = -0.1;
-		   }else{
-			   pull = 0.1;
-		   }
-	   }else{
-		   if(din > dx1a){
-			   pull = 0.1;
-		   }else{
-			   pull = -0.1;
-		   }
-	   }
-	   hdxx->state_out[2] = hdxx->state_out[1] + pull;
-   }
-
-	float dx1b = (hdxx->state_out[2] - hdxx->state_out[1]) * hdxx->fs;
-	float dx2 = (dx1b - dx1a) * hdxx->fs;
+	float dx = (hdx->state[1] - hdx->state[0]) * hdx->fs;
 
 	/*---------- first derivative limiter ---------- */
-    if(dx1b > hdxx->dx_limit){
-    	hdxx->state_out[2] = hdxx->state_out[1] + (hdxx->dx_limit / hdxx->fs);
+    if(dx > hdx->dx_limit){
+    	hdx->state[1] = hdx->state[0] + (hdx->dx_limit / hdx->fs);
     }
-    if(dx1b < -hdxx->dx_limit){
-    	hdxx->state_out[2] = hdxx->state_out[1] - (hdxx->dx_limit / hdxx->fs);
-    }
-
-    /* ---------- second derivative limiter ---------- */
-    if(dx2 > hdxx->dxx_limit){
-    	hdxx->state_out[2] = -hdxx->state_out[0] + 2*(hdxx->state_out[1]) + (hdxx->dxx_limit / pow(hdxx->fs, 2));
-    }
-    if(dx2 < -hdxx->dxx_limit){
-    	hdxx->state_out[2] = -hdxx->state_out[0] + 2*(hdxx->state_out[1]) - (hdxx->dxx_limit / pow(hdxx->fs, 2));
+    if(dx < -hdx->dx_limit){
+    	hdx->state[1] = hdx->state[0] - (hdx->dx_limit / hdx->fs);
     }
 
-	*out = hdxx->state_out[2];
+	*out = hdx->state[1];
 }

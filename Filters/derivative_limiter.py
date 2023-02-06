@@ -3,9 +3,9 @@ import numpy as np
 
 
 dx1_lim = 20000        # first derivative signal limit
-dx2_lim = 60000        # second derivative signal limit
+dx2_lim = 80000        # second derivative signal limit
 
-fs = 200                    # sampling frequency [Hz]
+fs = 50                    # sampling frequency [Hz]
 T = 1                      # end time [s]
 t = np.arange(0, T, 1/fs)   # time vector
 

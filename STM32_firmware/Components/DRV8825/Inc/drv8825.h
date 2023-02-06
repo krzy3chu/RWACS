@@ -17,14 +17,16 @@
 
 /* Define --------------------------------------------------------------------*/
 
-#define DRV8825_TimType 		TIM_HandleTypeDef*
-#define DRV8825_TimChannelType	uint32_t
-#define DRV8825_PortType 		GPIO_TypeDef*
-#define DRV8825_PinType			uint16_t
-#define DRV8825_SpeedType 		float
-#define DRV8825_MaxSpeedType	float
-#define DRV8825_PulseWidthType	uint16_t
-#define DRV8825_StepsPerRevType uint16_t
+#define DRV8825_TimType 			TIM_HandleTypeDef*
+#define DRV8825_TimChannelType		uint32_t
+#define DRV8825_PortType 			GPIO_TypeDef*
+#define DRV8825_PinType				uint16_t
+#define DRV8825_SpeedType 			float
+#define DRV8825_MaxSpeedType		float
+#define DRV8825_PulseWidthType		uint16_t
+#define DRV8825_StepsPerRevType 	uint16_t
+#define DRV8825_AccelerationType	float
+#define DRV8825_SamplingTimeType	float
 
 /* Macros --------------------------------------------------------------------*/
 
@@ -50,6 +52,8 @@ typedef struct {
 	DRV8825_MaxSpeedType	MaxSpeed;		/* Maximum absolute value of motor rotational speed expressed degrees per second 		*/
 	DRV8825_PulseWidthType	PulseWidthUs;	/* Width of pulse applied to STEP pin on DRV8825 board, expressed in microseconds [us]	*/
 	DRV8825_StepsPerRevType StepsPerRev;	/* Number of motor steps per full shaft revolution multiplied by microstep resolution	*/
+	DRV8825_AccelerationType Acceleration;
+	DRV8825_SamplingTimeType SamplingTime;
 } DRV8825_HandleTypeDef;
 
 /* Public function prototypes ------------------------------------------------*/
@@ -69,5 +73,13 @@ HAL_StatusTypeDef DRV8825_Init(DRV8825_HandleTypeDef* hdrv8825);
  * @retval: HAL_ERROR: absolute value of target speed is higher than maximum motor rotational speed set in DRV8825_MaxSpeed definition
  */
 HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType* speed);
+
+/**
+ * @brief:TODO
+ * @param[in]: TODO
+ * @retval: TODO
+ */
+HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration);
+
 
 #endif /* INC_DRV8825_H_ */

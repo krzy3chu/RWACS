@@ -14,8 +14,7 @@
 
 /* Public variables ----------------------------------------------------------*/
 
-DXX_HandleTypeDef hdxx1 = {
-		.dx_limit = 20000,
-		.dxx_limit = 80000,
-		.fs = 200
+DX_HandleTypeDef hdx1 = {
+		.dx_limit = 80000,
+		.fs = 50
 };

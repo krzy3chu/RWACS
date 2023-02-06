@@ -19,32 +19,23 @@
 
 typedef struct {
   float dx_limit;
-  float dxx_limit;
   uint16_t fs;
-  float state_in[2];
-  float state_out[3];
-} DXX_HandleTypeDef;
-
-/* Define --------------------------------------------------------------------*/
-
-/* Macro ---------------------------------------------------------------------*/
-
-/* Public variables ----------------------------------------------------------*/
-
-/* Public function prototypes ------------------------------------------------*/
+  float state[2];
+}DX_HandleTypeDef;
 
 /**
  * @brief Initialize derivative_limiter function
  * @param[in] hcomp: derivative_limiter handler
  * @return Nothing
  */
-void DXX_Init(DXX_HandleTypeDef* hdxx);
+void DX_Init(DX_HandleTypeDef* hdx);
 
 /**
  * @brief Initialize derivative_limiter function
  * @param[in] hcomp: derivative_limiter handler
+ * TODO
  * @return Nothing
  */
-void DXX_Limit(DXX_HandleTypeDef* hdxx, float* in, float* out);
+void DX_Limit(DX_HandleTypeDef* hdx, float* in, float* out);
 
 #endif /* DERIVATIVE_LIMITER_INC_DERIVATIVE_LIMITER_H_ */

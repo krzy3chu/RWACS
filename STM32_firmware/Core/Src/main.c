@@ -52,12 +52,15 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+
 /* USER CODE BEGIN PV */
 
-float32_t setpoint = 0;
-float32_t angle_meas = 0;
-float32_t speed = 0;
-float32_t speed_filtered = 0;
+static float32_t encoder = 0;
+static float32_t setpoint = 0;
+static float32_t angle_meas = 0;
+static float32_t acceleration = 0;
+static float32_t acceleration_filtered = 0;
+static float32_t time = 0;
 
 /* USER CODE END PV */
 
@@ -72,7 +75,9 @@ void SystemClock_Config(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	setpoint = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
+		setpoint = encoder;
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
 }
 
@@ -80,11 +85,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
 		MPU6050_GetYaw(&angle_meas);
-		PID_Control(&hpid1, &setpoint, &angle_meas, &speed);
-		DXX_Limit(&hdxx1, &speed, &speed_filtered);
-		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
+		if(abs(setpoint - angle_meas) < 5){
+			time += 0.02;
+		}else{
+			PID_Control(&hpid1, &setpoint, &angle_meas, &acceleration);
+			time = 0;
+		}
+		DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
+		DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
 
-		RWACS_Print_Controller_State(&setpoint, &angle_meas, &speed_filtered, &speed);
+		RWACS_Print_Controller_State(&setpoint, &angle_meas, &hdrv8825_1.Speed, &acceleration);
 	}
 }
 
@@ -125,8 +135,9 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
-//  MPU6050_Init();
-//  HAL_Delay(500);
+  HAL_Delay(100);
+  MPU6050_Init();
+  HAL_Delay(500);
   DRV8825_Init(&hdrv8825_1);
   PID_Init(&hpid1);
 
@@ -138,6 +149,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

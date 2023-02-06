@@ -17,6 +17,6 @@
 
 /* Public variables ----------------------------------------------------------*/
 
-extern DXX_HandleTypeDef hdxx1;
+extern DX_HandleTypeDef hdx1;
 
 #endif /* DERIVATIVE_LIMITER_INC_DERIVATIVE_LIMITER_CONFIG_H_ */

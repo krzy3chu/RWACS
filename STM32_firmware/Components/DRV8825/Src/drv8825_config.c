@@ -24,5 +24,7 @@ DRV8825_HandleTypeDef hdrv8825_1 = {
   .Speed = 0,
   .MaxSpeed = 2400,
   .PulseWidthUs = 10,
-  .StepsPerRev = 200 * 16
+  .StepsPerRev = 200 * 16,
+  .Acceleration = 0,
+  .SamplingTime = 0.02
 };
