@@ -46,26 +46,21 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	{
 		case PROPORTIONAL_GAIN:
 			hcntrl1->proportional_gain = data;
-			RWACS_Print("kp changed\n");
 			break;
 
 		case INTEGRAL_GAIN:
 			hcntrl1->integral_gain = data;
-			RWACS_Print("ki changed\n");
 			break;
 
 		case DERIVATIVE_GAIN:
 			hcntrl1->derivative_gain = data;
-			RWACS_Print("kd changed\n");
 			break;
 
 		case SETPOINT:
 			hcntrl1->setpoint = data;
-			RWACS_Print("setpoint changed\n");
 			break;
 
 		default:
-			RWACS_Print("invalid id\n");
 			break;
 	}
 
