@@ -21,18 +21,18 @@
 /* Typedef -------------------------------------------------------------------*/
 
 typedef struct {
-	uint32_t kp;
-	uint32_t ki;
-	uint32_t kd;
-	uint32_t ref;
+	uint32_t proportional_gain;
+	uint32_t integral_gain;
+	uint32_t derivative_gain;
+	uint32_t setpoint;
 } Controller_HandleTypeDef;
 
 typedef enum {
-	KP,
-	KI,
-	KD,
-	REF
-} RWACS_ReceiveCodes;
+	PROPORTIONAL_GAIN,
+	INTEGRAL_GAIN,
+	DERIVATIVE_GAIN,
+	SETPOINT
+} RWACS_ControllerIDs;
 
 /* Define --------------------------------------------------------------------*/
 
@@ -43,6 +43,9 @@ typedef enum {
 /* Public variables ----------------------------------------------------------*/
 
 /* Public function prototypes ------------------------------------------------*/
+
+HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint , float* output,
+											   float* filtered_setpoint, float* controller_output);
 
 void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl);
 

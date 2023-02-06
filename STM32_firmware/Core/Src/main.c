@@ -28,8 +28,9 @@
 /* USER CODE BEGIN Includes */
 
 #include "driver_mpu6050_dmp.h"
+#include "pid_config.h"
 #include "drv8825_config.h"
-#include "fir.h"
+#include "derivative_limiter_config.h"
 #include "encoder_config.h"
 #include "rwacs_uart.h"
 
@@ -43,7 +44,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,9 +55,11 @@
 
 /* USER CODE BEGIN PV */
 
-float32_t speed = 0;
-float32_t speed_filtered;
-float angle;
+static float32_t encoder = 0;
+static float32_t setpoint = 0;
+static float32_t angle_meas = 0;
+static float32_t acceleration = 0;
+static float32_t acceleration_filtered = 0;
 
 /* USER CODE END PV */
 
@@ -72,17 +74,21 @@ void SystemClock_Config(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	speed = ENC_UpdateCounter(&henc1, GPIO_Pin);
-
+	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
+		setpoint = encoder;
 /*  NOTE: Occupied GPIO lines: 12, 13										  */
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
-		MPU6050_GetYaw(&angle);
-		FIR_Filter(&hfir1, &speed, &speed_filtered);
-		DRV8825_SetSpeed(&hdrv8825_1, &speed_filtered);
+		MPU6050_GetYaw(&angle_meas);
+		PID_Control(&hpid1, &setpoint, &angle_meas, &acceleration);
+		DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
+		DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
+
+		RWACS_Print_Controller_State(&setpoint, &angle_meas, &hdrv8825_1.Speed, &acceleration);
 	}
 }
 
@@ -123,14 +129,13 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_Delay(100);
   MPU6050_Init();
   HAL_Delay(500);
-
   DRV8825_Init(&hdrv8825_1);
-  FIR_Init(&hfir1);
-  HAL_TIM_Base_Start_IT(&htim3);
+  PID_Init(&hpid1);
 
-  RWACS_Print("Hello RWACS ;)\n");
+  HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
 
@@ -138,6 +143,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

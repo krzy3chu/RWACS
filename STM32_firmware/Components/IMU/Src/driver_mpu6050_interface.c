@@ -113,8 +113,7 @@ void mpu6050_interface_delay_ms(uint32_t ms)
  */
 void mpu6050_interface_debug_print(const char *const fmt, ...)
 {
-	HAL_UART_Transmit(&huart3, (uint8_t*)fmt, strlen(fmt), HAL_MAX_DELAY);
-	//RWACS_prinf(fmt);
+//	HAL_UART_Transmit(&huart3, (uint8_t*)fmt, strlen(fmt), HAL_MAX_DELAY);
 }
 
 

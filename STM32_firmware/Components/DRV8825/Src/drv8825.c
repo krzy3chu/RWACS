@@ -31,9 +31,9 @@ HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_Spee
 	hdrv8825->Speed = *speed;
 
 	// Operate direction pin, transform speed to absolute value, handle zero speed exception
-	if(*speed > 0){
+	if(*speed > 0.1){
 		HAL_GPIO_WritePin(hdrv8825->DirPort, hdrv8825->DirPin, GPIO_PIN_SET);
-	}else if(*speed < 0){
+	}else if(*speed < 0.1){
 		HAL_GPIO_WritePin(hdrv8825->DirPort, hdrv8825->DirPin, GPIO_PIN_RESET);
 		*speed *= -1;
 	}else{
@@ -55,6 +55,11 @@ HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_Spee
 	if(__HAL_TIM_GET_COUNTER(hdrv8825->Tim) > ARR_value){
 		__HAL_TIM_SET_COUNTER(hdrv8825->Tim, 0);
 	}
-
 	return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration){
+	static float acc_speed;
+	acc_speed = hdrv8825->Speed + (*acceleration) * (hdrv8825->SamplingTime);
+	return DRV8825_SetSpeed(hdrv8825, &acc_speed);
 }

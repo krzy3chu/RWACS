@@ -1,46 +1,46 @@
 /**
   ******************************************************************************
-  * @file		: fir.h
+  * @file		: iir.h
   * @author  	: Krzysztof Witkowski
-  * @date    	: Jan 13, 2023
-  * @brief   	: fir filter header file
+  * @date    	: Jan 15, 2023
+  * @brief   	: iir filter configuration header file
   *
   ******************************************************************************
   */
 
-#ifndef FIR_INC_FIR_H_
-#define FIR_INC_FIR_H_
+#ifndef IIR_INC_IIR_H_
+#define IIR_INC_IIR_H_
 
 /* Includes ------------------------------------------------------------------*/
 
 #include "arm_math.h"
-#include "fir_coeff.h"
+#include "iir_coeff.h"
 
 /* Typedef -------------------------------------------------------------------*/
 
 typedef struct {
 	float32_t* Coeffs;
-	uint16_t Length;
-	arm_fir_instance_f32* Fir;
+	uint16_t NumStages;
+	arm_biquad_casd_df1_inst_f32* Iir;
 	float32_t* State;
-} FIR_HandleTypeDef;
+} IIR_HandleTypeDef;
 
 /* Public function prototypes ------------------------------------------------*/
 
 /**
- * @brief Initialize fir function
- * @param[in] hfir: fir handler
+ * @brief Initialize iir function
+ * @param[in] hiir: iir handler
  * @return Nothing
  */
-void FIR_Init(FIR_HandleTypeDef* hfir);
+void IIR_Init(IIR_HandleTypeDef* hiir);
 
 /**
  * @brief Filter input signal, and return as filtered_signal
- * @param[in] hfir: fir handler
+ * @param[in] hiir: iir handler
  * @param[in] signal: input signal sample
  * @param[in] signal_filtered: computed filtered signal sample
  * @return Nothing
  */
-void FIR_Filter(FIR_HandleTypeDef* hfir, float* signal, float* signal_filtered);
+void IIR_Filter(IIR_HandleTypeDef* hiir, float* signal, float* signal_filtered);
 
-#endif /* FIR_INC_FIR_H_ */
+#endif /* IIR_INC_IIR_H_ */

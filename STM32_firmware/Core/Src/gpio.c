@@ -121,11 +121,17 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(ENC_CH2_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PDPin PDPin */
-  GPIO_InitStruct.Pin = ENC_CH1_Pin|ENC_BTN_Pin;
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = ENC_CH1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  HAL_GPIO_Init(ENC_CH1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = ENC_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(ENC_BTN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;

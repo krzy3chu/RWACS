@@ -17,19 +17,21 @@
 
 /* Define --------------------------------------------------------------------*/
 
-#define DRV8825_TimType 		TIM_HandleTypeDef*
-#define DRV8825_TimChannelType	uint32_t
-#define DRV8825_PortType 		GPIO_TypeDef*
-#define DRV8825_PinType			uint16_t
-#define DRV8825_SpeedType 		float
-#define DRV8825_MaxSpeedType	uint16_t
-#define DRV8825_PulseWidthType	uint16_t
-#define DRV8825_StepsPerRevType uint16_t
+#define DRV8825_TimType 			TIM_HandleTypeDef*
+#define DRV8825_TimChannelType		uint32_t
+#define DRV8825_PortType 			GPIO_TypeDef*
+#define DRV8825_PinType				uint16_t
+#define DRV8825_SpeedType 			float
+#define DRV8825_MaxSpeedType		float
+#define DRV8825_PulseWidthType		uint16_t
+#define DRV8825_StepsPerRevType 	uint16_t
+#define DRV8825_AccelerationType	float
+#define DRV8825_SamplingTimeType	float
 
 /* Macros --------------------------------------------------------------------*/
 
 /* Value of Auto-Reload Register in timer, calculated based on counter frequency, steps per revolution and target speed 			*/
-#define DRV8825_TimArrSpeed(counter_frequency, steps_per_rev, speed) ( ( counter_frequency / steps_per_rev * 60 / speed ) - 1 )
+#define DRV8825_TimArrSpeed(counter_frequency, steps_per_rev, speed) ( ( counter_frequency / steps_per_rev * 360 / speed ) - 1 )
 
 /* Pulse width expressed in counter calculated based on counter frequency and pulse width in microseconds 							*/
 #define DRV8825_PulseWidthCycles(counter_frequency, pulse_width_us) ( pulse_width_us * counter_frequency / 1000000 )
@@ -46,10 +48,12 @@ typedef struct {
 	DRV8825_PinType 		DirPin;			/* GPIO pin to which DIR pin on DRV8825 board is connected, high when Speed is positive	*/
 	DRV8825_PortType 		EnblPort;		/* GPIO port which is connected to ENABLE pin on DRV8825 board							*/
 	DRV8825_PinType 		EnblPin;		/* GPIO pin which is connected to ENABLE pin on DRV8825, motor is disable when pin high	*/
-	DRV8825_SpeedType 		Speed;			/* Rotational speed of step motor expressed in rotations per minute [RPM] 				*/
-	DRV8825_MaxSpeedType	MaxSpeed;		/* Maximum absolute value of motor rotational speed expressed in [RPM]					*/
+	DRV8825_SpeedType 		Speed;			/* Rotational speed of step motor expressed in degrees per second 						*/
+	DRV8825_MaxSpeedType	MaxSpeed;		/* Maximum absolute value of motor rotational speed expressed degrees per second 		*/
 	DRV8825_PulseWidthType	PulseWidthUs;	/* Width of pulse applied to STEP pin on DRV8825 board, expressed in microseconds [us]	*/
 	DRV8825_StepsPerRevType StepsPerRev;	/* Number of motor steps per full shaft revolution multiplied by microstep resolution	*/
+	DRV8825_AccelerationType Acceleration;
+	DRV8825_SamplingTimeType SamplingTime;
 } DRV8825_HandleTypeDef;
 
 /* Public function prototypes ------------------------------------------------*/
@@ -69,5 +73,13 @@ HAL_StatusTypeDef DRV8825_Init(DRV8825_HandleTypeDef* hdrv8825);
  * @retval: HAL_ERROR: absolute value of target speed is higher than maximum motor rotational speed set in DRV8825_MaxSpeed definition
  */
 HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType* speed);
+
+/**
+ * @brief:TODO
+ * @param[in]: TODO
+ * @retval: TODO
+ */
+HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration);
+
 
 #endif /* INC_DRV8825_H_ */

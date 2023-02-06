@@ -7,3 +7,10 @@ Release/
 
 # PyCharm
 .idea/
+venv/
+__pycache__/
+.vscode/
+
+# Matlab
+*.slxc
+slprj/
