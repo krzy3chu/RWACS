@@ -57,6 +57,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define USER_BUTTON_Pin GPIO_PIN_13
+#define USER_BUTTON_GPIO_Port GPIOC
+#define USER_BUTTON_EXTI_IRQn EXTI15_10_IRQn
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
 #define RMII_MDC_Pin GPIO_PIN_1
@@ -73,6 +76,9 @@ void Error_Handler(void);
 #define RMII_RXD1_GPIO_Port GPIOC
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
+#define ENC_BTN_Pin GPIO_PIN_10
+#define ENC_BTN_GPIO_Port GPIOE
+#define ENC_BTN_EXTI_IRQn EXTI15_10_IRQn
 #define DRV8825_ENABLE_Pin GPIO_PIN_14
 #define DRV8825_ENABLE_GPIO_Port GPIOE
 #define DRV8825_DIR_Pin GPIO_PIN_15
@@ -90,9 +96,6 @@ void Error_Handler(void);
 #define ENC_CH1_Pin GPIO_PIN_12
 #define ENC_CH1_GPIO_Port GPIOD
 #define ENC_CH1_EXTI_IRQn EXTI15_10_IRQn
-#define ENC_BTN_Pin GPIO_PIN_13
-#define ENC_BTN_GPIO_Port GPIOD
-#define ENC_BTN_EXTI_IRQn EXTI15_10_IRQn
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7

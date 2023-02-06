@@ -33,11 +33,19 @@
 #include "derivative_limiter_config.h"
 #include "encoder_config.h"
 #include "rwacs_uart.h"
+#include "stdlib.h"
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
+typedef enum
+{
+	WAITING_STATE,
+	REGULATION_STATE,
+	DECELERATION_STATE
+} ControllerStateTypeDef;
 
 /* USER CODE END PTD */
 
@@ -49,6 +57,10 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
+#define ACCEPTED_REGULATION_ERROR 5
+#define ACCEPTED_SPEED_RANGE 20
+#define DECELERATION_RATE 200
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -57,9 +69,12 @@
 
 static float32_t encoder = 0;
 static float32_t setpoint = 0;
+static float32_t new_setpoint = 0;
 static float32_t angle_meas = 0;
 static float32_t acceleration = 0;
 static float32_t acceleration_filtered = 0;
+
+static ControllerStateTypeDef rwacs_state = WAITING_STATE;
 
 /* USER CODE END PV */
 
@@ -76,18 +91,57 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
 	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
-		setpoint = encoder;
-/*  NOTE: Occupied GPIO lines: 12, 13										  */
+		new_setpoint = encoder;
+
+	if(GPIO_Pin == USER_BUTTON_Pin){
+		rwacs_state = DECELERATION_STATE;
+	}
+/*  NOTE: Occupied GPIO lines: 12, 13, 10										  */
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM3){
+
 		MPU6050_GetYaw(&angle_meas);
-		PID_Control(&hpid1, &setpoint, &angle_meas, &acceleration);
+
+		switch(rwacs_state)
+		{
+			case WAITING_STATE:
+			{
+				if(setpoint != new_setpoint){
+					setpoint = new_setpoint;
+					rwacs_state = REGULATION_STATE;
+				}
+				break;
+			}
+			case REGULATION_STATE:
+			{
+				PID_Control(&hpid1, &setpoint, &angle_meas, &acceleration);
+				break;
+			}
+			case DECELERATION_STATE:
+			{
+				if(hdrv8825_1.Speed > ACCEPTED_SPEED_RANGE)
+				{
+					acceleration = -DECELERATION_RATE;
+				}
+				else if(hdrv8825_1.Speed < -ACCEPTED_SPEED_RANGE)
+				{
+					acceleration = DECELERATION_RATE;
+				}
+				else{
+					float32_t zero = 0;
+					DRV8825_SetSpeed(&hdrv8825_1, &zero);
+					acceleration = 0;
+					rwacs_state = WAITING_STATE;
+				}
+				break;
+			}
+		}
+
 		DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
 		DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
-
 		RWACS_Print_Controller_State(&setpoint, &angle_meas, &hdrv8825_1.Speed, &acceleration);
 	}
 }
