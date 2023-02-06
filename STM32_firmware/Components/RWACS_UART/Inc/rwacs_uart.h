@@ -21,10 +21,10 @@
 /* Typedef -------------------------------------------------------------------*/
 
 typedef struct {
-	float proportional_gain;
-	float integral_gain;
-	float derivative_gain;
-	float setpoint;
+	uint32_t proportional_gain;
+	uint32_t integral_gain;
+	uint32_t derivative_gain;
+	uint32_t setpoint;
 } Controller_HandleTypeDef;
 
 typedef enum {

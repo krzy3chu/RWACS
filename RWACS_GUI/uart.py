@@ -1,4 +1,3 @@
-import struct
 import glob2 as glob
 import serial
 
@@ -33,16 +32,15 @@ class Uart:
         """
         return self.__serial.readline()
 
-    def send(self, receiver_id:int, data:float):
+    def send(self, receiver_id:int, data:int):
         """Send data to a desired receiver
 
         Args:
             receiver_id (int): where to send data
             data (int): data sent to the receiver
         """
-
         receiver_id = receiver_id.to_bytes(4, 'little')
-        data = bytearray(struct.pack("f", data))
+        data = data.to_bytes(4, 'little')
         self.__serial.write(receiver_id + data)
         
     def reset(self):

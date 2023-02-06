@@ -40,7 +40,7 @@ static Controller_HandleTypeDef* hcntrl1;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	uint32_t id = msg[0];
-	float data = (float)msg[1];
+	uint32_t data = msg[1];
 
 	switch(id)
 	{

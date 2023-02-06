@@ -84,7 +84,7 @@ if __name__ == '__main__':
         elif event in [id.name for id in ControllerIDs]:
             current_id = ControllerIDs[event].value
             try:
-                data = float(values[current_id])
+                data = int(values[current_id])
             except ValueError:
                 print("Enter data in the correct form")
                 continue

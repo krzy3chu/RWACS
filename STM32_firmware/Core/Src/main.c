@@ -100,12 +100,11 @@ int main(void)
   };
 
 
-
   float setpoint, output, filtered_setpoint, controller_output;
 
   RWACS_UART_Init(&hcntrl1);
 
-//  RWACS_Receive();
+  RWACS_Receive();
 
   /* USER CODE END 2 */
 
