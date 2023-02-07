@@ -66,7 +66,6 @@ typedef enum
 /* USER CODE BEGIN PV */
 
 static float32_t encoder = 0;
-static float32_t setpoint = 0;
 static float32_t angle_meas = 0;
 static float32_t acceleration = 0;
 static float32_t acceleration_filtered = 0;
@@ -91,11 +90,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
 	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
 	{
-		setpoint = encoder;
+		hpid1.Setpoint = encoder;
 		rwacs_state = DECELERATION_STATE;
 	}
 
 /*  NOTE: Occupied GPIO lines: 12, 13, 10										  */
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	RWACS_Parse_Data();
+	rwacs_state = DECELERATION_STATE;
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -105,7 +110,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
 }
 
-void wait_regulate_decelerate()
+void regulate_decelerate()
 {
 	MPU6050_GetYaw(&angle_meas);
 
@@ -113,7 +118,7 @@ void wait_regulate_decelerate()
 	{
 		case REGULATION_STATE:
 		{
-			PID_Control(&hpid1, &setpoint, &angle_meas, &acceleration);
+			PID_Control(&hpid1, &angle_meas, &acceleration);
 			break;
 		}
 		case DECELERATION_STATE:
@@ -138,7 +143,7 @@ void wait_regulate_decelerate()
 
 	DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
 	DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
-	RWACS_Print_Controller_State(&setpoint, &angle_meas, &hdrv8825_1.Speed, &acceleration);
+	RWACS_Print_Controller_State(&(hpid1.Setpoint), &angle_meas, &(hdrv8825_1.Speed), &acceleration);
 }
 
 /* USER CODE END 0 */
@@ -184,6 +189,9 @@ int main(void)
   DRV8825_Init(&hdrv8825_1);
   PID_Init(&hpid1);
 
+  RWACS_UART_Init(&hpid1);
+  RWACS_Receive();
+
   HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
@@ -194,7 +202,7 @@ int main(void)
   {
 	  if(new_cycle_flag == 1)
 	  {
-		  wait_regulate_decelerate();
+		  regulate_decelerate();
 		  new_cycle_flag = 0;
 	  }
 

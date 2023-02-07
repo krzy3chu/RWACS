@@ -59,7 +59,12 @@ HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_Spee
 }
 
 HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration){
-	static float acc_speed;
+	float acc_speed;
+	if(*acceleration > hdrv8825->MaxAcceleration){
+		*acceleration = hdrv8825->MaxAcceleration;
+	}else if(*acceleration < -hdrv8825->MaxAcceleration){
+		*acceleration = -hdrv8825->MaxAcceleration;
+	}
 	acc_speed = hdrv8825->Speed + (*acceleration) * (hdrv8825->SamplingTime);
 	return DRV8825_SetSpeed(hdrv8825, &acc_speed);
 }

@@ -17,15 +17,9 @@
 
 #include "stm32f746xx.h"
 #include "usart.h"
+#include "pid.h"
 
 /* Typedef -------------------------------------------------------------------*/
-
-typedef struct {
-	uint32_t proportional_gain;
-	uint32_t integral_gain;
-	uint32_t derivative_gain;
-	uint32_t setpoint;
-} Controller_HandleTypeDef;
 
 typedef enum {
 	PROPORTIONAL_GAIN,
@@ -44,10 +38,12 @@ typedef enum {
 
 /* Public function prototypes ------------------------------------------------*/
 
+void RWACS_Parse_Data();
+
 HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint , float* output,
 											   float* filtered_setpoint, float* controller_output);
 
-void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl);
+void RWACS_UART_Init(PID_HandleTypeDef* hpid);
 
 HAL_StatusTypeDef RWACS_Print(const char *fmt, ...);
 

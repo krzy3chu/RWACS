@@ -26,6 +26,7 @@
 #define DRV8825_PulseWidthType		uint16_t
 #define DRV8825_StepsPerRevType 	uint16_t
 #define DRV8825_AccelerationType	float
+#define DRV8825_MaxAccelerationType	float
 #define DRV8825_SamplingTimeType	float
 
 /* Macros --------------------------------------------------------------------*/
@@ -54,6 +55,7 @@ typedef struct {
 	DRV8825_StepsPerRevType StepsPerRev;	/* Number of motor steps per full shaft revolution multiplied by microstep resolution	*/
 	DRV8825_AccelerationType Acceleration;
 	DRV8825_SamplingTimeType SamplingTime;
+	DRV8825_MaxAccelerationType MaxAcceleration;
 } DRV8825_HandleTypeDef;
 
 /* Public function prototypes ------------------------------------------------*/

@@ -24,8 +24,8 @@ void PID_Init(PID_HandleTypeDef* hpid){
 
 }
 
-void PID_Control(PID_HandleTypeDef* hpid, float32_t* setpoint, float32_t* feedback, float32_t* control){
-	float cont = (-1) * arm_pid_f32(hpid->Pid, ((int) (*setpoint - *feedback)));
+void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control){
+	float cont = (-1) * arm_pid_f32(hpid->Pid, ((int) (hpid->Setpoint - *feedback)));
 
 	/* ---------- scale pid signal to reduce non-linear object dynamic ---------- */
 	if(cont < -100){

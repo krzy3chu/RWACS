@@ -21,6 +21,7 @@ typedef struct {
 	float32_t Kp;
 	float32_t Ki;
 	float32_t Kd;
+	float32_t Setpoint;
 	arm_pid_instance_f32* Pid;
 } PID_HandleTypeDef;
 
@@ -47,6 +48,6 @@ void PID_Init(PID_HandleTypeDef* hpid);
  * @param[in] control: output control signal
  * @return Nothing
  */
-void PID_Control(PID_HandleTypeDef* hpid, float32_t* setpoint, float32_t* feedback, float32_t* control);
+void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control);
 
 #endif /* PID_INC_PID_H_ */

@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <arm_math.h>
 
 
 /* Typedef -------------------------------------------------------------------*/
@@ -29,7 +30,7 @@
 
 static uint32_t msg[2];
 
-static Controller_HandleTypeDef* hcntrl1;
+static PID_HandleTypeDef* _hpid;
 
 /* Public variables ----------------------------------------------------------*/
 
@@ -37,37 +38,33 @@ static Controller_HandleTypeDef* hcntrl1;
 
 /* Private function ----------------------------------------------------------*/
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+/* Public function -----------------------------------------------------------*/
+
+
+void RWACS_Parse_Data()
 {
 	uint32_t id = msg[0];
-	uint32_t data = msg[1];
-
+	float32_t data = (float32_t)msg[1];
 	switch(id)
 	{
 		case PROPORTIONAL_GAIN:
-			hcntrl1->proportional_gain = data;
+			_hpid->Kp = data;
 			break;
 
 		case INTEGRAL_GAIN:
-			hcntrl1->integral_gain = data;
+			_hpid->Ki = data;
 			break;
 
 		case DERIVATIVE_GAIN:
-			hcntrl1->derivative_gain = data;
+			_hpid->Kd = data;
 			break;
 
 		case SETPOINT:
-			hcntrl1->setpoint = data;
-			break;
-
-		default:
+			_hpid->Setpoint = data;
 			break;
 	}
-
 	RWACS_Receive();
 }
-
-/* Public function -----------------------------------------------------------*/
 
 HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
 											   float* filtered_setpoint, float* controller_output)
@@ -75,9 +72,9 @@ HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
 	return RWACS_Print("%f, %f, %f, %f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
 }
 
-void RWACS_UART_Init(Controller_HandleTypeDef* hcntrl)
+void RWACS_UART_Init(PID_HandleTypeDef* hpid)
 {
-	hcntrl1 = hcntrl;
+	_hpid = hpid;
 }
 
 HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)

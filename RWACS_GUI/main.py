@@ -22,7 +22,9 @@ def record_logs():
     try:
         with open(CSV_FILE, "w", encoding="utf-8") as csv_file:
             while RECORDING is True:
-                csv_file.write(uart.read().decode())
+                new_data = uart.read().decode()
+                csv_file.write(new_data)
+                print(new_data)
     except NameError:
         print("Rwacs is not connected")
 
