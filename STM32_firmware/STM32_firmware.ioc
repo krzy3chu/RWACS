@@ -111,6 +111,7 @@ NVIC.PriorityGroup=NVIC_PRIORITYGROUP_4
 NVIC.SVCall_IRQn=true\:0\:0\:false\:false\:true\:true\:false\:false
 NVIC.SysTick_IRQn=true\:0\:0\:false\:false\:true\:true\:true\:false
 NVIC.TIM3_IRQn=true\:0\:0\:false\:false\:true\:true\:true\:true
+NVIC.USART3_IRQn=true\:0\:0\:false\:false\:true\:true\:true\:true
 NVIC.UsageFault_IRQn=true\:0\:0\:false\:false\:true\:true\:false\:false
 PA0/WKUP.Signal=S_TIM2_CH1_ETR
 PA1.GPIOParameters=GPIO_Label

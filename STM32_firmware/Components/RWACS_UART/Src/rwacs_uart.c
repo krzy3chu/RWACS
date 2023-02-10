@@ -103,10 +103,16 @@ HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
     	return HAL_ERROR;
     }
 
+//    if(HAL_UART_Transmit(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size, HAL_MAX_DELAY)!= HAL_OK){
+//    	free(msg);
+//    	return HAL_ERROR;
+//    }
+
     if(HAL_UART_Transmit_DMA(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size)!= HAL_OK){
-    	free(msg);
-    	return HAL_ERROR;
-    }
+        	free(msg);
+        	return HAL_ERROR;
+        }
+
 
     free(msg);
     return HAL_OK;

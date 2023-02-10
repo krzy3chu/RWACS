@@ -135,6 +135,7 @@ void regulate_decelerate()
 				float32_t zero = 0;
 				DRV8825_SetSpeed(&hdrv8825_1, &zero);
 				acceleration = 0;
+				PID_Init(&hpid1);
 				rwacs_state = REGULATION_STATE;
 			}
 			break;

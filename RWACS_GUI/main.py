@@ -25,6 +25,7 @@ def record_logs():
                 new_data = uart.read().decode()
                 csv_file.write(new_data)
                 print(new_data)
+            print("Recording stopped")
     except NameError:
         print("Rwacs is not connected")
 
@@ -107,7 +108,6 @@ if __name__ == '__main__':
 
         elif event == 'Stop recording':
             RECORDING = False
-            print("Recording stopped")
 
         elif event == 'Plot':
             try:
