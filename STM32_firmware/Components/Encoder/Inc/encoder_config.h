@@ -17,6 +17,7 @@
 #include "encoder.h"
 
 /* Public variables ----------------------------------------------------------*/
-extern ENC_HandleTypeDef henc1;
+
+extern ENC_HandleTypeDef henc1; /**< encoder  handle */
 
 #endif /* INC_ENCODER_CONFIG_H_ */

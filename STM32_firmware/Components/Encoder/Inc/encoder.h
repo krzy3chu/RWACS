@@ -19,11 +19,17 @@
 
 /* Define --------------------------------------------------------------------*/
 
+/**
+ * @brief encoder type defines
+ */
 #define ENC_PortType GPIO_TypeDef*
 #define ENC_PinType uint16_t
 
 /* Typedef -------------------------------------------------------------------*/
 
+/**
+ * @brief encoder structure definition
+ */
 typedef struct {
   ENC_PortType CH1_Port;
   ENC_PinType  CH1_Pin;
@@ -40,18 +46,20 @@ typedef struct {
 /* Public function prototypes ------------------------------------------------*/
 
 /**
- * @brief: Increment or decrement encoder counter, based on a CH2_Pin state
- * @param[in] henc: Encoder handler
- * @param[in] pin: GPIO external interrupt callback pin
- * @return: Current counter value
+ * @brief:      Encoder update counter function
+ * @param[in]   *henc point to a encoder handle
+ * @param[in]   pin is a pin type 
+ * @return:     counter value
  */
 int16_t ENC_UpdateCounter(ENC_HandleTypeDef* henc, ENC_PinType pin);
 
 /**
- * @brief: Checks if encoder button was pressed
- * @param[in] henc: Encoder handler
- * @param[in] pin: GPIO external interrupt callback pin
- * @return: true if callback came from encoder button pin, false if not
+ * @brief:      Encoder on button press function
+ * @param[in]   *henc points to a enoder handle
+ * @param[in]   pin is a pin type
+ * @return:     pin type
+ *              - true encoder button
+ *              - false not encoder button
  */
 bool ENC_OnButtonPress(ENC_HandleTypeDef* henc, ENC_PinType pin);
 

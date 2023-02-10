@@ -16,6 +16,9 @@
 
 /* Public variables ----------------------------------------------------------*/
 
+/**
+ * @brief encoder handle declaration
+ */
 ENC_HandleTypeDef henc1 = {
   .CH1_Port = ENC_CH1_GPIO_Port,
   .CH1_Pin = ENC_CH1_Pin,
