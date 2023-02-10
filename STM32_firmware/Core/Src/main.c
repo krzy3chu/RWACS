@@ -73,7 +73,6 @@ static float32_t acceleration_filtered = 0;
 static ControllerStateTypeDef rwacs_state = REGULATION_STATE;
 
 volatile uint8_t new_cycle_flag = 0;
-volatile uint8_t dma_transmit_ready = 1;
 
 /* USER CODE END PV */
 
@@ -85,31 +84,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
-	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
-	{
-		hpid1.Setpoint = encoder;
-		rwacs_state = DECELERATION_STATE;
-	}
-
-/*  NOTE: Occupied GPIO lines: 12, 13, 10										  */
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	RWACS_Parse_Data();
-	rwacs_state = DECELERATION_STATE;
-}
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if(htim->Instance == TIM3){
-		new_cycle_flag = 1;
-	}
-}
 
 void regulate_decelerate()
 {
@@ -266,6 +240,31 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
+	{
+		hpid1.Setpoint = encoder;
+		rwacs_state = DECELERATION_STATE;
+	}
+
+/*  NOTE: Occupied GPIO lines: 12, 13, 10										  */
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	RWACS_Parse_Data();
+	rwacs_state = DECELERATION_STATE;
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim->Instance == TIM3){
+		new_cycle_flag = 1;
+	}
+}
 
 /* USER CODE END 4 */
 

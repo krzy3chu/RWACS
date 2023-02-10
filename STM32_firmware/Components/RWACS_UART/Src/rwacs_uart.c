@@ -28,9 +28,10 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-static int32_t msg[2];
+static int32_t msg[2]; /**< uart message buffer */
 
-static PID_HandleTypeDef* _hpid;
+
+static PID_HandleTypeDef* _hpid; /**< pid  handle */
 
 /* Public variables ----------------------------------------------------------*/
 
@@ -40,7 +41,10 @@ static PID_HandleTypeDef* _hpid;
 
 /* Public function -----------------------------------------------------------*/
 
-
+/**
+ * @brief     Uart parse data function
+ * @note      parse received data and assign it to the pid handle
+ */
 void RWACS_Parse_Data()
 {
 	int32_t id = msg[0];
@@ -66,17 +70,37 @@ void RWACS_Parse_Data()
 	RWACS_Receive();
 }
 
+/**
+ * @brief     	Uart print controller state function
+ * @param[in]	*sepoint points to a setpoint buffer
+ * @param[in]	*output points to a output buffer
+ * @param[in]	*filtered_setpoint points to a filtered setpoint buffer
+ * @param[in]	*controller_output points to a controller output buffer
+ * @return    	status code
+ * @note      	return code uses HAL_StatusTypeDef
+ */
 HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
 											   float* filtered_setpoint, float* controller_output)
 {
 	return RWACS_Print("%0.1f, %0.1f, %0.1f, %0.1f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
 }
 
+/**
+ * @brief     	Uart assign pid handle function
+ * @param[in]	*hpid points to a pid handle buffer
+ */
 void RWACS_UART_Init(PID_HandleTypeDef* hpid)
 {
 	_hpid = hpid;
 }
 
+/**
+ * @brief     	Uart print controller state function
+ * @param[in]	*fmt specifies a message format
+ * @param[in]	... are varg values to send
+ * @return    	status code
+ * @note      	return code uses HAL_StatusTypeDef
+ */
 HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
 {
     va_list args;
@@ -108,21 +132,16 @@ HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
     	return HAL_ERROR;
     }
 
-//    if(HAL_UART_Transmit_IT(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size)!= HAL_OK){
-//        free(msg);
-//        return HAL_ERROR;
-//    }
-
-
     free(msg);
     return HAL_OK;
 }
 
-
+/**
+ * @brief     	Uart dma receive function
+ * @return    	status code
+ * @note      	return code uses HAL_StatusTypeDef
+ */
 HAL_StatusTypeDef RWACS_Receive()
 {
-	if(HAL_UART_Receive_DMA(CURRENT_UART_HANDLE, (uint8_t*)msg, sizeof(msg)) != HAL_OK){
-		return HAL_ERROR;
-	}
-	return HAL_OK;
+	return HAL_UART_Receive_DMA(CURRENT_UART_HANDLE, (uint8_t*)msg, sizeof(msg));
 }
