@@ -17,9 +17,6 @@
 
 /* Public variables ----------------------------------------------------------*/
 
-/**
-  * @brief: DRV8825 step motor driver handler object
-  */
-extern DRV8825_HandleTypeDef hdrv8825_1;
+extern DRV8825_HandleTypeDef hdrv8825_1; /**< drv8825 handle */
 
 #endif /* INC_DRV8825_CONFIG_H_ */

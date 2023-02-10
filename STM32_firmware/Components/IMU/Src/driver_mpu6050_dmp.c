@@ -953,14 +953,6 @@ HAL_StatusTypeDef MPU6050_GetYaw(float *yaw)
 	{
 		return HAL_ERROR;
 	}
-    float _yaw = gs_yaw[0] * (-2);
-//    while(_yaw > 180){
-//    	_yaw -= 360;
-//    }
-//    while(_yaw < -180){
-//		_yaw += 360;
-//	}
-    *yaw = _yaw;
-
+    *yaw = gs_yaw[0] * (-2);
 	return HAL_OK;
 }
