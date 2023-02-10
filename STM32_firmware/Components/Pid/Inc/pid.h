@@ -15,6 +15,17 @@
 
 #include "arm_math.h"
 
+/**
+ * @defgroup Pid PID controller module
+ * @brief    PID controller struct and functions
+ * @{
+ */
+
+/**
+ * @addtogroup Pid
+ * @{
+ */
+
 /* Typedef -------------------------------------------------------------------*/
 
 /**
@@ -45,5 +56,13 @@ void PID_Init(PID_HandleTypeDef* hpid);
  * @return Nothing
  */
 void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif /* PID_INC_PID_H_ */

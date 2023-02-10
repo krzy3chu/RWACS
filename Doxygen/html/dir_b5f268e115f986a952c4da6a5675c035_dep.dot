@@ -1,0 +1,11 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/Encoder/Src" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ce406a3de306f08bd4bd16ec79dc1f7b {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Encoder" fontname="Helvetica", fontsize="10", URL="dir_ce406a3de306f08bd4bd16ec79dc1f7b.html"]
+  dir_ba87a8ac8d221c2256166852464126dd [shape=box label="Inc" URL="dir_ba87a8ac8d221c2256166852464126dd.html"];
+  dir_b5f268e115f986a952c4da6a5675c035 [shape=box, label="Src", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_b5f268e115f986a952c4da6a5675c035.html"];
+  }
+  dir_b5f268e115f986a952c4da6a5675c035->dir_ba87a8ac8d221c2256166852464126dd [headlabel="2", labeldistance=1.5 headhref="dir_000010_000009.html"];
+}

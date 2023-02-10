@@ -1,0 +1,65 @@
+\hypertarget{driver__mpu6050__dmp_8c}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+IMU/\+Src/driver\+\_\+mpu6050\+\_\+dmp.c File Reference}
+\label{driver__mpu6050__dmp_8c}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Src/driver\_mpu6050\_dmp.c@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Src/driver\_mpu6050\_dmp.c}}
+
+
+driver mpu6050 dmp source file  
+
+
+{\ttfamily \#include \char`\"{}driver\+\_\+mpu6050\+\_\+dmp.\+h\char`\"{}}\newline
+Include dependency graph for driver\+\_\+mpu6050\+\_\+dmp.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_gae9dbe53d0c51253b78cd06fac28bd71f}{mpu6050\+\_\+dmp\+\_\+irq\+\_\+handler}} (void)
+\begin{DoxyCompactList}\small\item\em dmp irq \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga3298a755f9974bc3b2376ef576b52f4e}{mpu6050\+\_\+dmp\+\_\+init}} (\mbox{\hyperlink{group__mpu6050__basic__driver_ga47a9d14317022ff750450d300c1d48fb}{mpu6050\+\_\+address\+\_\+t}} addr\+\_\+pin, void($\ast$receive\+\_\+callback)(uint8\+\_\+t type), void($\ast$tap\+\_\+callback)(uint8\+\_\+t count, uint8\+\_\+t direction), void($\ast$orient\+\_\+callback)(uint8\+\_\+t orientation))
+\begin{DoxyCompactList}\small\item\em dmp example init \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga5dc2e5196128effa5c85ca0c31011b5b}{mpu6050\+\_\+dmp\+\_\+get\+\_\+pedometer\+\_\+counter}} (uint32\+\_\+t $\ast$cnt)
+\begin{DoxyCompactList}\small\item\em dmp example get pedometer counter \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_gaa5f0a1219f072e02cd4c9bd0b4b29a18}{mpu6050\+\_\+dmp\+\_\+read\+\_\+all}} (int16\+\_\+t($\ast$accel\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$accel\+\_\+g)\mbox{[}3\mbox{]}, int16\+\_\+t($\ast$gyro\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$gyro\+\_\+dps)\mbox{[}3\mbox{]}, int32\+\_\+t($\ast$quat)\mbox{[}4\mbox{]}, float $\ast$pitch, float $\ast$roll, float $\ast$yaw, uint16\+\_\+t $\ast$l)
+\begin{DoxyCompactList}\small\item\em dmp example read \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga36c91f910c116282ec9df4d972007fc5}{mpu6050\+\_\+dmp\+\_\+deinit}} (void)
+\begin{DoxyCompactList}\small\item\em dmp example deinit \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__dmp__driver_gae6d0471d953fb9c8ccad4439f12a794d}{MPU6050\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em MPU6050 init function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__dmp__driver_ga5a86f16b079172d56e0dfff38286e735}{MPU6050\+\_\+\+Get\+Yaw}} (float $\ast$yaw)
+\begin{DoxyCompactList}\small\item\em MPU6050 get yaw function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+driver mpu6050 dmp source file 
+
+Copyright (c) 2015 -\/ present Lib\+Driver All rights reserved
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Shifeng Li 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2022-\/06-\/30
+\end{DoxyDate}
+\doxyparagraph*{history}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endhead
+2022/06/30 &1.\+0 &Shifeng Li &first upload \\\cline{1-4}
+\end{longtabu}

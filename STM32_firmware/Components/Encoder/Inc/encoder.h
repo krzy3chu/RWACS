@@ -17,6 +17,18 @@
 #include "stm32f7xx_hal.h"
 #include <stdbool.h>
 
+
+/**
+ * @defgroup Encoder Encoder module
+ * @brief    Encoder struct and functions
+ * @{
+ */
+
+/**
+ * @addtogroup Encoder
+ * @{
+ */
+
 /* Define --------------------------------------------------------------------*/
 
 /**
@@ -63,5 +75,12 @@ int16_t ENC_UpdateCounter(ENC_HandleTypeDef* henc, ENC_PinType pin);
  */
 bool ENC_OnButtonPress(ENC_HandleTypeDef* henc, ENC_PinType pin);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif /* INC_ENCODER_H_ */

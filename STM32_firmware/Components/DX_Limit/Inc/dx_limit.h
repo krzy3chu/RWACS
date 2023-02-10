@@ -15,6 +15,17 @@
 
 #include "main.h"
 
+/**
+ * @defgroup DX_Limit Derivative limiter module
+ * @brief    Derivative limiter driver struct and functions
+ * @{
+ */
+
+/**
+ * @addtogroup DX_Limit
+ * @{
+ */
+
 /* Typedef -------------------------------------------------------------------*/
 
 /**
@@ -40,5 +51,13 @@ void DX_Init(DX_HandleTypeDef* hdx);
  * @return 		Nothing
  */
 void DX_Limit(DX_HandleTypeDef* hdx, float* in, float* out);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif /* DX_LIMIT_INC_DX_LIMIT_H_ */

@@ -1,0 +1,145 @@
+\hypertarget{main_8c}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Core/\+Src/main.c File Reference}
+\label{main_8c}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Core/Src/main.c@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Core/Src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dma.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+mpu6050\+\_\+dmp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pid\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}drv8825\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dx\+\_\+limit\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}encoder\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rwacs\+\_\+uart.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ae78785b7baa63f4226108bc34232d846}\label{main_8c_ae78785b7baa63f4226108bc34232d846}} 
+\#define {\bfseries ACCEPTED\+\_\+\+SPEED\+\_\+\+RANGE}~20
+\item 
+\mbox{\Hypertarget{main_8c_a326259c5b33e73ec9cdc33f476a93b40}\label{main_8c_a326259c5b33e73ec9cdc33f476a93b40}} 
+\#define {\bfseries DECELERATION\+\_\+\+RATE}~300
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_abb3043e8ec6266e8cbaf4e3525432e1a}\label{main_8c_abb3043e8ec6266e8cbaf4e3525432e1a}} 
+enum \mbox{\hyperlink{main_8c_abb3043e8ec6266e8cbaf4e3525432e1a}{Controller\+State\+Type\+Def}} \{ {\bfseries REGULATION\+\_\+\+STATE}
+, {\bfseries DECELERATION\+\_\+\+STATE}
+ \}
+\begin{DoxyCompactList}\small\item\em variable alias used to toggle controller cycle mode \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_abbf0eb8017d05a4e071e229581c3ab78}{RWACS\+\_\+\+Controller\+\_\+\+Cycle}} ()
+\begin{DoxyCompactList}\small\item\em Main controller cycle, sets acceleration to reach desired setpoint or decelerate speed to zero. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}\label{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}} 
+void {\bfseries HAL\+\_\+\+GPIO\+\_\+\+EXTI\+\_\+\+Callback} (uint16\+\_\+t GPIO\+\_\+\+Pin)
+\item 
+\mbox{\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{main_8c_ae494a9643f29b87d6d81e5264e60e57b}} 
+void {\bfseries HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback} (UART\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\item 
+\mbox{\Hypertarget{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}\label{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}} 
+void {\bfseries HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback} (TIM\+\_\+\+Handle\+Type\+Def $\ast$htim)
+\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a6ae764ba6de0b8804022f9bb4f2426fa}\label{main_8c_a6ae764ba6de0b8804022f9bb4f2426fa}} 
+volatile uint8\+\_\+t {\bfseries cycle\+\_\+flag} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2022 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9}} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_abbf0eb8017d05a4e071e229581c3ab78}\label{main_8c_abbf0eb8017d05a4e071e229581c3ab78}} 
+\index{main.c@{main.c}!RWACS\_Controller\_Cycle@{RWACS\_Controller\_Cycle}}
+\index{RWACS\_Controller\_Cycle@{RWACS\_Controller\_Cycle}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{RWACS\_Controller\_Cycle()}{RWACS\_Controller\_Cycle()}}
+{\footnotesize\ttfamily void RWACS\+\_\+\+Controller\+\_\+\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main controller cycle, sets acceleration to reach desired setpoint or decelerate speed to zero. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Nothing} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920}} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure LSE Drive Capability
+
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Initializes the CPU, AHB and APB buses clocks

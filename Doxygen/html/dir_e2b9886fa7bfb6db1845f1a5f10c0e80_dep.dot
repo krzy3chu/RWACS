@@ -1,0 +1,15 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/DRV8825" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_51c6471e9ff1fde0f9aea20ca817e4f0 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Components" fontname="Helvetica", fontsize="10", URL="dir_51c6471e9ff1fde0f9aea20ca817e4f0.html"]
+  subgraph clusterdir_e2b9886fa7bfb6db1845f1a5f10c0e80 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_e2b9886fa7bfb6db1845f1a5f10c0e80.html"];
+    dir_e2b9886fa7bfb6db1845f1a5f10c0e80 [shape=plaintext label="DRV8825"];
+  dir_4b21d8f8e2b70683e613ca24b13527e4 [shape=box label="Inc" fillcolor="white" style="filled" URL="dir_4b21d8f8e2b70683e613ca24b13527e4.html"];
+  dir_77e18b3e327d50a119594e37223bbf4e [shape=box label="Src" fillcolor="white" style="filled" URL="dir_77e18b3e327d50a119594e37223bbf4e.html"];
+  }
+  }
+  dir_77e18b3e327d50a119594e37223bbf4e->dir_4b21d8f8e2b70683e613ca24b13527e4 [headlabel="2", labeldistance=1.5 headhref="dir_000004_000003.html"];
+}

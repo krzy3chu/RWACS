@@ -1,0 +1,15 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/IMU" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_51c6471e9ff1fde0f9aea20ca817e4f0 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Components" fontname="Helvetica", fontsize="10", URL="dir_51c6471e9ff1fde0f9aea20ca817e4f0.html"]
+  subgraph clusterdir_d54c388ff90d5f3eb3f0227007dbc39b {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_d54c388ff90d5f3eb3f0227007dbc39b.html"];
+    dir_d54c388ff90d5f3eb3f0227007dbc39b [shape=plaintext label="IMU"];
+  dir_6155125b9f860734d5697a00b2b6c98d [shape=box label="Inc" fillcolor="white" style="filled" URL="dir_6155125b9f860734d5697a00b2b6c98d.html"];
+  dir_1256bee3c259700d00c2514cadec2294 [shape=box label="Src" fillcolor="white" style="filled" URL="dir_1256bee3c259700d00c2514cadec2294.html"];
+  }
+  }
+  dir_1256bee3c259700d00c2514cadec2294->dir_6155125b9f860734d5697a00b2b6c98d [headlabel="4", labeldistance=1.5 headhref="dir_000013_000012.html"];
+}

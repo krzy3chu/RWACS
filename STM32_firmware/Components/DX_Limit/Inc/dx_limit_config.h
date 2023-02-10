@@ -15,8 +15,17 @@
 
 #include "dx_limit.h"
 
+/**
+ * @addtogroup DRV8825
+ * @{
+ */
+
 /* Public variables ----------------------------------------------------------*/
 
 extern DX_HandleTypeDef hdx1; /**< derivative limiter handle */
+
+/**
+ * @}
+ */
 
 #endif /* DX_LIMIT_INC_DX_LIMIT_CONFIG_H_ */

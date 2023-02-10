@@ -1,0 +1,66 @@
+\hypertarget{drv8825_8h}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+DRV8825/\+Inc/drv8825.h File Reference}
+\label{drv8825_8h}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/DRV8825/Inc/drv8825.h@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/DRV8825/Inc/drv8825.h}}
+
+
+\+: DRV8825 step motor driver configuration header file  
+
+
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+Include dependency graph for drv8825.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em DRV8825 step motor driver handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Type}~TIM\+\_\+\+Handle\+Type\+Def$\ast$
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Channel\+Type}~uint32\+\_\+t
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Port\+Type}~GPIO\+\_\+\+Type\+Def$\ast$
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Pin\+Type}~uint16\+\_\+t
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Speed\+Type}~float
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Max\+Speed\+Type}~float
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Pulse\+Width\+Type}~uint16\+\_\+t
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Steps\+Per\+Rev\+Type}~uint16\+\_\+t
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Acceleration\+Type}~float
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Max\+Acceleration\+Type}~float
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Sampling\+Time\+Type}~float
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Arr\+Speed}(counter\+\_\+frequency,  steps\+\_\+per\+\_\+rev,  speed)~( ( counter\+\_\+frequency / steps\+\_\+per\+\_\+rev $\ast$ 360 / speed ) -\/ 1 )
+\item 
+\#define {\bfseries DRV8825\+\_\+\+Pulse\+Width\+Cycles}(counter\+\_\+frequency,  pulse\+\_\+width\+\_\+us)~( pulse\+\_\+width\+\_\+us $\ast$ counter\+\_\+frequency / 1000000 )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gad2528d62f2688b14b37b967b4f75b057}{DRV8825\+\_\+\+Init}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825)
+\begin{DoxyCompactList}\small\item\em Start Tim timer in PWM mode. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_ga7e7dcca6d1428843035f760f30928d90}{DRV8825\+\_\+\+Set\+Speed}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Speed\+Type $\ast$speed)
+\begin{DoxyCompactList}\small\item\em Set timer, Dir and Enbl pins properly according to target speed. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gae22de907814c4b18814b46461840f9b5}{DRV8825\+\_\+\+Set\+Acceleration}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Acceleration\+Type $\ast$acceleration)
+\begin{DoxyCompactList}\small\item\em Set motor speed according to desired acceleration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: DRV8825 step motor driver configuration header file 
+
+\begin{DoxyAuthor}{Author}
+\+: Krzysztof Witkowski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: Dec 17, 2022 
+\end{DoxyDate}
