@@ -39,8 +39,8 @@ class Uart:
             receiver_id (int): where to send data
             data (int): data sent to the receiver
         """
-        receiver_id = receiver_id.to_bytes(4, 'little')
-        data = data.to_bytes(4, 'little')
+        receiver_id = receiver_id.to_bytes(4, 'little', signed=True)
+        data = data.to_bytes(4, 'little', signed=True)
         self.__serial.write(receiver_id + data)
         
     def reset(self):

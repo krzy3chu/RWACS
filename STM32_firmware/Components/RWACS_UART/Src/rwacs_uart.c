@@ -28,7 +28,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-static uint32_t msg[2];
+static int32_t msg[2];
 
 static PID_HandleTypeDef* _hpid;
 
@@ -43,7 +43,7 @@ static PID_HandleTypeDef* _hpid;
 
 void RWACS_Parse_Data()
 {
-	uint32_t id = msg[0];
+	int32_t id = msg[0];
 	float32_t data = (float32_t)msg[1];
 	switch(id)
 	{
@@ -69,7 +69,7 @@ void RWACS_Parse_Data()
 HAL_StatusTypeDef RWACS_Print_Controller_State(float* setpoint, float* output,
 											   float* filtered_setpoint, float* controller_output)
 {
-	return RWACS_Print("%f, %f, %f, %f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
+	return RWACS_Print("%0.1f, %0.1f, %0.1f, %0.1f\n", *setpoint, *output, *filtered_setpoint, *controller_output);
 }
 
 void RWACS_UART_Init(PID_HandleTypeDef* hpid)
@@ -103,15 +103,15 @@ HAL_StatusTypeDef RWACS_Print(const char* fmt, ...)
     	return HAL_ERROR;
     }
 
-//    if(HAL_UART_Transmit(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size, HAL_MAX_DELAY)!= HAL_OK){
-//    	free(msg);
-//    	return HAL_ERROR;
-//    }
+    if(HAL_UART_Transmit(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size, HAL_MAX_DELAY)!= HAL_OK){
+    	free(msg);
+    	return HAL_ERROR;
+    }
 
-    if(HAL_UART_Transmit_DMA(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size)!= HAL_OK){
-        	free(msg);
-        	return HAL_ERROR;
-        }
+//    if(HAL_UART_Transmit_IT(CURRENT_UART_HANDLE, (uint8_t*)msg, msg_size)!= HAL_OK){
+//        free(msg);
+//        return HAL_ERROR;
+//    }
 
 
     free(msg);

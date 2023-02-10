@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 from uart import Uart
 
-BAUDRATE = 115200
+BAUDRATE = 460800
 CSV_FILE = "log.csv"
 RECORDING = False
 

@@ -73,6 +73,7 @@ static float32_t acceleration_filtered = 0;
 static ControllerStateTypeDef rwacs_state = REGULATION_STATE;
 
 volatile uint8_t new_cycle_flag = 0;
+volatile uint8_t dma_transmit_ready = 1;
 
 /* USER CODE END PV */
 
@@ -145,6 +146,7 @@ void regulate_decelerate()
 	DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
 	DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
 	RWACS_Print_Controller_State(&(hpid1.Setpoint), &angle_meas, &(hdrv8825_1.Speed), &acceleration);
+
 }
 
 /* USER CODE END 0 */
