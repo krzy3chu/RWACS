@@ -17,6 +17,9 @@
 
 /* Typedef -------------------------------------------------------------------*/
 
+/**
+ * @brief pid structure definition
+ */
 typedef struct {
 	float32_t Kp;
 	float32_t Ki;
@@ -34,18 +37,17 @@ typedef struct {
 /* Public function prototypes ------------------------------------------------*/
 
 /**
- * @brief Initialize pid function
- * @param[in] hpid: pid handler
- * @return Nothing
+ * @brief           Pid initialize function
+ * @param[in]       *pid points to a pid handle
+ * @return          Nothing
  */
 void PID_Init(PID_HandleTypeDef* hpid);
 
 /**
- * @brief Initialize pid function
- * @param[in] hpid: pid handler
- * @param[in] setpoint: input reference value
- * @param[in] feedback: output state measured value
- * @param[in] control: output control signal
+ * @brief           Pid control function
+ * @param[in]       *pid points to a pid handle
+ * @param[in]       *feedback points to feedback buffer
+ * @param[out]      *control points to feedback control
  * @return Nothing
  */
 void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control);

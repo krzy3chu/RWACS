@@ -17,7 +17,7 @@
 
 /* Public variables ----------------------------------------------------------*/
 
-extern PID_HandleTypeDef hpid1;
+extern PID_HandleTypeDef hpid1; /**< pid  handle */
 
 
 #endif /* PID_INC_PID_CONFIG_H_ */

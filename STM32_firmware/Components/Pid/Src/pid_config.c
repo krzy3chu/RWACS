@@ -14,6 +14,9 @@
 
 /* Public variables ----------------------------------------------------------*/
 
+/**
+ * @brief pid handle declaration
+ */
 PID_HandleTypeDef hpid1 = {
 		.Kp = 70,
 		.Ki = 0,

@@ -11,10 +11,15 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "pid.h"
-#include <stdlib.h>  // malloc, abs
+#include <stdlib.h>
 
-/* Public variables ----------------------------------------------------------*/
+/* Public function prototypes ------------------------------------------------*/
 
+/**
+ * @brief           Pid initialize function
+ * @param[in]       *pid points to a pid handle
+ * @return          Nothing
+ */
 void PID_Init(PID_HandleTypeDef* hpid){
 	hpid->Pid = malloc(sizeof(arm_pid_instance_f32));
 	hpid->Pid->Kp=hpid->Kp;
@@ -24,16 +29,23 @@ void PID_Init(PID_HandleTypeDef* hpid){
 
 }
 
+
+/**
+ * @brief           Pid control function
+ * @param[in]       *pid points to a pid handle
+ * @param[in]       *feedback points to feedback buffer
+ * @param[out]      *control points to feedback control
+ * @return Nothing
+ */
 void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control){
-	float cont = (-1) * arm_pid_f32(hpid->Pid, ((int) (hpid->Setpoint - *feedback)));
+	*control = (-1) * arm_pid_f32(hpid->Pid, ((int) (hpid->Setpoint - *feedback)));
 
 	/* ---------- scale pid signal to reduce non-linear object dynamic ---------- */
-	if(cont < -100){
-		cont -= 900;
-	}else if(cont > 100){
-		cont += 900;
+	if(*control < -100){
+		*control -= 900;
+	}else if(*control > 100){
+		*control += 900;
 	}else{
-		cont *= 10;
+		*control *= 10;
 	}
-	*control = cont;
 }

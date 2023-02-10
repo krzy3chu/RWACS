@@ -44,6 +44,7 @@ static PID_HandleTypeDef* _hpid; /**< pid  handle */
 /**
  * @brief     Uart parse data function
  * @note      parse received data and assign it to the pid handle
+ * @return    Nothing
  */
 void RWACS_Parse_Data()
 {
