@@ -34,7 +34,10 @@ def plot_logs():
     """
     Plot received data
     """
-    plt.plot(np.genfromtxt(CSV_FILE, delimiter=',')[:,0:2])
+    y = np.genfromtxt(CSV_FILE, delimiter=',')[:,0:2]
+    x = np.arange(0,y[:,0].size*0.02, 0.02)
+    print(x.size)
+    plt.plot(x, y)
     plt.grid()
     plt.show()
 
@@ -110,9 +113,9 @@ if __name__ == '__main__':
             RECORDING = False
 
         elif event == 'Plot':
-            try:
-                plot_logs()
-            except ValueError:
-                print("CSV file has to be repaired")
+            # try:
+            plot_logs()
+            # except ValueError:
+            #     print("CSV file has to be repaired")
 
     window.close()
