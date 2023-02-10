@@ -14,6 +14,9 @@
 
 /* Public variables ----------------------------------------------------------*/
 
+/**
+ * @brief drv8825 handle definition
+ */
 DRV8825_HandleTypeDef hdrv8825_1 = {
   .Tim = &htim2,
   .TimChannel = TIM_CHANNEL_1,

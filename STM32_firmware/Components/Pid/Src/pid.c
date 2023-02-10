@@ -17,7 +17,7 @@
 
 /**
  * @brief           Pid initialize function
- * @param[in]       *pid points to a pid handle
+ * @param[in]       *hpid points to a pid handle
  * @return          Nothing
  */
 void PID_Init(PID_HandleTypeDef* hpid){
@@ -29,10 +29,9 @@ void PID_Init(PID_HandleTypeDef* hpid){
 
 }
 
-
 /**
  * @brief           Pid control function
- * @param[in]       *pid points to a pid handle
+ * @param[in]       *hpid points to a pid handle
  * @param[in]       *feedback points to feedback buffer
  * @param[out]      *control points to feedback control
  * @return Nothing
@@ -40,7 +39,7 @@ void PID_Init(PID_HandleTypeDef* hpid){
 void PID_Control(PID_HandleTypeDef* hpid, float32_t* feedback, float32_t* control){
 	*control = (-1) * arm_pid_f32(hpid->Pid, ((int) (hpid->Setpoint - *feedback)));
 
-	/* ---------- scale pid signal to reduce non-linear object dynamic ---------- */
+	// Scale pid signal to reduce non-linear object dynamic
 	if(*control < -100){
 		*control -= 900;
 	}else if(*control > 100){

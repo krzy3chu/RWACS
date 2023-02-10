@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file		: derivative_limiter.h
+  * @file		: dx_limit.h
   * @author  	: Krzysztof Witkowski
   * @date    	: Jan 18, 2023
   * @brief   	: Derivative limiter configuration header file
@@ -8,8 +8,8 @@
   ******************************************************************************
   */
 
-#ifndef DERIVATIVE_LIMITER_INC_DERIVATIVE_LIMITER_H_
-#define DERIVATIVE_LIMITER_INC_DERIVATIVE_LIMITER_H_
+#ifndef DX_LIMIT_INC_DX_LIMIT_H_
+#define DX_LIMIT_INC_DX_LIMIT_H_
 
 /* Includes ------------------------------------------------------------------*/
 
@@ -17,6 +17,9 @@
 
 /* Typedef -------------------------------------------------------------------*/
 
+/**
+ * @brief derivative limiter handle struct definition
+ */
 typedef struct {
   float dx_limit;
   uint16_t fs;
@@ -24,18 +27,18 @@ typedef struct {
 }DX_HandleTypeDef;
 
 /**
- * @brief Initialize derivative_limiter function
- * @param[in] hcomp: derivative_limiter handler
- * @return Nothing
+ * @brief 		Initialize derivative limiter function
+ * @param[in] 	*hdx derivative_limiter handler
+ * @return 		Nothing
  */
 void DX_Init(DX_HandleTypeDef* hdx);
 
 /**
- * @brief Initialize derivative_limiter function
- * @param[in] hcomp: derivative_limiter handler
- * TODO
- * @return Nothing
+ * @brief 		Limit derivative of signal
+ * @param[in] 	*in input sample of signal
+ * @param[out] 	*out output filtered sample of signal
+ * @return 		Nothing
  */
 void DX_Limit(DX_HandleTypeDef* hdx, float* in, float* out);
 
-#endif /* DERIVATIVE_LIMITER_INC_DERIVATIVE_LIMITER_H_ */
+#endif /* DX_LIMIT_INC_DX_LIMIT_H_ */

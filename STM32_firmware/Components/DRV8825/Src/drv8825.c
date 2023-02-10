@@ -14,10 +14,22 @@
 
 /* Public function -----------------------------------------------------------*/
 
+/**
+ * @brief		 Start Tim timer in PWM mode
+ * @param[in]	 *hdrv8825 DRV8825 handler
+ * @retval		 HAL_status from PWM start function
+ */
 HAL_StatusTypeDef DRV8825_Init(DRV8825_HandleTypeDef* hdrv8825){
 	 return HAL_TIM_PWM_Start(hdrv8825->Tim, hdrv8825->TimChannel);
 }
 
+/**
+ * @brief		Set timer, Dir and Enbl pins properly according to target speed
+ * @param[in]	*hdrv8825 DRV8825 handler
+ * @param[in]	*speed target motor rotational speed
+ * @retval		HAL_OK speed is setup properly
+ * @retval	  	HAL_ERROR absolute value of target speed is higher than maximum motor rotational speed
+ */
 HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_SpeedType* speed){
 
 	// Protect from setting speed higher than maximum
@@ -58,6 +70,13 @@ HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_Spee
 	return HAL_OK;
 }
 
+/**
+ * @brief 		Set motor speed according to desired acceleration
+ * @param[in]	*hdrv8825 DRV8825 handler
+ * @param[in]	*acceleration desired acceleration, expressed in degrees per second squared
+ * @retval 		HAL_OK speed is setup properly
+ * @retval		HAL_ERROR absolute value of target speed is higher than maximum motor rotational speed set in DRV8825_MaxSpeed definition
+ */
 HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration){
 	float acc_speed;
 	if(*acceleration > hdrv8825->MaxAcceleration){

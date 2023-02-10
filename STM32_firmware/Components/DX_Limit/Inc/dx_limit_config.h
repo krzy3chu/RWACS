@@ -1,20 +1,22 @@
 /**
   ******************************************************************************
-  * @file		: derivative_limiter_config.c
+  * @file		: dx_limit_config.h
   * @author  	: Krzysztof Witkowski
   * @date    	: Jan 18, 2023
-  * @brief   	: Derivative limiter configuration source code file
+  * @brief   	: Derivative limiter configuration header file
   *
   ******************************************************************************
   */
 
+#ifndef DX_LIMIT_INC_DX_LIMIT_CONFIG_H_
+#define DX_LIMIT_INC_DX_LIMIT_CONFIG_H_
+
 /* Includes ------------------------------------------------------------------*/
 
-#include "derivative_limiter_config.h"
+#include "dx_limit.h"
 
 /* Public variables ----------------------------------------------------------*/
 
-DX_HandleTypeDef hdx1 = {
-		.dx_limit = 80000,
-		.fs = 50
-};
+extern DX_HandleTypeDef hdx1; /**< derivative limiter handle */
+
+#endif /* DX_LIMIT_INC_DX_LIMIT_CONFIG_H_ */

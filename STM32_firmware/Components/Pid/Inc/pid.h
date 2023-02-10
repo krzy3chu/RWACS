@@ -28,24 +28,18 @@ typedef struct {
 	arm_pid_instance_f32* Pid;
 } PID_HandleTypeDef;
 
-/* Define --------------------------------------------------------------------*/
-
-/* Macro ---------------------------------------------------------------------*/
-
-/* Public variables ----------------------------------------------------------*/
-
 /* Public function prototypes ------------------------------------------------*/
 
 /**
  * @brief           Pid initialize function
- * @param[in]       *pid points to a pid handle
+ * @param[in]       *hpid points to a pid handle
  * @return          Nothing
  */
 void PID_Init(PID_HandleTypeDef* hpid);
 
 /**
  * @brief           Pid control function
- * @param[in]       *pid points to a pid handle
+ * @param[in]       *hpid points to a pid handle
  * @param[in]       *feedback points to feedback buffer
  * @param[out]      *control points to feedback control
  * @return Nothing
