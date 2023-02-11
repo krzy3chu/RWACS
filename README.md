@@ -1,15 +1,10 @@
 # :artificial_satellite: Reaction Wheel Attitude Control System :artificial_satellite:
 
 
-<p align="center">
-	**RWACS** is a platform that simulates a real spacecraft attitude control.
-</p>
+**RWACS** is a platform that simulates a real spacecraft attitude control.
 
-
-<p align="center">
-  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
-</p>
+<img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
 
 
 ## Goal :dart:
