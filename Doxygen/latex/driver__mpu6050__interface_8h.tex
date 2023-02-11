@@ -1,0 +1,71 @@
+\hypertarget{driver__mpu6050__interface_8h}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+IMU/\+Inc/driver\+\_\+mpu6050\+\_\+interface.h File Reference}
+\label{driver__mpu6050__interface_8h}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Inc/driver\_mpu6050\_interface.h@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Inc/driver\_mpu6050\_interface.h}}
+
+
+driver mpu6050 interface header file  
+
+
+{\ttfamily \#include \char`\"{}driver\+\_\+mpu6050.\+h\char`\"{}}\newline
+Include dependency graph for driver\+\_\+mpu6050\+\_\+interface.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_gae82a00b862b6c02b4f76f5ccd3d820c6}{mpu6050\+\_\+interface\+\_\+iic\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em interface iic bus init \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_ga4ad3030755a97f7067d958d34bfbdfe4}{mpu6050\+\_\+interface\+\_\+iic\+\_\+deinit}} (void)
+\begin{DoxyCompactList}\small\item\em interface iic bus deinit \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_ga5ed51358859988d3b6168c1c34ff6571}{mpu6050\+\_\+interface\+\_\+iic\+\_\+read}} (uint8\+\_\+t addr, uint8\+\_\+t reg, uint8\+\_\+t $\ast$buf, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em interface iic bus read \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_gaddddbfa804e2824445fea96c14e1b590}{mpu6050\+\_\+interface\+\_\+iic\+\_\+write}} (uint8\+\_\+t addr, uint8\+\_\+t reg, uint8\+\_\+t $\ast$buf, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em interface iic bus write \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_gaff78feee028c344ef7da403a23696b51}{mpu6050\+\_\+interface\+\_\+delay\+\_\+ms}} (uint32\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em interface delay ms \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga766f67d9a4579de12f966228ea1250f3}{mpu6050\+\_\+interface\+\_\+debug\+\_\+print}} (const char $\ast$const fmt,...)
+\begin{DoxyCompactList}\small\item\em interface print format data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_gaf09d98bce66f648d644cfe93f3ec5fe7}{mpu6050\+\_\+interface\+\_\+receive\+\_\+callback}} (uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em interface receive callback \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga15f00112e11f9787ed2e5323968fdb6e}{mpu6050\+\_\+interface\+\_\+dmp\+\_\+tap\+\_\+callback}} (uint8\+\_\+t count, uint8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em interface dmp tap callback \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga4885b5ea879f63878c1cb8cacbbc0f04}{mpu6050\+\_\+interface\+\_\+dmp\+\_\+orient\+\_\+callback}} (uint8\+\_\+t orientation)
+\begin{DoxyCompactList}\small\item\em interface dmp orient callback \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+driver mpu6050 interface header file 
+
+Copyright (c) 2015 -\/ present Lib\+Driver All rights reserved
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Shifeng Li 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2022-\/06-\/30
+\end{DoxyDate}
+\doxyparagraph*{history}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endhead
+2022/06/30 &1.\+0 &Shifeng Li &first upload \\\cline{1-4}
+\end{longtabu}

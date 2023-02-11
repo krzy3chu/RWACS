@@ -46,7 +46,7 @@ extern "C"{
 #endif
 
 /**
- * @defgroup mpu6050_driver mpu6050 driver function
+ * @defgroup mpu6050_driver MPU6050 driver function
  * @brief    mpu6050 driver modules
  * @{
  */

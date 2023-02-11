@@ -1,0 +1,41 @@
+\hypertarget{rwacs__uart_8c}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+RWACS\+\_\+\+UART/\+Src/rwacs\+\_\+uart.c File Reference}
+\label{rwacs__uart_8c}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/RWACS\_UART/Src/rwacs\_uart.c@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/RWACS\_UART/Src/rwacs\_uart.c}}
+
+
+\+: rwacs\+\_\+uart source code file  
+
+
+{\ttfamily \#include \char`\"{}rwacs\+\_\+uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f7xx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}\newline
+Include dependency graph for rwacs\+\_\+uart.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__RWACS__UART_ga5c277cb7466352d95ab5ca2872e304a7}{RWACS\+\_\+\+Parse\+\_\+\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Uart parse data function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga2a17e3f60957b667e83a06e80f01fa2c}{RWACS\+\_\+\+Print\+\_\+\+Controller\+\_\+\+State}} (float $\ast$setpoint, float $\ast$output, float $\ast$filtered\+\_\+setpoint, float $\ast$controller\+\_\+output)
+\begin{DoxyCompactList}\small\item\em Uart print controller state function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__RWACS__UART_ga51bad08106d158e0901511b486dcf6f1}{RWACS\+\_\+\+UART\+\_\+\+Init}} (\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$hpid)
+\begin{DoxyCompactList}\small\item\em Uart assign pid handle function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga49f39fd489c4bbee395261498c1559d4}{RWACS\+\_\+\+Print}} (const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Uart print controller state function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga0c45699a74c0be9e945b94a9fa2398b1}{RWACS\+\_\+\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Uart dma receive function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: rwacs\+\_\+uart source code file 
+
+\begin{DoxyAuthor}{Author}
+\+: Mateusz Koza 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: Jan 5, 2023 
+\end{DoxyDate}

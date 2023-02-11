@@ -1,0 +1,17 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/IMU/Inc/driver_mpu6050.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/IMU/Inc/driver_mpu6050.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="driver mpu6050 header file"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/IMU/Inc/driver_mpu6050_interface.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$driver__mpu6050__interface_8h.html",tooltip="driver mpu6050 interface header file"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/IMU/Inc/driver_mpu6050_dmp.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$driver__mpu6050__dmp_8h.html",tooltip="driver mpu6050 dmp header file"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/IMU/Src/driver_mpu6050_dmp.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$driver__mpu6050__dmp_8c.html",tooltip="driver mpu6050 dmp source file"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Core\l/Src/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip=": Main program body"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/IMU/Src/driver_mpu6050.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$driver__mpu6050_8c.html",tooltip="driver mpu6050 source file"];
+}

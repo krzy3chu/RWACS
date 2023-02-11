@@ -1,0 +1,99 @@
+\hypertarget{group__Encoder}{}\doxysection{Encoder module}
+\label{group__Encoder}\index{Encoder module@{Encoder module}}
+
+
+Encoder struct and functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em encoder structure definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Encoder_ga874742802ce09068fa3155ae6fb4ac9f}\label{group__Encoder_ga874742802ce09068fa3155ae6fb4ac9f}} 
+\#define \mbox{\hyperlink{group__Encoder_ga874742802ce09068fa3155ae6fb4ac9f}{ENC\+\_\+\+Port\+Type}}~GPIO\+\_\+\+Type\+Def$\ast$
+\begin{DoxyCompactList}\small\item\em encoder type defines \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__Encoder_ga831019f152c5b8fccdb236de1b8eff76}\label{group__Encoder_ga831019f152c5b8fccdb236de1b8eff76}} 
+\#define {\bfseries ENC\+\_\+\+Pin\+Type}~uint16\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{group__Encoder_gac73c14b31edc022e4b9f6a7308841568}{ENC\+\_\+\+Update\+Counter}} (\mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} $\ast$henc, ENC\+\_\+\+Pin\+Type pin)
+\begin{DoxyCompactList}\small\item\em \+: Encoder update counter function \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__Encoder_ga370c5da0ec09552685cf8996cc8f2bcb}{ENC\+\_\+\+On\+Button\+Press}} (\mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} $\ast$henc, ENC\+\_\+\+Pin\+Type pin)
+\begin{DoxyCompactList}\small\item\em \+: Encoder on button press function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group__Encoder_gafa31306bd53f96ca5f912174333673de}{henc1}}
+\begin{DoxyCompactList}\small\item\em encoder handle declaration \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encoder struct and functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Encoder_ga370c5da0ec09552685cf8996cc8f2bcb}\label{group__Encoder_ga370c5da0ec09552685cf8996cc8f2bcb}} 
+\index{Encoder module@{Encoder module}!ENC\_OnButtonPress@{ENC\_OnButtonPress}}
+\index{ENC\_OnButtonPress@{ENC\_OnButtonPress}!Encoder module@{Encoder module}}
+\doxysubsubsection{\texorpdfstring{ENC\_OnButtonPress()}{ENC\_OnButtonPress()}}
+{\footnotesize\ttfamily bool ENC\+\_\+\+On\+Button\+Press (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} $\ast$}]{henc,  }\item[{ENC\+\_\+\+Pin\+Type}]{pin }\end{DoxyParamCaption})}
+
+
+
+\+: Encoder on button press function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$henc} & points to a enoder handle \\
+\hline
+\mbox{\texttt{ in}}  & {\em pin} & is a pin type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: pin type
+\begin{DoxyItemize}
+\item true encoder button
+\item false not encoder button 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Encoder_gac73c14b31edc022e4b9f6a7308841568}\label{group__Encoder_gac73c14b31edc022e4b9f6a7308841568}} 
+\index{Encoder module@{Encoder module}!ENC\_UpdateCounter@{ENC\_UpdateCounter}}
+\index{ENC\_UpdateCounter@{ENC\_UpdateCounter}!Encoder module@{Encoder module}}
+\doxysubsubsection{\texorpdfstring{ENC\_UpdateCounter()}{ENC\_UpdateCounter()}}
+{\footnotesize\ttfamily int16\+\_\+t ENC\+\_\+\+Update\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} $\ast$}]{henc,  }\item[{ENC\+\_\+\+Pin\+Type}]{pin }\end{DoxyParamCaption})}
+
+
+
+\+: Encoder update counter function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$henc} & point to a encoder handle \\
+\hline
+\mbox{\texttt{ in}}  & {\em pin} & is a pin type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: counter value 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__Encoder_gafa31306bd53f96ca5f912174333673de}\label{group__Encoder_gafa31306bd53f96ca5f912174333673de}} 
+\index{Encoder module@{Encoder module}!henc1@{henc1}}
+\index{henc1@{henc1}!Encoder module@{Encoder module}}
+\doxysubsubsection{\texorpdfstring{henc1}{henc1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structENC__HandleTypeDef}{ENC\+\_\+\+Handle\+Type\+Def}} henc1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+encoder handle declaration 
+
+encoder handle 

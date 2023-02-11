@@ -1,0 +1,12 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_5d1c508b9ff83449541a97e299fd77a1 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_5d1c508b9ff83449541a97e299fd77a1.html"];
+    dir_5d1c508b9ff83449541a97e299fd77a1 [shape=plaintext label="STM32_firmware"];
+  dir_51c6471e9ff1fde0f9aea20ca817e4f0 [shape=box label="Components" fillcolor="white" style="filled" color="red" URL="dir_51c6471e9ff1fde0f9aea20ca817e4f0.html"];
+  dir_6a7b87ec4bbec922bae060a5d494bbb2 [shape=box label="Core" fillcolor="white" style="filled" color="red" URL="dir_6a7b87ec4bbec922bae060a5d494bbb2.html"];
+  }
+  dir_6a7b87ec4bbec922bae060a5d494bbb2->dir_51c6471e9ff1fde0f9aea20ca817e4f0 [headlabel="6", labeldistance=1.5 headhref="dir_000020_000001.html"];
+}

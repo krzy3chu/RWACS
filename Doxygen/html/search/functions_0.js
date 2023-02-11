@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['drv8825_5finit_641',['DRV8825_Init',['../group__DRV8825.html#gad2528d62f2688b14b37b967b4f75b057',1,'DRV8825_Init(DRV8825_HandleTypeDef *hdrv8825):&#160;drv8825.c'],['../group__DRV8825.html#gad2528d62f2688b14b37b967b4f75b057',1,'DRV8825_Init(DRV8825_HandleTypeDef *hdrv8825):&#160;drv8825.c']]],
+  ['drv8825_5fsetacceleration_642',['DRV8825_SetAcceleration',['../group__DRV8825.html#gae22de907814c4b18814b46461840f9b5',1,'DRV8825_SetAcceleration(DRV8825_HandleTypeDef *hdrv8825, DRV8825_AccelerationType *acceleration):&#160;drv8825.c'],['../group__DRV8825.html#gae22de907814c4b18814b46461840f9b5',1,'DRV8825_SetAcceleration(DRV8825_HandleTypeDef *hdrv8825, DRV8825_AccelerationType *acceleration):&#160;drv8825.c']]],
+  ['drv8825_5fsetspeed_643',['DRV8825_SetSpeed',['../group__DRV8825.html#ga7e7dcca6d1428843035f760f30928d90',1,'DRV8825_SetSpeed(DRV8825_HandleTypeDef *hdrv8825, DRV8825_SpeedType *speed):&#160;drv8825.c'],['../group__DRV8825.html#ga7e7dcca6d1428843035f760f30928d90',1,'DRV8825_SetSpeed(DRV8825_HandleTypeDef *hdrv8825, DRV8825_SpeedType *speed):&#160;drv8825.c']]],
+  ['dx_5finit_644',['DX_Init',['../group__DX__Limit.html#gaaf7532377c6a72987d5cd073dd3f8da3',1,'DX_Init(DX_HandleTypeDef *hdx):&#160;dx_limit.c'],['../group__DX__Limit.html#gaaf7532377c6a72987d5cd073dd3f8da3',1,'DX_Init(DX_HandleTypeDef *hdx):&#160;dx_limit.c']]],
+  ['dx_5flimit_645',['DX_Limit',['../group__DX__Limit.html#ga48dc3cfbccc43b783b43a0b0d77209e1',1,'DX_Limit(DX_HandleTypeDef *hdx, float *in, float *out):&#160;dx_limit.c'],['../group__DX__Limit.html#ga48dc3cfbccc43b783b43a0b0d77209e1',1,'DX_Limit(DX_HandleTypeDef *hdx, float *in, float *out):&#160;dx_limit.c']]]
+];

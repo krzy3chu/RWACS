@@ -1,0 +1,65 @@
+\hypertarget{group__DX__Limit}{}\doxysection{Derivative limiter module}
+\label{group__DX__Limit}\index{Derivative limiter module@{Derivative limiter module}}
+
+
+Derivative limiter driver struct and functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em derivative limiter handle struct definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__DX__Limit_gaaf7532377c6a72987d5cd073dd3f8da3}{DX\+\_\+\+Init}} (\mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} $\ast$hdx)
+\begin{DoxyCompactList}\small\item\em Initialize derivative limiter function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__DX__Limit_ga48dc3cfbccc43b783b43a0b0d77209e1}{DX\+\_\+\+Limit}} (\mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} $\ast$hdx, float $\ast$in, float $\ast$out)
+\begin{DoxyCompactList}\small\item\em Limit derivative of signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Derivative limiter driver struct and functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__DX__Limit_gaaf7532377c6a72987d5cd073dd3f8da3}\label{group__DX__Limit_gaaf7532377c6a72987d5cd073dd3f8da3}} 
+\index{Derivative limiter module@{Derivative limiter module}!DX\_Init@{DX\_Init}}
+\index{DX\_Init@{DX\_Init}!Derivative limiter module@{Derivative limiter module}}
+\doxysubsubsection{\texorpdfstring{DX\_Init()}{DX\_Init()}}
+{\footnotesize\ttfamily void DX\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hdx }\end{DoxyParamCaption})}
+
+
+
+Initialize derivative limiter function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hdx} & derivative\+\_\+limiter handler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__DX__Limit_ga48dc3cfbccc43b783b43a0b0d77209e1}\label{group__DX__Limit_ga48dc3cfbccc43b783b43a0b0d77209e1}} 
+\index{Derivative limiter module@{Derivative limiter module}!DX\_Limit@{DX\_Limit}}
+\index{DX\_Limit@{DX\_Limit}!Derivative limiter module@{Derivative limiter module}}
+\doxysubsubsection{\texorpdfstring{DX\_Limit()}{DX\_Limit()}}
+{\footnotesize\ttfamily void DX\+\_\+\+Limit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hdx,  }\item[{float $\ast$}]{in,  }\item[{float $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Limit derivative of signal. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$in} & input sample of signal \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$out} & output filtered sample of signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}

@@ -46,7 +46,7 @@ extern "C"{
 #endif
 
 /**
- * @addtogroup mpu6050_example_driver
+ * @addtogroup mpu6050_dmp_driver
  * @{
  */
 

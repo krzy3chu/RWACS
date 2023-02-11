@@ -1,0 +1,232 @@
+\hypertarget{group__mpu6050__interface__driver}{}\doxysection{mpu6050 interface driver function}
+\label{group__mpu6050__interface__driver}\index{mpu6050 interface driver function@{mpu6050 interface driver function}}
+
+
+mpu6050 interface driver modules  
+
+
+Collaboration diagram for mpu6050 interface driver function\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_gae82a00b862b6c02b4f76f5ccd3d820c6}{mpu6050\+\_\+interface\+\_\+iic\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em interface iic bus init \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_ga4ad3030755a97f7067d958d34bfbdfe4}{mpu6050\+\_\+interface\+\_\+iic\+\_\+deinit}} (void)
+\begin{DoxyCompactList}\small\item\em interface iic bus deinit \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_ga5ed51358859988d3b6168c1c34ff6571}{mpu6050\+\_\+interface\+\_\+iic\+\_\+read}} (uint8\+\_\+t addr, uint8\+\_\+t reg, uint8\+\_\+t $\ast$buf, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em interface iic bus read \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__interface__driver_gaddddbfa804e2824445fea96c14e1b590}{mpu6050\+\_\+interface\+\_\+iic\+\_\+write}} (uint8\+\_\+t addr, uint8\+\_\+t reg, uint8\+\_\+t $\ast$buf, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em interface iic bus write \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_gaff78feee028c344ef7da403a23696b51}{mpu6050\+\_\+interface\+\_\+delay\+\_\+ms}} (uint32\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em interface delay ms \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga766f67d9a4579de12f966228ea1250f3}{mpu6050\+\_\+interface\+\_\+debug\+\_\+print}} (const char $\ast$const fmt,...)
+\begin{DoxyCompactList}\small\item\em interface print format data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_gaf09d98bce66f648d644cfe93f3ec5fe7}{mpu6050\+\_\+interface\+\_\+receive\+\_\+callback}} (uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em interface receive callback \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga15f00112e11f9787ed2e5323968fdb6e}{mpu6050\+\_\+interface\+\_\+dmp\+\_\+tap\+\_\+callback}} (uint8\+\_\+t count, uint8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em interface dmp tap callback \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mpu6050__interface__driver_ga4885b5ea879f63878c1cb8cacbbc0f04}{mpu6050\+\_\+interface\+\_\+dmp\+\_\+orient\+\_\+callback}} (uint8\+\_\+t orientation)
+\begin{DoxyCompactList}\small\item\em interface dmp orient callback \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+mpu6050 interface driver modules 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_ga766f67d9a4579de12f966228ea1250f3}\label{group__mpu6050__interface__driver_ga766f67d9a4579de12f966228ea1250f3}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_debug\_print@{mpu6050\_interface\_debug\_print}}
+\index{mpu6050\_interface\_debug\_print@{mpu6050\_interface\_debug\_print}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_debug\_print()}{mpu6050\_interface\_debug\_print()}}
+{\footnotesize\ttfamily void mpu6050\+\_\+interface\+\_\+debug\+\_\+print (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+interface print format data 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fmt} & is the format data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_gaff78feee028c344ef7da403a23696b51}\label{group__mpu6050__interface__driver_gaff78feee028c344ef7da403a23696b51}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_delay\_ms@{mpu6050\_interface\_delay\_ms}}
+\index{mpu6050\_interface\_delay\_ms@{mpu6050\_interface\_delay\_ms}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_delay\_ms()}{mpu6050\_interface\_delay\_ms()}}
+{\footnotesize\ttfamily void mpu6050\+\_\+interface\+\_\+delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+
+
+interface delay ms 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ms} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_ga4885b5ea879f63878c1cb8cacbbc0f04}\label{group__mpu6050__interface__driver_ga4885b5ea879f63878c1cb8cacbbc0f04}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_dmp\_orient\_callback@{mpu6050\_interface\_dmp\_orient\_callback}}
+\index{mpu6050\_interface\_dmp\_orient\_callback@{mpu6050\_interface\_dmp\_orient\_callback}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_dmp\_orient\_callback()}{mpu6050\_interface\_dmp\_orient\_callback()}}
+{\footnotesize\ttfamily void mpu6050\+\_\+interface\+\_\+dmp\+\_\+orient\+\_\+callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{orientation }\end{DoxyParamCaption})}
+
+
+
+interface dmp orient callback 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em orientation} & is the dmp orientation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_ga15f00112e11f9787ed2e5323968fdb6e}\label{group__mpu6050__interface__driver_ga15f00112e11f9787ed2e5323968fdb6e}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_dmp\_tap\_callback@{mpu6050\_interface\_dmp\_tap\_callback}}
+\index{mpu6050\_interface\_dmp\_tap\_callback@{mpu6050\_interface\_dmp\_tap\_callback}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_dmp\_tap\_callback()}{mpu6050\_interface\_dmp\_tap\_callback()}}
+{\footnotesize\ttfamily void mpu6050\+\_\+interface\+\_\+dmp\+\_\+tap\+\_\+callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{count,  }\item[{uint8\+\_\+t}]{direction }\end{DoxyParamCaption})}
+
+
+
+interface dmp tap callback 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em count} & is the tap count \\
+\hline
+\mbox{\texttt{ in}}  & {\em direction} & is the tap direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_ga4ad3030755a97f7067d958d34bfbdfe4}\label{group__mpu6050__interface__driver_ga4ad3030755a97f7067d958d34bfbdfe4}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_iic\_deinit@{mpu6050\_interface\_iic\_deinit}}
+\index{mpu6050\_interface\_iic\_deinit@{mpu6050\_interface\_iic\_deinit}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_iic\_deinit()}{mpu6050\_interface\_iic\_deinit()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+interface\+\_\+iic\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+interface iic bus deinit 
+
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 iic deinit failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_gae82a00b862b6c02b4f76f5ccd3d820c6}\label{group__mpu6050__interface__driver_gae82a00b862b6c02b4f76f5ccd3d820c6}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_iic\_init@{mpu6050\_interface\_iic\_init}}
+\index{mpu6050\_interface\_iic\_init@{mpu6050\_interface\_iic\_init}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_iic\_init()}{mpu6050\_interface\_iic\_init()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+interface\+\_\+iic\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+interface iic bus init 
+
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 iic init failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_ga5ed51358859988d3b6168c1c34ff6571}\label{group__mpu6050__interface__driver_ga5ed51358859988d3b6168c1c34ff6571}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_iic\_read@{mpu6050\_interface\_iic\_read}}
+\index{mpu6050\_interface\_iic\_read@{mpu6050\_interface\_iic\_read}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_iic\_read()}{mpu6050\_interface\_iic\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+interface\+\_\+iic\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+interface iic bus read 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em addr} & is the iic device write address \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg} & is the iic register address \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$buf} & points to a data buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & is the length of the data buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 read failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_gaddddbfa804e2824445fea96c14e1b590}\label{group__mpu6050__interface__driver_gaddddbfa804e2824445fea96c14e1b590}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_iic\_write@{mpu6050\_interface\_iic\_write}}
+\index{mpu6050\_interface\_iic\_write@{mpu6050\_interface\_iic\_write}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_iic\_write()}{mpu6050\_interface\_iic\_write()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+interface\+\_\+iic\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+interface iic bus write 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em addr} & is the iic device write address \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg} & is the iic register address \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$buf} & points to a data buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & is the length of the data buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 write failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__interface__driver_gaf09d98bce66f648d644cfe93f3ec5fe7}\label{group__mpu6050__interface__driver_gaf09d98bce66f648d644cfe93f3ec5fe7}} 
+\index{mpu6050 interface driver function@{mpu6050 interface driver function}!mpu6050\_interface\_receive\_callback@{mpu6050\_interface\_receive\_callback}}
+\index{mpu6050\_interface\_receive\_callback@{mpu6050\_interface\_receive\_callback}!mpu6050 interface driver function@{mpu6050 interface driver function}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_interface\_receive\_callback()}{mpu6050\_interface\_receive\_callback()}}
+{\footnotesize\ttfamily void mpu6050\+\_\+interface\+\_\+receive\+\_\+callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+interface receive callback 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & is the irq type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}

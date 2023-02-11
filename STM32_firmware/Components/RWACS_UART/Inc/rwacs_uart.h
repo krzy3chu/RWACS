@@ -19,8 +19,18 @@
 #include "usart.h"
 #include "pid.h"
 
-/* Typedef -------------------------------------------------------------------*/
+/**
+ * @defgroup RWACS_UART RWACS UART module
+ * @brief    Serial UART communication functions
+ * @{
+ */
 
+/**
+ * @addtogroup RWACS_UART
+ * @{
+ */
+
+/* Typedef -------------------------------------------------------------------*/
 
 /**
  * @brief uart communication codes enumeration definition
@@ -78,5 +88,13 @@ HAL_StatusTypeDef RWACS_Print(const char *fmt, ...);
  * @note      	return code uses HAL_StatusTypeDef
  */
 HAL_StatusTypeDef RWACS_Receive();
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif /* INC_RWACS_H_ */

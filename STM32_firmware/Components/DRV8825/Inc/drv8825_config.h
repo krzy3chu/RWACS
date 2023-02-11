@@ -17,6 +17,15 @@
 
 /* Public variables ----------------------------------------------------------*/
 
+/**
+ * @addtogroup DRV8825
+ * @{
+ */
+
 extern DRV8825_HandleTypeDef hdrv8825_1; /**< drv8825 handle */
+
+/**
+ * @}
+ */
 
 #endif /* INC_DRV8825_CONFIG_H_ */

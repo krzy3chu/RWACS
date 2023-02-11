@@ -1,0 +1,15 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/Pid" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_51c6471e9ff1fde0f9aea20ca817e4f0 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Components" fontname="Helvetica", fontsize="10", URL="dir_51c6471e9ff1fde0f9aea20ca817e4f0.html"]
+  subgraph clusterdir_e1609c15a898e9351814a5d7193aca86 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_e1609c15a898e9351814a5d7193aca86.html"];
+    dir_e1609c15a898e9351814a5d7193aca86 [shape=plaintext label="Pid"];
+  dir_30b7f9c7604624be6e7f1ce55a14dfd1 [shape=box label="Inc" fillcolor="white" style="filled" URL="dir_30b7f9c7604624be6e7f1ce55a14dfd1.html"];
+  dir_8e3a747d740a1d6a5c2f75cfd48d70e4 [shape=box label="Src" fillcolor="white" style="filled" URL="dir_8e3a747d740a1d6a5c2f75cfd48d70e4.html"];
+  }
+  }
+  dir_8e3a747d740a1d6a5c2f75cfd48d70e4->dir_30b7f9c7604624be6e7f1ce55a14dfd1 [headlabel="2", labeldistance=1.5 headhref="dir_000016_000015.html"];
+}

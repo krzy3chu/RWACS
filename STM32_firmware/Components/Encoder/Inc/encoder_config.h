@@ -18,6 +18,15 @@
 
 /* Public variables ----------------------------------------------------------*/
 
+/**
+ * @addtogroup Encoder
+ * @{
+ */
+
 extern ENC_HandleTypeDef henc1; /**< encoder  handle */
+
+/**
+ * @}
+ */
 
 #endif /* INC_ENCODER_CONFIG_H_ */

@@ -15,6 +15,17 @@
 
 #include "tim.h"
 
+/**
+ * @defgroup DRV8825 DRV8825 driver module
+ * @brief    DRV8825 step motor driver struct and functions
+ * @{
+ */
+
+/**
+ * @addtogroup DRV8825
+ * @{
+ */
+
 /* Define --------------------------------------------------------------------*/
 
 #define DRV8825_TimType 			TIM_HandleTypeDef*
@@ -85,5 +96,12 @@ HAL_StatusTypeDef DRV8825_SetSpeed(DRV8825_HandleTypeDef* hdrv8825, DRV8825_Spee
  */
 HAL_StatusTypeDef DRV8825_SetAcceleration(DRV8825_HandleTypeDef* hdrv8825, DRV8825_AccelerationType* acceleration);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif /* INC_DRV8825_H_ */

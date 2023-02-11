@@ -1,0 +1,141 @@
+\hypertarget{driver__mpu6050__dmp_8h}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+IMU/\+Inc/driver\+\_\+mpu6050\+\_\+dmp.h File Reference}
+\label{driver__mpu6050__dmp_8h}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Inc/driver\_mpu6050\_dmp.h@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/IMU/Inc/driver\_mpu6050\_dmp.h}}
+
+
+driver mpu6050 dmp header file  
+
+
+{\ttfamily \#include \char`\"{}driver\+\_\+mpu6050\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f7xx\+\_\+hal.\+h\char`\"{}}\newline
+Include dependency graph for driver\+\_\+mpu6050\+\_\+dmp.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga62e46dfe5cda41b517e8e26446ed4699}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CLOCK\+\_\+\+SOURCE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga74884d5b9f95c2b758d299bc28a65095a796540b1243fe91dec02a2d4e4e3f264}{MPU6050\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+PLL\+\_\+\+X\+\_\+\+GYRO}}
+\begin{DoxyCompactList}\small\item\em mpu6050 dmp example default definition \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga1ebc931b151bcc83931555ac94dff726}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+RATE}}~100
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga4bea2070de1971614fcdaabea49bc7ba}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+ACCELEROMETER\+\_\+\+RANGE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggaaa9295dfae70a56066f5687bc85cdf6eadf861712710f18cf4913db8175cd084c}{MPU6050\+\_\+\+ACCELEROMETER\+\_\+\+RANGE\+\_\+2G}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga428b94db8c8f46d6582a46cc9518e020}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+GYROSCOPE\+\_\+\+RANGE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga334608694ff39953897e2b6f008f15d0a4cd35dc28b0eb372c0eb62c07df98254}{MPU6050\+\_\+\+GYROSCOPE\+\_\+\+RANGE\+\_\+2000\+DPS}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gaa6e1c5708ac195bbfe79cd2fc981efb3}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggad12172179ecd4f5cc01204041d70b54fa4cd5516d2a38bf83fd0aab9e87488007}{MPU6050\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER\+\_\+3}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga4d74117f39762ed96d77db36d1f3e129}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CYCLE\+\_\+\+WAKE\+\_\+\+UP}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga40cdb53587b7573f6dfc08bc36f94373}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga17d7c941660868be0ab4804ec2f89e68a0ec2d7232cefb18fa767166791937216}{MPU6050\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY\+\_\+1\+P25\+\_\+\+HZ}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gafff0fd90d0d69f6f97ba5e24daa2c8b7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+LEVEL}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga20b878b26d940dc961462c01bfdd62c1}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+TYPE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga10b85492273e69a281067454513f067da0d492c44744845083692f91cf03e0434}{MPU6050\+\_\+\+PIN\+\_\+\+TYPE\+\_\+\+PUSH\+\_\+\+PULL}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gaca388163fe1a639560e88240d38f9d55}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MOTION}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gad1bdc305cba10c66fb6ef167feb685c4}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+FIFO\+\_\+\+OVERFLOW}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gab240e8be48cdc11ac329051a607ad313}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DMP}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gadee8371b96768697ef43dcd2a407b584}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+I2\+C\+\_\+\+MAST}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gaa204340302a9f66487cd6b11211958d3}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DATA\+\_\+\+READY}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga561c48680c088d88d8b72e93b4c8c45a}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+LATCH}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga3c3d2029b29053cd2d8d81215bfe580b}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+READ\+\_\+\+CLEAR}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gaad1b2e2cfb0fdd8e981b21f3ad856dd1}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+EXTERN\+\_\+\+SYNC}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga43e667c1edd709208cb678c6a367f105aa21f5b59fd45369362695addf2730976}{MPU6050\+\_\+\+EXTERN\+\_\+\+SYNC\+\_\+\+INPUT\+\_\+\+DISABLED}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gad030ccdf25747f2296563dad77251c5d}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gae96b940358d765a8f5edc9bbe8b5280d}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT\+\_\+\+LEVEL}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga0042f11cb2fd5d1b569d9b8fee6c1f43}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+MASTER}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga33082ed175fd1fd1339ec189ba34e7f9}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+BYPASS}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gac5364b536e6b051140c9e788944a3b17}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+WALK\+\_\+\+TIME}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gabb342ca4aea8b7aba86daa9d1da7bbf7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+STEP\+\_\+\+COUNT}}~0
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga62ccc41076f7976b18a176cbc89351ad}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIMEOUT}}~10
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga9cf62b46e11945293171dcd1eed41538}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIME}}~40
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gaa5e9073fae89612bba115bd17829ed25}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+THRESH}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga4af4090ebe43a2a31dee1402234debbf}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME\+\_\+\+MULTI}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gad790e270ed85b0426f4cddaf33e37993}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME}}~100
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gae041de9c54ec283f1c8f7d1236699105}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MIN\+\_\+\+TAP\+\_\+\+COUNT}}~1
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga3d440aa7c7a41d6261fece8489593fa5}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+X\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga455b92a1cf463a5c2f2f8fa345f781f7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Y\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga81cf689694c2eeea9fe4d4a563c80218}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Z\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_ga928e26f0e6083b4640b6da61b3cacc3a}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MODE}}~\mbox{\hyperlink{group__mpu6050__dmp__driver_gga98211de88899ad6604d078ff992dcb5caa58d860926bd23da2e00d99b7f4dbec9}{MPU6050\+\_\+\+DMP\+\_\+\+INTERRUPT\+\_\+\+MODE\+\_\+\+CONTINUOUS}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gabb410b9f256b149eb2ec1928ca3216f8}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+DURATION}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__dmp__driver_gac28ffeec066314c16fd0dcfdfcd714f2}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+THRESHOLD}}~200
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_gae9dbe53d0c51253b78cd06fac28bd71f}{mpu6050\+\_\+dmp\+\_\+irq\+\_\+handler}} (void)
+\begin{DoxyCompactList}\small\item\em dmp irq \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga3298a755f9974bc3b2376ef576b52f4e}{mpu6050\+\_\+dmp\+\_\+init}} (\mbox{\hyperlink{group__mpu6050__basic__driver_ga47a9d14317022ff750450d300c1d48fb}{mpu6050\+\_\+address\+\_\+t}} addr\+\_\+pin, void($\ast$receive\+\_\+callback)(uint8\+\_\+t type), void($\ast$tap\+\_\+callback)(uint8\+\_\+t count, uint8\+\_\+t direction), void($\ast$orient\+\_\+callback)(uint8\+\_\+t orientation))
+\begin{DoxyCompactList}\small\item\em dmp example init \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga36c91f910c116282ec9df4d972007fc5}{mpu6050\+\_\+dmp\+\_\+deinit}} (void)
+\begin{DoxyCompactList}\small\item\em dmp example deinit \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_gaa5f0a1219f072e02cd4c9bd0b4b29a18}{mpu6050\+\_\+dmp\+\_\+read\+\_\+all}} (int16\+\_\+t($\ast$accel\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$accel\+\_\+g)\mbox{[}3\mbox{]}, int16\+\_\+t($\ast$gyro\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$gyro\+\_\+dps)\mbox{[}3\mbox{]}, int32\+\_\+t($\ast$quat)\mbox{[}4\mbox{]}, float $\ast$pitch, float $\ast$roll, float $\ast$yaw, uint16\+\_\+t $\ast$l)
+\begin{DoxyCompactList}\small\item\em dmp example read \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__dmp__driver_ga5dc2e5196128effa5c85ca0c31011b5b}{mpu6050\+\_\+dmp\+\_\+get\+\_\+pedometer\+\_\+counter}} (uint32\+\_\+t $\ast$cnt)
+\begin{DoxyCompactList}\small\item\em dmp example get pedometer counter \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__dmp__driver_gae6d0471d953fb9c8ccad4439f12a794d}{MPU6050\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em MPU6050 init function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__dmp__driver_ga5a86f16b079172d56e0dfff38286e735}{MPU6050\+\_\+\+Get\+Yaw}} (float $\ast$yaw)
+\begin{DoxyCompactList}\small\item\em MPU6050 get yaw function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+driver mpu6050 dmp header file 
+
+Copyright (c) 2015 -\/ present Lib\+Driver All rights reserved
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Shifeng Li 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2022-\/06-\/30
+\end{DoxyDate}
+\doxyparagraph*{history}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Date }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ Author }&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-4}
+\endhead
+2022/06/30 &1.\+0 &Shifeng Li &first upload \\\cline{1-4}
+\end{longtabu}
