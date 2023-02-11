@@ -3,9 +3,11 @@
 
 **RWACS** is a platform that simulates a real spacecraft attitude control.
 
-<img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
 
+<p align="left">
+  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
+</p>
 
 ## Goal :dart:
 The objective of this project was to design a device that could alter and sustain its position through the utilization of a reaction wheel. The **RWACS** device is able to hold its position steady and move to a predetermined location. The desired position can be set through the use of an **encoder** or a **graphical user interface**. To achieve this, **custom hardware modules** were developed and can be accessed in the "Components" folder.
