@@ -38,7 +38,7 @@ A dedicated **graphical user interface** was created to enhance the interaction 
 </p>
 
 
-## 3D model:printer:
+## 3D model :printer:
 A custom **3D model** was created and 3D printed in the FDM technology. Files are provided in the repository under the "3D_model" folder.
 ## Doxygen documentation :book:
 A **doxygen documentation** was created for easy reference, and can be accessed in the "Doxygen" folder.
