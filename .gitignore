@@ -2,5 +2,15 @@
 Debug/
 Release/
 .settings
-.launch
+*.launch
 .metadata
+
+# PyCharm
+.idea/
+venv/
+__pycache__/
+.vscode/
+
+# Matlab
+*.slxc
+slprj/

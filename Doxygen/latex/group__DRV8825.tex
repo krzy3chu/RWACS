@@ -1,0 +1,170 @@
+\hypertarget{group__DRV8825}{}\doxysection{DRV8825 driver module}
+\label{group__DRV8825}\index{DRV8825 driver module@{DRV8825 driver module}}
+
+
+DRV8825 step motor driver struct and functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em DRV8825 step motor driver handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga86988dad0191d1edd2c18aac51d3267e}\label{group__DRV8825_ga86988dad0191d1edd2c18aac51d3267e}} 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Type}~TIM\+\_\+\+Handle\+Type\+Def$\ast$
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga5849936c310e98df22829af38c5b3099}\label{group__DRV8825_ga5849936c310e98df22829af38c5b3099}} 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Channel\+Type}~uint32\+\_\+t
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga8db7827a95128dadc284a47d74e28e21}\label{group__DRV8825_ga8db7827a95128dadc284a47d74e28e21}} 
+\#define {\bfseries DRV8825\+\_\+\+Port\+Type}~GPIO\+\_\+\+Type\+Def$\ast$
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga2d1e3951363b3fb603b92e0a67415a13}\label{group__DRV8825_ga2d1e3951363b3fb603b92e0a67415a13}} 
+\#define {\bfseries DRV8825\+\_\+\+Pin\+Type}~uint16\+\_\+t
+\item 
+\mbox{\Hypertarget{group__DRV8825_gaeda62bc52414931e6eeba3492a57f581}\label{group__DRV8825_gaeda62bc52414931e6eeba3492a57f581}} 
+\#define {\bfseries DRV8825\+\_\+\+Speed\+Type}~float
+\item 
+\mbox{\Hypertarget{group__DRV8825_gabc3df64fee9cd534b5ab0ec5decf444f}\label{group__DRV8825_gabc3df64fee9cd534b5ab0ec5decf444f}} 
+\#define {\bfseries DRV8825\+\_\+\+Max\+Speed\+Type}~float
+\item 
+\mbox{\Hypertarget{group__DRV8825_gaff5929b45a280fb452167ef1d239a3a8}\label{group__DRV8825_gaff5929b45a280fb452167ef1d239a3a8}} 
+\#define {\bfseries DRV8825\+\_\+\+Pulse\+Width\+Type}~uint16\+\_\+t
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga77b8f625fc6e23c13ac6a8a52e1be801}\label{group__DRV8825_ga77b8f625fc6e23c13ac6a8a52e1be801}} 
+\#define {\bfseries DRV8825\+\_\+\+Steps\+Per\+Rev\+Type}~uint16\+\_\+t
+\item 
+\mbox{\Hypertarget{group__DRV8825_gac0ed8a0610474c69c6b82bb191efbe35}\label{group__DRV8825_gac0ed8a0610474c69c6b82bb191efbe35}} 
+\#define {\bfseries DRV8825\+\_\+\+Acceleration\+Type}~float
+\item 
+\mbox{\Hypertarget{group__DRV8825_gabfc0b104c480b65b63119d4c351f9b73}\label{group__DRV8825_gabfc0b104c480b65b63119d4c351f9b73}} 
+\#define {\bfseries DRV8825\+\_\+\+Max\+Acceleration\+Type}~float
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga5c87ebf5e7d5e606f1663835c2a7e31a}\label{group__DRV8825_ga5c87ebf5e7d5e606f1663835c2a7e31a}} 
+\#define {\bfseries DRV8825\+\_\+\+Sampling\+Time\+Type}~float
+\item 
+\mbox{\Hypertarget{group__DRV8825_ga97617f23b4ca656a620542083eba3a72}\label{group__DRV8825_ga97617f23b4ca656a620542083eba3a72}} 
+\#define {\bfseries DRV8825\+\_\+\+Tim\+Arr\+Speed}(counter\+\_\+frequency,  steps\+\_\+per\+\_\+rev,  speed)~( ( counter\+\_\+frequency / steps\+\_\+per\+\_\+rev $\ast$ 360 / speed ) -\/ 1 )
+\item 
+\mbox{\Hypertarget{group__DRV8825_gaefda71dd7092b831740a7c38f5f9262b}\label{group__DRV8825_gaefda71dd7092b831740a7c38f5f9262b}} 
+\#define {\bfseries DRV8825\+\_\+\+Pulse\+Width\+Cycles}(counter\+\_\+frequency,  pulse\+\_\+width\+\_\+us)~( pulse\+\_\+width\+\_\+us $\ast$ counter\+\_\+frequency / 1000000 )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gad2528d62f2688b14b37b967b4f75b057}{DRV8825\+\_\+\+Init}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825)
+\begin{DoxyCompactList}\small\item\em Start Tim timer in PWM mode. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_ga7e7dcca6d1428843035f760f30928d90}{DRV8825\+\_\+\+Set\+Speed}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Speed\+Type $\ast$speed)
+\begin{DoxyCompactList}\small\item\em Set timer, Dir and Enbl pins properly according to target speed. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gae22de907814c4b18814b46461840f9b5}{DRV8825\+\_\+\+Set\+Acceleration}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Acceleration\+Type $\ast$acceleration)
+\begin{DoxyCompactList}\small\item\em Set motor speed according to desired acceleration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group__DRV8825_ga09309f7abc5e86eef26ace5c9117d268}{hdrv8825\+\_\+1}}
+\begin{DoxyCompactList}\small\item\em drv8825 handle definition \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group__DRV8825_ga3fb9b42d3a69e2030d8d71921a7f4cc7}{hdx1}}
+\begin{DoxyCompactList}\small\item\em derivative limiter handle definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+DRV8825 step motor driver struct and functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__DRV8825_gad2528d62f2688b14b37b967b4f75b057}\label{group__DRV8825_gad2528d62f2688b14b37b967b4f75b057}} 
+\index{DRV8825 driver module@{DRV8825 driver module}!DRV8825\_Init@{DRV8825\_Init}}
+\index{DRV8825\_Init@{DRV8825\_Init}!DRV8825 driver module@{DRV8825 driver module}}
+\doxysubsubsection{\texorpdfstring{DRV8825\_Init()}{DRV8825\_Init()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def DRV8825\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hdrv8825 }\end{DoxyParamCaption})}
+
+
+
+Start Tim timer in PWM mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hdrv8825} & DRV8825 handler \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+status} & from PWM start function \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__DRV8825_gae22de907814c4b18814b46461840f9b5}\label{group__DRV8825_gae22de907814c4b18814b46461840f9b5}} 
+\index{DRV8825 driver module@{DRV8825 driver module}!DRV8825\_SetAcceleration@{DRV8825\_SetAcceleration}}
+\index{DRV8825\_SetAcceleration@{DRV8825\_SetAcceleration}!DRV8825 driver module@{DRV8825 driver module}}
+\doxysubsubsection{\texorpdfstring{DRV8825\_SetAcceleration()}{DRV8825\_SetAcceleration()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def DRV8825\+\_\+\+Set\+Acceleration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hdrv8825,  }\item[{DRV8825\+\_\+\+Acceleration\+Type $\ast$}]{acceleration }\end{DoxyParamCaption})}
+
+
+
+Set motor speed according to desired acceleration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hdrv8825} & DRV8825 handler \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$acceleration} & desired acceleration, expressed in degrees per second squared \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK} & speed is setup properly \\
+\hline
+{\em HAL\+\_\+\+ERROR} & absolute value of target speed is higher than maximum motor rotational speed set in DRV8825\+\_\+\+Max\+Speed definition \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__DRV8825_ga7e7dcca6d1428843035f760f30928d90}\label{group__DRV8825_ga7e7dcca6d1428843035f760f30928d90}} 
+\index{DRV8825 driver module@{DRV8825 driver module}!DRV8825\_SetSpeed@{DRV8825\_SetSpeed}}
+\index{DRV8825\_SetSpeed@{DRV8825\_SetSpeed}!DRV8825 driver module@{DRV8825 driver module}}
+\doxysubsubsection{\texorpdfstring{DRV8825\_SetSpeed()}{DRV8825\_SetSpeed()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def DRV8825\+\_\+\+Set\+Speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hdrv8825,  }\item[{DRV8825\+\_\+\+Speed\+Type $\ast$}]{speed }\end{DoxyParamCaption})}
+
+
+
+Set timer, Dir and Enbl pins properly according to target speed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hdrv8825} & DRV8825 handler \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$speed} & target motor rotational speed \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK} & speed is setup properly \\
+\hline
+{\em HAL\+\_\+\+ERROR} & absolute value of target speed is higher than maximum motor rotational speed \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__DRV8825_ga09309f7abc5e86eef26ace5c9117d268}\label{group__DRV8825_ga09309f7abc5e86eef26ace5c9117d268}} 
+\index{DRV8825 driver module@{DRV8825 driver module}!hdrv8825\_1@{hdrv8825\_1}}
+\index{hdrv8825\_1@{hdrv8825\_1}!DRV8825 driver module@{DRV8825 driver module}}
+\doxysubsubsection{\texorpdfstring{hdrv8825\_1}{hdrv8825\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} hdrv8825\+\_\+1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+drv8825 handle definition 
+
+drv8825 handle \mbox{\Hypertarget{group__DRV8825_ga3fb9b42d3a69e2030d8d71921a7f4cc7}\label{group__DRV8825_ga3fb9b42d3a69e2030d8d71921a7f4cc7}} 
+\index{DRV8825 driver module@{DRV8825 driver module}!hdx1@{hdx1}}
+\index{hdx1@{hdx1}!DRV8825 driver module@{DRV8825 driver module}}
+\doxysubsubsection{\texorpdfstring{hdx1}{hdx1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDX__HandleTypeDef}{DX\+\_\+\+Handle\+Type\+Def}} hdx1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+derivative limiter handle definition 
+
+derivative limiter handle 

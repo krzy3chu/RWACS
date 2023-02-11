@@ -1,0 +1,86 @@
+\hypertarget{group__Pid}{}\doxysection{PID controller module}
+\label{group__Pid}\index{PID controller module@{PID controller module}}
+
+
+PID controller struct and functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em pid structure definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__Pid_ga148b532aee5ca0c74df00387249ab3f0}{PID\+\_\+\+Init}} (\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$hpid)
+\begin{DoxyCompactList}\small\item\em Pid initialize function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__Pid_gaaf40cca4a1459182ebeae65264e75f77}{PID\+\_\+\+Control}} (\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$hpid, float32\+\_\+t $\ast$feedback, float32\+\_\+t $\ast$control)
+\begin{DoxyCompactList}\small\item\em Pid control function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group__Pid_ga0411f4e38a8ac6a6d7e19bd924e03aff}{hpid1}}
+\begin{DoxyCompactList}\small\item\em pid handle definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PID controller struct and functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Pid_gaaf40cca4a1459182ebeae65264e75f77}\label{group__Pid_gaaf40cca4a1459182ebeae65264e75f77}} 
+\index{PID controller module@{PID controller module}!PID\_Control@{PID\_Control}}
+\index{PID\_Control@{PID\_Control}!PID controller module@{PID controller module}}
+\doxysubsubsection{\texorpdfstring{PID\_Control()}{PID\_Control()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hpid,  }\item[{float32\+\_\+t $\ast$}]{feedback,  }\item[{float32\+\_\+t $\ast$}]{control }\end{DoxyParamCaption})}
+
+
+
+Pid control function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hpid} & points to a pid handle \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$feedback} & points to feedback buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$control} & points to feedback control \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__Pid_ga148b532aee5ca0c74df00387249ab3f0}\label{group__Pid_ga148b532aee5ca0c74df00387249ab3f0}} 
+\index{PID controller module@{PID controller module}!PID\_Init@{PID\_Init}}
+\index{PID\_Init@{PID\_Init}!PID controller module@{PID controller module}}
+\doxysubsubsection{\texorpdfstring{PID\_Init()}{PID\_Init()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hpid }\end{DoxyParamCaption})}
+
+
+
+Pid initialize function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hpid} & points to a pid handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__Pid_ga0411f4e38a8ac6a6d7e19bd924e03aff}\label{group__Pid_ga0411f4e38a8ac6a6d7e19bd924e03aff}} 
+\index{PID controller module@{PID controller module}!hpid1@{hpid1}}
+\index{hpid1@{hpid1}!PID controller module@{PID controller module}}
+\doxysubsubsection{\texorpdfstring{hpid1}{hpid1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} hpid1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+pid handle definition 
+
+pid handle 

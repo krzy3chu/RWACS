@@ -18,21 +18,46 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
+#include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdlib.h>
+
+#include "driver_mpu6050_dmp.h"
+#include "pid_config.h"
+#include "drv8825_config.h"
+#include "dx_limit_config.h"
+#include "encoder_config.h"
+#include "rwacs_uart.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
+/**
+ * @brief variable alias used to toggle controller cycle mode
+ */
+typedef enum
+{
+	REGULATION_STATE,
+	DECELERATION_STATE
+} ControllerStateTypeDef;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+// values used during deceleration
+#define ACCEPTED_SPEED_RANGE 20
+#define DECELERATION_RATE 300
 
 /* USER CODE END PD */
 
@@ -45,6 +70,14 @@
 
 /* USER CODE BEGIN PV */
 
+static float32_t encoder = 0;
+static float32_t angle_meas = 0;
+static float32_t acceleration = 0;
+static float32_t acceleration_filtered = 0;
+
+static ControllerStateTypeDef rwacs_state = REGULATION_STATE;
+volatile uint8_t cycle_flag = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,6 +88,37 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+/**
+ * @brief	Main controller cycle, sets acceleration to reach desired setpoint or decelerate speed to zero
+ * @retval	Nothing
+ */
+void RWACS_Controller_Cycle()
+{
+	MPU6050_GetYaw(&angle_meas);
+
+	switch(rwacs_state)
+	{
+		case REGULATION_STATE:
+		{
+			PID_Control(&hpid1, &angle_meas, &acceleration);
+			break;
+		}
+		case DECELERATION_STATE:
+		{
+			acceleration = ((hdrv8825_1.Speed < -ACCEPTED_SPEED_RANGE) - (hdrv8825_1.Speed > ACCEPTED_SPEED_RANGE)) * DECELERATION_RATE;
+			if(!acceleration){
+				DRV8825_SetSpeed(&hdrv8825_1, &acceleration);
+				rwacs_state = REGULATION_STATE;
+			}
+			break;
+		}
+	}
+
+	DX_Limit(&hdx1, &acceleration, &acceleration_filtered);
+	DRV8825_SetAcceleration(&hdrv8825_1, &acceleration_filtered);
+	RWACS_Print_Controller_State(&(hpid1.Setpoint), &angle_meas, &(hdrv8825_1.Speed), &acceleration);
+}
 
 /* USER CODE END 0 */
 
@@ -86,8 +150,23 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_I2C2_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_Delay(100);
+  MPU6050_Init();
+  HAL_Delay(500);
+  DRV8825_Init(&hdrv8825_1);
+  PID_Init(&hpid1);
+
+  RWACS_UART_Init(&hpid1);
+  RWACS_Receive();
+
+  HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
 
@@ -95,6 +174,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if(cycle_flag == 1)
+	  {
+		  RWACS_Controller_Cycle();
+		  cycle_flag = 0;
+	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -152,6 +237,32 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	encoder = ENC_UpdateCounter(&henc1, GPIO_Pin);
+	if(ENC_OnButtonPress(&henc1, GPIO_Pin))
+	{
+		hpid1.Setpoint = encoder;
+		rwacs_state = DECELERATION_STATE;
+	}
+
+/*  NOTE: Occupied GPIO lines: 10, 12, 13 	*/
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	RWACS_Parse_Data();
+	PID_Init(&hpid1);
+	rwacs_state = DECELERATION_STATE;
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim->Instance == TIM3){
+		cycle_flag = 1;
+	}
+}
 
 /* USER CODE END 4 */
 

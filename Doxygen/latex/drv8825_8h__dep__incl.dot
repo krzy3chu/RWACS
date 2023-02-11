@@ -1,0 +1,15 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/DRV8825/Inc/drv8825.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/DRV8825/Inc/drv8825.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=": DRV8825 step motor driver configuration header file"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/DRV8825/Inc/drv8825_config.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$drv8825__config_8h.html",tooltip=": DRV8825 step motor driver configuration header file"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/DRV8825/Src/drv8825_config.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$drv8825__config_8c.html",tooltip=": DRV8825 step motor driver configuration source code file"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Core\l/Src/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip=": Main program body"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="/home/krzy5z70f/Documents\l/Semestr_5/SM_laboratoria\l/RWACS/STM32_firmware/Components\l/DRV8825/Src/drv8825.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$drv8825_8c.html",tooltip=": DRV8825 step motor driver source code file"];
+}

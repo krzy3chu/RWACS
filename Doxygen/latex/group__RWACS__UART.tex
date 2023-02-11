@@ -1,0 +1,143 @@
+\hypertarget{group__RWACS__UART}{}\doxysection{RWACS UART module}
+\label{group__RWACS__UART}\index{RWACS UART module@{RWACS UART module}}
+
+
+Serial UART communication functions.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__RWACS__UART_gac4c7f41a5f3a8480ff9bd27ff1781bea}\label{group__RWACS__UART_gac4c7f41a5f3a8480ff9bd27ff1781bea}} 
+\#define \mbox{\hyperlink{group__RWACS__UART_gac4c7f41a5f3a8480ff9bd27ff1781bea}{CURRENT\+\_\+\+UART\+\_\+\+HANDLE}}~\&huart3
+\begin{DoxyCompactList}\small\item\em current uart handle configuration definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__RWACS__UART_gaec5bbfc78dcd5771853193bfc8fc696d}\label{group__RWACS__UART_gaec5bbfc78dcd5771853193bfc8fc696d}} 
+enum \mbox{\hyperlink{group__RWACS__UART_gaec5bbfc78dcd5771853193bfc8fc696d}{RWACS\+\_\+\+Controller\+IDs}} \{ {\bfseries PROPORTIONAL\+\_\+\+GAIN}
+, {\bfseries INTEGRAL\+\_\+\+GAIN}
+, {\bfseries DERIVATIVE\+\_\+\+GAIN}
+, {\bfseries SETPOINT}
+ \}
+\begin{DoxyCompactList}\small\item\em uart communication codes enumeration definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__RWACS__UART_ga5c277cb7466352d95ab5ca2872e304a7}{RWACS\+\_\+\+Parse\+\_\+\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Uart parse data function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga2a17e3f60957b667e83a06e80f01fa2c}{RWACS\+\_\+\+Print\+\_\+\+Controller\+\_\+\+State}} (float $\ast$setpoint, float $\ast$output, float $\ast$filtered\+\_\+setpoint, float $\ast$controller\+\_\+output)
+\begin{DoxyCompactList}\small\item\em Uart print controller state function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__RWACS__UART_ga51bad08106d158e0901511b486dcf6f1}{RWACS\+\_\+\+UART\+\_\+\+Init}} (\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$hpid)
+\begin{DoxyCompactList}\small\item\em Uart assign pid handle function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga49f39fd489c4bbee395261498c1559d4}{RWACS\+\_\+\+Print}} (const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Uart print controller state function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__RWACS__UART_ga0c45699a74c0be9e945b94a9fa2398b1}{RWACS\+\_\+\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Uart dma receive function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Serial UART communication functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__RWACS__UART_ga5c277cb7466352d95ab5ca2872e304a7}\label{group__RWACS__UART_ga5c277cb7466352d95ab5ca2872e304a7}} 
+\index{RWACS UART module@{RWACS UART module}!RWACS\_Parse\_Data@{RWACS\_Parse\_Data}}
+\index{RWACS\_Parse\_Data@{RWACS\_Parse\_Data}!RWACS UART module@{RWACS UART module}}
+\doxysubsubsection{\texorpdfstring{RWACS\_Parse\_Data()}{RWACS\_Parse\_Data()}}
+{\footnotesize\ttfamily void RWACS\+\_\+\+Parse\+\_\+\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Uart parse data function. 
+
+\begin{DoxyNote}{Note}
+parse received data and assign it to the pid handle
+
+parse received data and assign it to the pid handle 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__RWACS__UART_ga49f39fd489c4bbee395261498c1559d4}\label{group__RWACS__UART_ga49f39fd489c4bbee395261498c1559d4}} 
+\index{RWACS UART module@{RWACS UART module}!RWACS\_Print@{RWACS\_Print}}
+\index{RWACS\_Print@{RWACS\_Print}!RWACS UART module@{RWACS UART module}}
+\doxysubsubsection{\texorpdfstring{RWACS\_Print()}{RWACS\_Print()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def RWACS\+\_\+\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Uart print controller state function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$fmt} & specifies a message format \\
+\hline
+\mbox{\texttt{ in}}  & {\em ...} & are varg values to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+return code uses HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__RWACS__UART_ga2a17e3f60957b667e83a06e80f01fa2c}\label{group__RWACS__UART_ga2a17e3f60957b667e83a06e80f01fa2c}} 
+\index{RWACS UART module@{RWACS UART module}!RWACS\_Print\_Controller\_State@{RWACS\_Print\_Controller\_State}}
+\index{RWACS\_Print\_Controller\_State@{RWACS\_Print\_Controller\_State}!RWACS UART module@{RWACS UART module}}
+\doxysubsubsection{\texorpdfstring{RWACS\_Print\_Controller\_State()}{RWACS\_Print\_Controller\_State()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def RWACS\+\_\+\+Print\+\_\+\+Controller\+\_\+\+State (\begin{DoxyParamCaption}\item[{float $\ast$}]{setpoint,  }\item[{float $\ast$}]{output,  }\item[{float $\ast$}]{filtered\+\_\+setpoint,  }\item[{float $\ast$}]{controller\+\_\+output }\end{DoxyParamCaption})}
+
+
+
+Uart print controller state function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$sepoint} & points to a setpoint buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$output} & points to a output buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$filtered\+\_\+setpoint} & points to a filtered setpoint buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$controller\+\_\+output} & points to a controller output buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+return code uses HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__RWACS__UART_ga0c45699a74c0be9e945b94a9fa2398b1}\label{group__RWACS__UART_ga0c45699a74c0be9e945b94a9fa2398b1}} 
+\index{RWACS UART module@{RWACS UART module}!RWACS\_Receive@{RWACS\_Receive}}
+\index{RWACS\_Receive@{RWACS\_Receive}!RWACS UART module@{RWACS UART module}}
+\doxysubsubsection{\texorpdfstring{RWACS\_Receive()}{RWACS\_Receive()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def RWACS\+\_\+\+Receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Uart dma receive function. 
+
+\begin{DoxyReturn}{Returns}
+status code 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+return code uses HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__RWACS__UART_ga51bad08106d158e0901511b486dcf6f1}\label{group__RWACS__UART_ga51bad08106d158e0901511b486dcf6f1}} 
+\index{RWACS UART module@{RWACS UART module}!RWACS\_UART\_Init@{RWACS\_UART\_Init}}
+\index{RWACS\_UART\_Init@{RWACS\_UART\_Init}!RWACS UART module@{RWACS UART module}}
+\doxysubsubsection{\texorpdfstring{RWACS\_UART\_Init()}{RWACS\_UART\_Init()}}
+{\footnotesize\ttfamily void RWACS\+\_\+\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPID__HandleTypeDef}{PID\+\_\+\+Handle\+Type\+Def}} $\ast$}]{hpid }\end{DoxyParamCaption})}
+
+
+
+Uart assign pid handle function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$hpid} & points to a pid handle buffer \\
+\hline
+\end{DoxyParams}

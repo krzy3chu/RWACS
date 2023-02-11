@@ -1,0 +1,196 @@
+\hypertarget{group__mpu6050__link__driver}{}\doxysection{mpu6050 link driver function}
+\label{group__mpu6050__link__driver}\index{mpu6050 link driver function@{mpu6050 link driver function}}
+
+
+mpu6050 link driver modules  
+
+
+Collaboration diagram for mpu6050 link driver function\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_ga46dbd25662816592440e74fc88f8f034}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+INIT}}(HANDLE,  STRUCTURE)~memset(HANDLE, 0, sizeof(STRUCTURE))
+\begin{DoxyCompactList}\small\item\em initialize mpu6050\+\_\+handle\+\_\+t structure \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_gafabd528b60d16bfe5266db9bc4541dc1}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+INIT}}(HANDLE,  FUC)~(HANDLE)-\/$>$iic\+\_\+init = FUC
+\begin{DoxyCompactList}\small\item\em link iic\+\_\+init function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_ga3d09d336b1613c2c4a2e4c0a1745a348}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+DEINIT}}(HANDLE,  FUC)~(HANDLE)-\/$>$iic\+\_\+deinit = FUC
+\begin{DoxyCompactList}\small\item\em link iic\+\_\+deinit function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_gaea7651083f5094d743da95032ee52a57}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+READ}}(HANDLE,  FUC)~(HANDLE)-\/$>$iic\+\_\+read = FUC
+\begin{DoxyCompactList}\small\item\em link iic\+\_\+read function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_ga496e0e45719d3440e3490dd275be214c}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+WRITE}}(HANDLE,  FUC)~(HANDLE)-\/$>$iic\+\_\+write = FUC
+\begin{DoxyCompactList}\small\item\em link iic\+\_\+write function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_ga4fea7149d25ab87d8f6c80ed061d8efd}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+DELAY\+\_\+\+MS}}(HANDLE,  FUC)~(HANDLE)-\/$>$delay\+\_\+ms = FUC
+\begin{DoxyCompactList}\small\item\em link delay\+\_\+ms function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_ga63867eb6e3e0e8b6eb9db96d9a8162f6}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+DEBUG\+\_\+\+PRINT}}(HANDLE,  FUC)~(HANDLE)-\/$>$debug\+\_\+print = FUC
+\begin{DoxyCompactList}\small\item\em link debug\+\_\+print function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__link__driver_gabed3b0caba4d09b9429cdc173ef10ba6}{DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+RECEIVE\+\_\+\+CALLBACK}}(HANDLE,  FUC)~(HANDLE)-\/$>$receive\+\_\+callback = FUC
+\begin{DoxyCompactList}\small\item\em link receive\+\_\+callback function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+mpu6050 link driver modules 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mpu6050__link__driver_ga63867eb6e3e0e8b6eb9db96d9a8162f6}\label{group__mpu6050__link__driver_ga63867eb6e3e0e8b6eb9db96d9a8162f6}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT@{DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT}}
+\index{DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT@{DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT}{DRIVER\_MPU6050\_LINK\_DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$debug\+\_\+print = FUC}
+
+
+
+link debug\+\_\+print function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a debug\+\_\+print function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_ga4fea7149d25ab87d8f6c80ed061d8efd}\label{group__mpu6050__link__driver_ga4fea7149d25ab87d8f6c80ed061d8efd}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_DELAY\_MS@{DRIVER\_MPU6050\_LINK\_DELAY\_MS}}
+\index{DRIVER\_MPU6050\_LINK\_DELAY\_MS@{DRIVER\_MPU6050\_LINK\_DELAY\_MS}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_DELAY\_MS}{DRIVER\_MPU6050\_LINK\_DELAY\_MS}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+DELAY\+\_\+\+MS(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$delay\+\_\+ms = FUC}
+
+
+
+link delay\+\_\+ms function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a delay\+\_\+ms function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_ga3d09d336b1613c2c4a2e4c0a1745a348}\label{group__mpu6050__link__driver_ga3d09d336b1613c2c4a2e4c0a1745a348}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_IIC\_DEINIT@{DRIVER\_MPU6050\_LINK\_IIC\_DEINIT}}
+\index{DRIVER\_MPU6050\_LINK\_IIC\_DEINIT@{DRIVER\_MPU6050\_LINK\_IIC\_DEINIT}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_IIC\_DEINIT}{DRIVER\_MPU6050\_LINK\_IIC\_DEINIT}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+DEINIT(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$iic\+\_\+deinit = FUC}
+
+
+
+link iic\+\_\+deinit function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a iic\+\_\+deinit function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_gafabd528b60d16bfe5266db9bc4541dc1}\label{group__mpu6050__link__driver_gafabd528b60d16bfe5266db9bc4541dc1}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_IIC\_INIT@{DRIVER\_MPU6050\_LINK\_IIC\_INIT}}
+\index{DRIVER\_MPU6050\_LINK\_IIC\_INIT@{DRIVER\_MPU6050\_LINK\_IIC\_INIT}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_IIC\_INIT}{DRIVER\_MPU6050\_LINK\_IIC\_INIT}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+INIT(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$iic\+\_\+init = FUC}
+
+
+
+link iic\+\_\+init function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a iic\+\_\+init function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_gaea7651083f5094d743da95032ee52a57}\label{group__mpu6050__link__driver_gaea7651083f5094d743da95032ee52a57}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_IIC\_READ@{DRIVER\_MPU6050\_LINK\_IIC\_READ}}
+\index{DRIVER\_MPU6050\_LINK\_IIC\_READ@{DRIVER\_MPU6050\_LINK\_IIC\_READ}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_IIC\_READ}{DRIVER\_MPU6050\_LINK\_IIC\_READ}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+READ(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$iic\+\_\+read = FUC}
+
+
+
+link iic\+\_\+read function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a iic\+\_\+read function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_ga496e0e45719d3440e3490dd275be214c}\label{group__mpu6050__link__driver_ga496e0e45719d3440e3490dd275be214c}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_IIC\_WRITE@{DRIVER\_MPU6050\_LINK\_IIC\_WRITE}}
+\index{DRIVER\_MPU6050\_LINK\_IIC\_WRITE@{DRIVER\_MPU6050\_LINK\_IIC\_WRITE}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_IIC\_WRITE}{DRIVER\_MPU6050\_LINK\_IIC\_WRITE}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+IIC\+\_\+\+WRITE(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$iic\+\_\+write = FUC}
+
+
+
+link iic\+\_\+write function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a iic\+\_\+write function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_ga46dbd25662816592440e74fc88f8f034}\label{group__mpu6050__link__driver_ga46dbd25662816592440e74fc88f8f034}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_INIT@{DRIVER\_MPU6050\_LINK\_INIT}}
+\index{DRIVER\_MPU6050\_LINK\_INIT@{DRIVER\_MPU6050\_LINK\_INIT}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_INIT}{DRIVER\_MPU6050\_LINK\_INIT}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+INIT(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{STRUCTURE }\end{DoxyParamCaption})~memset(HANDLE, 0, sizeof(STRUCTURE))}
+
+
+
+initialize mpu6050\+\_\+handle\+\_\+t structure 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em STRUCTURE} & is mpu6050\+\_\+handle\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__link__driver_gabed3b0caba4d09b9429cdc173ef10ba6}\label{group__mpu6050__link__driver_gabed3b0caba4d09b9429cdc173ef10ba6}} 
+\index{mpu6050 link driver function@{mpu6050 link driver function}!DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK@{DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK}}
+\index{DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK@{DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK}!mpu6050 link driver function@{mpu6050 link driver function}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK}{DRIVER\_MPU6050\_LINK\_RECEIVE\_CALLBACK}}
+{\footnotesize\ttfamily \#define DRIVER\+\_\+\+MPU6050\+\_\+\+LINK\+\_\+\+RECEIVE\+\_\+\+CALLBACK(\begin{DoxyParamCaption}\item[{}]{HANDLE,  }\item[{}]{FUC }\end{DoxyParamCaption})~(HANDLE)-\/$>$receive\+\_\+callback = FUC}
+
+
+
+link receive\+\_\+callback function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em HANDLE} & points to a mpu6050 handle structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em FUC} & points to a receive\+\_\+callback function address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}

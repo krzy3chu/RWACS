@@ -1,0 +1,489 @@
+\hypertarget{group__mpu6050__example__driver}{}\doxysection{Mpu6050\+\_\+example\+\_\+driver}
+\label{group__mpu6050__example__driver}\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga62e46dfe5cda41b517e8e26446ed4699}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CLOCK\+\_\+\+SOURCE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga74884d5b9f95c2b758d299bc28a65095a796540b1243fe91dec02a2d4e4e3f264}{MPU6050\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+PLL\+\_\+\+X\+\_\+\+GYRO}}
+\begin{DoxyCompactList}\small\item\em mpu6050 dmp example default definition \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga1ebc931b151bcc83931555ac94dff726}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+RATE}}~100
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga4bea2070de1971614fcdaabea49bc7ba}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+ACCELEROMETER\+\_\+\+RANGE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggaaa9295dfae70a56066f5687bc85cdf6eadf861712710f18cf4913db8175cd084c}{MPU6050\+\_\+\+ACCELEROMETER\+\_\+\+RANGE\+\_\+2G}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga428b94db8c8f46d6582a46cc9518e020}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+GYROSCOPE\+\_\+\+RANGE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga334608694ff39953897e2b6f008f15d0a4cd35dc28b0eb372c0eb62c07df98254}{MPU6050\+\_\+\+GYROSCOPE\+\_\+\+RANGE\+\_\+2000\+DPS}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gaa6e1c5708ac195bbfe79cd2fc981efb3}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggad12172179ecd4f5cc01204041d70b54fa4cd5516d2a38bf83fd0aab9e87488007}{MPU6050\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER\+\_\+3}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga4d74117f39762ed96d77db36d1f3e129}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CYCLE\+\_\+\+WAKE\+\_\+\+UP}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga40cdb53587b7573f6dfc08bc36f94373}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga17d7c941660868be0ab4804ec2f89e68a0ec2d7232cefb18fa767166791937216}{MPU6050\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY\+\_\+1\+P25\+\_\+\+HZ}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gafff0fd90d0d69f6f97ba5e24daa2c8b7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+LEVEL}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga20b878b26d940dc961462c01bfdd62c1}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+TYPE}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga10b85492273e69a281067454513f067da0d492c44744845083692f91cf03e0434}{MPU6050\+\_\+\+PIN\+\_\+\+TYPE\+\_\+\+PUSH\+\_\+\+PULL}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gaca388163fe1a639560e88240d38f9d55}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MOTION}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gad1bdc305cba10c66fb6ef167feb685c4}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+FIFO\+\_\+\+OVERFLOW}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gab240e8be48cdc11ac329051a607ad313}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DMP}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gadee8371b96768697ef43dcd2a407b584}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+I2\+C\+\_\+\+MAST}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gaa204340302a9f66487cd6b11211958d3}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DATA\+\_\+\+READY}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga561c48680c088d88d8b72e93b4c8c45a}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+LATCH}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga3c3d2029b29053cd2d8d81215bfe580b}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+READ\+\_\+\+CLEAR}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gaad1b2e2cfb0fdd8e981b21f3ad856dd1}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+EXTERN\+\_\+\+SYNC}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga43e667c1edd709208cb678c6a367f105aa21f5b59fd45369362695addf2730976}{MPU6050\+\_\+\+EXTERN\+\_\+\+SYNC\+\_\+\+INPUT\+\_\+\+DISABLED}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gad030ccdf25747f2296563dad77251c5d}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gae96b940358d765a8f5edc9bbe8b5280d}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT\+\_\+\+LEVEL}}~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga0042f11cb2fd5d1b569d9b8fee6c1f43}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+MASTER}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga33082ed175fd1fd1339ec189ba34e7f9}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+BYPASS}}~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gac5364b536e6b051140c9e788944a3b17}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+WALK\+\_\+\+TIME}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gabb342ca4aea8b7aba86daa9d1da7bbf7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+STEP\+\_\+\+COUNT}}~0
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga62ccc41076f7976b18a176cbc89351ad}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIMEOUT}}~10
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga9cf62b46e11945293171dcd1eed41538}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIME}}~40
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gaa5e9073fae89612bba115bd17829ed25}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+THRESH}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga4af4090ebe43a2a31dee1402234debbf}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME\+\_\+\+MULTI}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gad790e270ed85b0426f4cddaf33e37993}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME}}~100
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gae041de9c54ec283f1c8f7d1236699105}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MIN\+\_\+\+TAP\+\_\+\+COUNT}}~1
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga3d440aa7c7a41d6261fece8489593fa5}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+X\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga455b92a1cf463a5c2f2f8fa345f781f7}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Y\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga81cf689694c2eeea9fe4d4a563c80218}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Z\+\_\+\+THRESH}}~250
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_ga928e26f0e6083b4640b6da61b3cacc3a}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MODE}}~\mbox{\hyperlink{group__mpu6050__dmp__driver_gga98211de88899ad6604d078ff992dcb5caa58d860926bd23da2e00d99b7f4dbec9}{MPU6050\+\_\+\+DMP\+\_\+\+INTERRUPT\+\_\+\+MODE\+\_\+\+CONTINUOUS}}
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gabb410b9f256b149eb2ec1928ca3216f8}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+DURATION}}~200
+\item 
+\#define \mbox{\hyperlink{group__mpu6050__example__driver_gac28ffeec066314c16fd0dcfdfcd714f2}{MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+THRESHOLD}}~200
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__example__driver_gae9dbe53d0c51253b78cd06fac28bd71f}{mpu6050\+\_\+dmp\+\_\+irq\+\_\+handler}} (void)
+\begin{DoxyCompactList}\small\item\em dmp irq \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__example__driver_ga3298a755f9974bc3b2376ef576b52f4e}{mpu6050\+\_\+dmp\+\_\+init}} (\mbox{\hyperlink{group__mpu6050__basic__driver_ga47a9d14317022ff750450d300c1d48fb}{mpu6050\+\_\+address\+\_\+t}} addr\+\_\+pin, void($\ast$receive\+\_\+callback)(uint8\+\_\+t type), void($\ast$tap\+\_\+callback)(uint8\+\_\+t count, uint8\+\_\+t direction), void($\ast$orient\+\_\+callback)(uint8\+\_\+t orientation))
+\begin{DoxyCompactList}\small\item\em dmp example init \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__example__driver_ga36c91f910c116282ec9df4d972007fc5}{mpu6050\+\_\+dmp\+\_\+deinit}} (void)
+\begin{DoxyCompactList}\small\item\em dmp example deinit \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__example__driver_gaa5f0a1219f072e02cd4c9bd0b4b29a18}{mpu6050\+\_\+dmp\+\_\+read\+\_\+all}} (int16\+\_\+t($\ast$accel\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$accel\+\_\+g)\mbox{[}3\mbox{]}, int16\+\_\+t($\ast$gyro\+\_\+raw)\mbox{[}3\mbox{]}, float($\ast$gyro\+\_\+dps)\mbox{[}3\mbox{]}, int32\+\_\+t($\ast$quat)\mbox{[}4\mbox{]}, float $\ast$pitch, float $\ast$roll, float $\ast$yaw, uint16\+\_\+t $\ast$l)
+\begin{DoxyCompactList}\small\item\em dmp example read \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__mpu6050__example__driver_ga5dc2e5196128effa5c85ca0c31011b5b}{mpu6050\+\_\+dmp\+\_\+get\+\_\+pedometer\+\_\+counter}} (uint32\+\_\+t $\ast$cnt)
+\begin{DoxyCompactList}\small\item\em dmp example get pedometer counter \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__example__driver_gae6d0471d953fb9c8ccad4439f12a794d}{MPU6050\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em MPU6050 init function. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__mpu6050__example__driver_ga5a86f16b079172d56e0dfff38286e735}{MPU6050\+\_\+\+Get\+Yaw}} (float $\ast$yaw)
+\begin{DoxyCompactList}\small\item\em MPU6050 get yaw function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mpu6050__example__driver_ga4bea2070de1971614fcdaabea49bc7ba}\label{group__mpu6050__example__driver_ga4bea2070de1971614fcdaabea49bc7ba}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE@{MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE}}
+\index{MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE@{MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE}{MPU6050\_DMP\_DEFAULT\_ACCELEROMETER\_RANGE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+ACCELEROMETER\+\_\+\+RANGE~\mbox{\hyperlink{group__mpu6050__basic__driver_ggaaa9295dfae70a56066f5687bc85cdf6eadf861712710f18cf4913db8175cd084c}{MPU6050\+\_\+\+ACCELEROMETER\+\_\+\+RANGE\+\_\+2G}}}
+
+2g \mbox{\Hypertarget{group__mpu6050__example__driver_ga62e46dfe5cda41b517e8e26446ed4699}\label{group__mpu6050__example__driver_ga62e46dfe5cda41b517e8e26446ed4699}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE@{MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE}}
+\index{MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE@{MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE}{MPU6050\_DMP\_DEFAULT\_CLOCK\_SOURCE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CLOCK\+\_\+\+SOURCE~\mbox{\hyperlink{group__mpu6050__basic__driver_gga74884d5b9f95c2b758d299bc28a65095a796540b1243fe91dec02a2d4e4e3f264}{MPU6050\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+PLL\+\_\+\+X\+\_\+\+GYRO}}}
+
+
+
+mpu6050 dmp example default definition 
+
+gyro pll x \mbox{\Hypertarget{group__mpu6050__example__driver_ga4d74117f39762ed96d77db36d1f3e129}\label{group__mpu6050__example__driver_ga4d74117f39762ed96d77db36d1f3e129}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP@{MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP}}
+\index{MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP@{MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP}{MPU6050\_DMP\_DEFAULT\_CYCLE\_WAKE\_UP}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+CYCLE\+\_\+\+WAKE\+\_\+\+UP~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable cycle wake up \mbox{\Hypertarget{group__mpu6050__example__driver_gaad1b2e2cfb0fdd8e981b21f3ad856dd1}\label{group__mpu6050__example__driver_gaad1b2e2cfb0fdd8e981b21f3ad856dd1}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC@{MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC}}
+\index{MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC@{MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC}{MPU6050\_DMP\_DEFAULT\_EXTERN\_SYNC}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+EXTERN\+\_\+\+SYNC~\mbox{\hyperlink{group__mpu6050__basic__driver_gga43e667c1edd709208cb678c6a367f105aa21f5b59fd45369362695addf2730976}{MPU6050\+\_\+\+EXTERN\+\_\+\+SYNC\+\_\+\+INPUT\+\_\+\+DISABLED}}}
+
+extern sync input disable \mbox{\Hypertarget{group__mpu6050__example__driver_gad030ccdf25747f2296563dad77251c5d}\label{group__mpu6050__example__driver_gad030ccdf25747f2296563dad77251c5d}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT@{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT}}
+\index{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT@{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT}{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable fsync interrupt \mbox{\Hypertarget{group__mpu6050__example__driver_gae96b940358d765a8f5edc9bbe8b5280d}\label{group__mpu6050__example__driver_gae96b940358d765a8f5edc9bbe8b5280d}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL@{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL}}
+\index{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL@{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL}{MPU6050\_DMP\_DEFAULT\_FSYNC\_INTERRUPT\_LEVEL}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+FSYNC\+\_\+\+INTERRUPT\+\_\+\+LEVEL~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}}
+
+low level \mbox{\Hypertarget{group__mpu6050__example__driver_ga428b94db8c8f46d6582a46cc9518e020}\label{group__mpu6050__example__driver_ga428b94db8c8f46d6582a46cc9518e020}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE@{MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE}}
+\index{MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE@{MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE}{MPU6050\_DMP\_DEFAULT\_GYROSCOPE\_RANGE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+GYROSCOPE\+\_\+\+RANGE~\mbox{\hyperlink{group__mpu6050__basic__driver_gga334608694ff39953897e2b6f008f15d0a4cd35dc28b0eb372c0eb62c07df98254}{MPU6050\+\_\+\+GYROSCOPE\+\_\+\+RANGE\+\_\+2000\+DPS}}}
+
+2000dps \mbox{\Hypertarget{group__mpu6050__example__driver_ga33082ed175fd1fd1339ec189ba34e7f9}\label{group__mpu6050__example__driver_ga33082ed175fd1fd1339ec189ba34e7f9}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS@{MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS}}
+\index{MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS@{MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS}{MPU6050\_DMP\_DEFAULT\_IIC\_BYPASS}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+BYPASS~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable iic bypass \mbox{\Hypertarget{group__mpu6050__example__driver_ga0042f11cb2fd5d1b569d9b8fee6c1f43}\label{group__mpu6050__example__driver_ga0042f11cb2fd5d1b569d9b8fee6c1f43}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_IIC\_MASTER@{MPU6050\_DMP\_DEFAULT\_IIC\_MASTER}}
+\index{MPU6050\_DMP\_DEFAULT\_IIC\_MASTER@{MPU6050\_DMP\_DEFAULT\_IIC\_MASTER}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_IIC\_MASTER}{MPU6050\_DMP\_DEFAULT\_IIC\_MASTER}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+IIC\+\_\+\+MASTER~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable iic master \mbox{\Hypertarget{group__mpu6050__example__driver_gaa204340302a9f66487cd6b11211958d3}\label{group__mpu6050__example__driver_gaa204340302a9f66487cd6b11211958d3}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DATA\_READY}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DATA\+\_\+\+READY~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable data ready \mbox{\Hypertarget{group__mpu6050__example__driver_gab240e8be48cdc11ac329051a607ad313}\label{group__mpu6050__example__driver_gab240e8be48cdc11ac329051a607ad313}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_DMP}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+DMP~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable dmp \mbox{\Hypertarget{group__mpu6050__example__driver_gad1bdc305cba10c66fb6ef167feb685c4}\label{group__mpu6050__example__driver_gad1bdc305cba10c66fb6ef167feb685c4}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_FIFO\_OVERFLOW}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+FIFO\+\_\+\+OVERFLOW~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}}
+
+enable fifo overflow \mbox{\Hypertarget{group__mpu6050__example__driver_gadee8371b96768697ef43dcd2a407b584}\label{group__mpu6050__example__driver_gadee8371b96768697ef43dcd2a407b584}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_I2C\_MAST}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+I2\+C\+\_\+\+MAST~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9adf5718be730ed258b366f21cf1fd61c2}{MPU6050\+\_\+\+BOOL\+\_\+\+FALSE}}}
+
+disable i2c master \mbox{\Hypertarget{group__mpu6050__example__driver_ga561c48680c088d88d8b72e93b4c8c45a}\label{group__mpu6050__example__driver_ga561c48680c088d88d8b72e93b4c8c45a}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_LATCH}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+LATCH~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}}
+
+enable latch \mbox{\Hypertarget{group__mpu6050__example__driver_ga928e26f0e6083b4640b6da61b3cacc3a}\label{group__mpu6050__example__driver_ga928e26f0e6083b4640b6da61b3cacc3a}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MODE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MODE~\mbox{\hyperlink{group__mpu6050__dmp__driver_gga98211de88899ad6604d078ff992dcb5caa58d860926bd23da2e00d99b7f4dbec9}{MPU6050\+\_\+\+DMP\+\_\+\+INTERRUPT\+\_\+\+MODE\+\_\+\+CONTINUOUS}}}
+
+interrupt continuous mode \mbox{\Hypertarget{group__mpu6050__example__driver_gaca388163fe1a639560e88240d38f9d55}\label{group__mpu6050__example__driver_gaca388163fe1a639560e88240d38f9d55}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_MOTION}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+MOTION~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}}
+
+enable motion \mbox{\Hypertarget{group__mpu6050__example__driver_gafff0fd90d0d69f6f97ba5e24daa2c8b7}\label{group__mpu6050__example__driver_gafff0fd90d0d69f6f97ba5e24daa2c8b7}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_LEVEL}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+LEVEL~\mbox{\hyperlink{group__mpu6050__basic__driver_gga82b756931c7d0c5f948e0f9ad8cb700fad0741891355aafff44d41bd77c25b72c}{MPU6050\+\_\+\+PIN\+\_\+\+LEVEL\+\_\+\+LOW}}}
+
+low level \mbox{\Hypertarget{group__mpu6050__example__driver_ga20b878b26d940dc961462c01bfdd62c1}\label{group__mpu6050__example__driver_ga20b878b26d940dc961462c01bfdd62c1}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_PIN\_TYPE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+PIN\+\_\+\+TYPE~\mbox{\hyperlink{group__mpu6050__basic__driver_gga10b85492273e69a281067454513f067da0d492c44744845083692f91cf03e0434}{MPU6050\+\_\+\+PIN\+\_\+\+TYPE\+\_\+\+PUSH\+\_\+\+PULL}}}
+
+push pull \mbox{\Hypertarget{group__mpu6050__example__driver_ga3c3d2029b29053cd2d8d81215bfe580b}\label{group__mpu6050__example__driver_ga3c3d2029b29053cd2d8d81215bfe580b}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR}}
+\index{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR@{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR}{MPU6050\_DMP\_DEFAULT\_INTERRUPT\_READ\_CLEAR}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+INTERRUPT\+\_\+\+READ\+\_\+\+CLEAR~\mbox{\hyperlink{group__mpu6050__basic__driver_ggabd66e87c6875710ce056b940d20f85c9a264967f6b53b3ad74f586dc46c8ba18d}{MPU6050\+\_\+\+BOOL\+\_\+\+TRUE}}}
+
+enable interrupt read clear \mbox{\Hypertarget{group__mpu6050__example__driver_gaa6e1c5708ac195bbfe79cd2fc981efb3}\label{group__mpu6050__example__driver_gaa6e1c5708ac195bbfe79cd2fc981efb3}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER@{MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER}}
+\index{MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER@{MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER}{MPU6050\_DMP\_DEFAULT\_LOW\_PASS\_FILTER}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER~\mbox{\hyperlink{group__mpu6050__basic__driver_ggad12172179ecd4f5cc01204041d70b54fa4cd5516d2a38bf83fd0aab9e87488007}{MPU6050\+\_\+\+LOW\+\_\+\+PASS\+\_\+\+FILTER\+\_\+3}}}
+
+low pass filter 3 \mbox{\Hypertarget{group__mpu6050__example__driver_gae041de9c54ec283f1c8f7d1236699105}\label{group__mpu6050__example__driver_gae041de9c54ec283f1c8f7d1236699105}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT@{MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT}}
+\index{MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT@{MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT}{MPU6050\_DMP\_DEFAULT\_MIN\_TAP\_COUNT}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MIN\+\_\+\+TAP\+\_\+\+COUNT~1}
+
+1 \mbox{\Hypertarget{group__mpu6050__example__driver_gabb410b9f256b149eb2ec1928ca3216f8}\label{group__mpu6050__example__driver_gabb410b9f256b149eb2ec1928ca3216f8}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION@{MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION}}
+\index{MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION@{MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION}{MPU6050\_DMP\_DEFAULT\_MOTION\_DURATION}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+DURATION~200}
+
+200 ms \mbox{\Hypertarget{group__mpu6050__example__driver_gac28ffeec066314c16fd0dcfdfcd714f2}\label{group__mpu6050__example__driver_gac28ffeec066314c16fd0dcfdfcd714f2}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD@{MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD}}
+\index{MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD@{MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD}{MPU6050\_DMP\_DEFAULT\_MOTION\_THRESHOLD}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+MOTION\+\_\+\+THRESHOLD~200}
+
+200 mg \mbox{\Hypertarget{group__mpu6050__example__driver_gabb342ca4aea8b7aba86daa9d1da7bbf7}\label{group__mpu6050__example__driver_gabb342ca4aea8b7aba86daa9d1da7bbf7}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT@{MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT}}
+\index{MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT@{MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT}{MPU6050\_DMP\_DEFAULT\_PEOMETER\_STEP\_COUNT}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+STEP\+\_\+\+COUNT~0}
+
+0 \mbox{\Hypertarget{group__mpu6050__example__driver_gac5364b536e6b051140c9e788944a3b17}\label{group__mpu6050__example__driver_gac5364b536e6b051140c9e788944a3b17}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME@{MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME}}
+\index{MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME@{MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME}{MPU6050\_DMP\_DEFAULT\_PEOMETER\_WALK\_TIME}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+PEOMETER\+\_\+\+WALK\+\_\+\+TIME~200}
+
+200ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga1ebc931b151bcc83931555ac94dff726}\label{group__mpu6050__example__driver_ga1ebc931b151bcc83931555ac94dff726}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_RATE@{MPU6050\_DMP\_DEFAULT\_RATE}}
+\index{MPU6050\_DMP\_DEFAULT\_RATE@{MPU6050\_DMP\_DEFAULT\_RATE}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_RATE}{MPU6050\_DMP\_DEFAULT\_RATE}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+RATE~100}
+
+50Hz \mbox{\Hypertarget{group__mpu6050__example__driver_gaa5e9073fae89612bba115bd17829ed25}\label{group__mpu6050__example__driver_gaa5e9073fae89612bba115bd17829ed25}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH}}
+\index{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH}{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_THRESH}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+THRESH~200}
+
+200dps \mbox{\Hypertarget{group__mpu6050__example__driver_ga9cf62b46e11945293171dcd1eed41538}\label{group__mpu6050__example__driver_ga9cf62b46e11945293171dcd1eed41538}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME}}
+\index{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME}{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIME}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIME~40}
+
+40ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga62ccc41076f7976b18a176cbc89351ad}\label{group__mpu6050__example__driver_ga62ccc41076f7976b18a176cbc89351ad}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT}}
+\index{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT@{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT}{MPU6050\_DMP\_DEFAULT\_SHAKE\_REJECT\_TIMEOUT}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+SHAKE\+\_\+\+REJECT\+\_\+\+TIMEOUT~10}
+
+10ms \mbox{\Hypertarget{group__mpu6050__example__driver_gad790e270ed85b0426f4cddaf33e37993}\label{group__mpu6050__example__driver_gad790e270ed85b0426f4cddaf33e37993}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_TAP\_TIME@{MPU6050\_DMP\_DEFAULT\_TAP\_TIME}}
+\index{MPU6050\_DMP\_DEFAULT\_TAP\_TIME@{MPU6050\_DMP\_DEFAULT\_TAP\_TIME}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_TAP\_TIME}{MPU6050\_DMP\_DEFAULT\_TAP\_TIME}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME~100}
+
+100ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga4af4090ebe43a2a31dee1402234debbf}\label{group__mpu6050__example__driver_ga4af4090ebe43a2a31dee1402234debbf}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI@{MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI}}
+\index{MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI@{MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI}{MPU6050\_DMP\_DEFAULT\_TAP\_TIME\_MULTI}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+TIME\+\_\+\+MULTI~200}
+
+200ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga3d440aa7c7a41d6261fece8489593fa5}\label{group__mpu6050__example__driver_ga3d440aa7c7a41d6261fece8489593fa5}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH}}
+\index{MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH}{MPU6050\_DMP\_DEFAULT\_TAP\_X\_THRESH}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+X\+\_\+\+THRESH~250}
+
+250 mg/ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga455b92a1cf463a5c2f2f8fa345f781f7}\label{group__mpu6050__example__driver_ga455b92a1cf463a5c2f2f8fa345f781f7}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH}}
+\index{MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH}{MPU6050\_DMP\_DEFAULT\_TAP\_Y\_THRESH}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Y\+\_\+\+THRESH~250}
+
+250 mg/ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga81cf689694c2eeea9fe4d4a563c80218}\label{group__mpu6050__example__driver_ga81cf689694c2eeea9fe4d4a563c80218}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH}}
+\index{MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH@{MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH}{MPU6050\_DMP\_DEFAULT\_TAP\_Z\_THRESH}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+TAP\+\_\+\+Z\+\_\+\+THRESH~250}
+
+250 mg/ms \mbox{\Hypertarget{group__mpu6050__example__driver_ga40cdb53587b7573f6dfc08bc36f94373}\label{group__mpu6050__example__driver_ga40cdb53587b7573f6dfc08bc36f94373}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY@{MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY}}
+\index{MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY@{MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY}{MPU6050\_DMP\_DEFAULT\_WAKE\_UP\_FREQUENCY}}
+{\footnotesize\ttfamily \#define MPU6050\+\_\+\+DMP\+\_\+\+DEFAULT\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY~\mbox{\hyperlink{group__mpu6050__basic__driver_gga17d7c941660868be0ab4804ec2f89e68a0ec2d7232cefb18fa767166791937216}{MPU6050\+\_\+\+WAKE\+\_\+\+UP\+\_\+\+FREQUENCY\+\_\+1\+P25\+\_\+\+HZ}}}
+
+1.\+25\+Hz 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mpu6050__example__driver_ga36c91f910c116282ec9df4d972007fc5}\label{group__mpu6050__example__driver_ga36c91f910c116282ec9df4d972007fc5}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!mpu6050\_dmp\_deinit@{mpu6050\_dmp\_deinit}}
+\index{mpu6050\_dmp\_deinit@{mpu6050\_dmp\_deinit}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_dmp\_deinit()}{mpu6050\_dmp\_deinit()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+dmp\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+dmp example deinit 
+
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 deinit failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_ga5dc2e5196128effa5c85ca0c31011b5b}\label{group__mpu6050__example__driver_ga5dc2e5196128effa5c85ca0c31011b5b}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!mpu6050\_dmp\_get\_pedometer\_counter@{mpu6050\_dmp\_get\_pedometer\_counter}}
+\index{mpu6050\_dmp\_get\_pedometer\_counter@{mpu6050\_dmp\_get\_pedometer\_counter}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_dmp\_get\_pedometer\_counter()}{mpu6050\_dmp\_get\_pedometer\_counter()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+dmp\+\_\+get\+\_\+pedometer\+\_\+counter (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{cnt }\end{DoxyParamCaption})}
+
+
+
+dmp example get pedometer counter 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em $\ast$cnt} & points to a cnt buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 get pedometer counter failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_ga3298a755f9974bc3b2376ef576b52f4e}\label{group__mpu6050__example__driver_ga3298a755f9974bc3b2376ef576b52f4e}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!mpu6050\_dmp\_init@{mpu6050\_dmp\_init}}
+\index{mpu6050\_dmp\_init@{mpu6050\_dmp\_init}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_dmp\_init()}{mpu6050\_dmp\_init()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+dmp\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__mpu6050__basic__driver_ga47a9d14317022ff750450d300c1d48fb}{mpu6050\+\_\+address\+\_\+t}}}]{addr\+\_\+pin,  }\item[{void($\ast$)(uint8\+\_\+t type)}]{receive\+\_\+callback,  }\item[{void($\ast$)(uint8\+\_\+t count, uint8\+\_\+t direction)}]{tap\+\_\+callback,  }\item[{void($\ast$)(uint8\+\_\+t orientation)}]{orient\+\_\+callback }\end{DoxyParamCaption})}
+
+
+
+dmp example init 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em addr\+\_\+pin} & is the iic device address \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$receive\+\_\+callback} & points to a receive callback function \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$tap\+\_\+callback} & points to a tap callback function \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$orient\+\_\+callback} & points to an orient callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 init failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_gae9dbe53d0c51253b78cd06fac28bd71f}\label{group__mpu6050__example__driver_gae9dbe53d0c51253b78cd06fac28bd71f}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!mpu6050\_dmp\_irq\_handler@{mpu6050\_dmp\_irq\_handler}}
+\index{mpu6050\_dmp\_irq\_handler@{mpu6050\_dmp\_irq\_handler}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_dmp\_irq\_handler()}{mpu6050\_dmp\_irq\_handler()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+dmp\+\_\+irq\+\_\+handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+dmp irq 
+
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 run failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_gaa5f0a1219f072e02cd4c9bd0b4b29a18}\label{group__mpu6050__example__driver_gaa5f0a1219f072e02cd4c9bd0b4b29a18}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!mpu6050\_dmp\_read\_all@{mpu6050\_dmp\_read\_all}}
+\index{mpu6050\_dmp\_read\_all@{mpu6050\_dmp\_read\_all}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{mpu6050\_dmp\_read\_all()}{mpu6050\_dmp\_read\_all()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+\_\+dmp\+\_\+read\+\_\+all (\begin{DoxyParamCaption}\item[{int16\+\_\+t($\ast$)}]{accel\+\_\+raw\mbox{[}3\mbox{]},  }\item[{float($\ast$)}]{accel\+\_\+g\mbox{[}3\mbox{]},  }\item[{int16\+\_\+t($\ast$)}]{gyro\+\_\+raw\mbox{[}3\mbox{]},  }\item[{float($\ast$)}]{gyro\+\_\+dps\mbox{[}3\mbox{]},  }\item[{int32\+\_\+t($\ast$)}]{quat\mbox{[}4\mbox{]},  }\item[{float $\ast$}]{pitch,  }\item[{float $\ast$}]{roll,  }\item[{float $\ast$}]{yaw,  }\item[{uint16\+\_\+t $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+dmp example read 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em $\ast$accel\+\_\+raw} & points to an accel raw buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$accel\+\_\+g} & points to an accel g buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$gyro\+\_\+raw} & points to a gyro raw buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$gyro\+\_\+dps} & points to a gyro dps buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$quat} & points to a quat buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$pitch} & points to a pitch buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$roll} & points to a roll buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$yaw} & points to a yaw buffer \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em $\ast$l} & points to a length buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code
+\begin{DoxyItemize}
+\item 0 success
+\item 1 read failed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_ga5a86f16b079172d56e0dfff38286e735}\label{group__mpu6050__example__driver_ga5a86f16b079172d56e0dfff38286e735}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_GetYaw@{MPU6050\_GetYaw}}
+\index{MPU6050\_GetYaw@{MPU6050\_GetYaw}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_GetYaw()}{MPU6050\_GetYaw()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def MPU6050\+\_\+\+Get\+Yaw (\begin{DoxyParamCaption}\item[{float $\ast$}]{yaw }\end{DoxyParamCaption})}
+
+
+
+MPU6050 get yaw function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em $\ast$yaw} & points to a yaw buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+return code uses HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__mpu6050__example__driver_gae6d0471d953fb9c8ccad4439f12a794d}\label{group__mpu6050__example__driver_gae6d0471d953fb9c8ccad4439f12a794d}} 
+\index{Mpu6050\_example\_driver@{Mpu6050\_example\_driver}!MPU6050\_Init@{MPU6050\_Init}}
+\index{MPU6050\_Init@{MPU6050\_Init}!Mpu6050\_example\_driver@{Mpu6050\_example\_driver}}
+\doxysubsubsection{\texorpdfstring{MPU6050\_Init()}{MPU6050\_Init()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def MPU6050\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+MPU6050 init function. 
+
+\begin{DoxyReturn}{Returns}
+status code 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+return code uses HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyNote}

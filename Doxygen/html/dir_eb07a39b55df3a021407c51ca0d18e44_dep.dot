@@ -1,0 +1,11 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/RWACS_UART/Inc" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_51d5e75dd5237416a01e5b0f4b3957ba {
+    graph [ bgcolor="#ddddee", pencolor="black", label="RWACS_UART" fontname="Helvetica", fontsize="10", URL="dir_51d5e75dd5237416a01e5b0f4b3957ba.html"]
+  dir_eb07a39b55df3a021407c51ca0d18e44 [shape=box, label="Inc", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_eb07a39b55df3a021407c51ca0d18e44.html"];
+  }
+  dir_e1609c15a898e9351814a5d7193aca86 [shape=box label="Pid" fillcolor="white" style="filled" color="red" URL="dir_e1609c15a898e9351814a5d7193aca86.html"];
+  dir_eb07a39b55df3a021407c51ca0d18e44->dir_e1609c15a898e9351814a5d7193aca86 [headlabel="1", labeldistance=1.5 headhref="dir_000018_000014.html"];
+}

@@ -1,0 +1,30 @@
+\hypertarget{drv8825_8c}{}\doxysection{/home/krzy5z70f/\+Documents/\+Semestr\+\_\+5/\+SM\+\_\+laboratoria/\+RWACS/\+STM32\+\_\+firmware/\+Components/\+DRV8825/\+Src/drv8825.c File Reference}
+\label{drv8825_8c}\index{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/DRV8825/Src/drv8825.c@{/home/krzy5z70f/Documents/Semestr\_5/SM\_laboratoria/RWACS/STM32\_firmware/Components/DRV8825/Src/drv8825.c}}
+
+
+\+: DRV8825 step motor driver source code file  
+
+
+{\ttfamily \#include \char`\"{}drv8825.\+h\char`\"{}}\newline
+Include dependency graph for drv8825.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gad2528d62f2688b14b37b967b4f75b057}{DRV8825\+\_\+\+Init}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825)
+\begin{DoxyCompactList}\small\item\em Start Tim timer in PWM mode. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_ga7e7dcca6d1428843035f760f30928d90}{DRV8825\+\_\+\+Set\+Speed}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Speed\+Type $\ast$speed)
+\begin{DoxyCompactList}\small\item\em Set timer, Dir and Enbl pins properly according to target speed. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group__DRV8825_gae22de907814c4b18814b46461840f9b5}{DRV8825\+\_\+\+Set\+Acceleration}} (\mbox{\hyperlink{structDRV8825__HandleTypeDef}{DRV8825\+\_\+\+Handle\+Type\+Def}} $\ast$hdrv8825, DRV8825\+\_\+\+Acceleration\+Type $\ast$acceleration)
+\begin{DoxyCompactList}\small\item\em Set motor speed according to desired acceleration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: DRV8825 step motor driver source code file 
+
+\begin{DoxyAuthor}{Author}
+\+: Krzysztof Witkowski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: Dec 17, 2022 
+\end{DoxyDate}

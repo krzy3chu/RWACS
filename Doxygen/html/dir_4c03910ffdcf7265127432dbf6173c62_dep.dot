@@ -1,0 +1,11 @@
+digraph "/home/krzy5z70f/Documents/Semestr_5/SM_laboratoria/RWACS/STM32_firmware/Components/DX_Limit/Src" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_928092169d55f78668dc2695cf176ab7 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="DX_Limit" fontname="Helvetica", fontsize="10", URL="dir_928092169d55f78668dc2695cf176ab7.html"]
+  dir_72159bcc5201b8290021e6d32003db27 [shape=box label="Inc" URL="dir_72159bcc5201b8290021e6d32003db27.html"];
+  dir_4c03910ffdcf7265127432dbf6173c62 [shape=box, label="Src", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_4c03910ffdcf7265127432dbf6173c62.html"];
+  }
+  dir_4c03910ffdcf7265127432dbf6173c62->dir_72159bcc5201b8290021e6d32003db27 [headlabel="2", labeldistance=1.5 headhref="dir_000007_000006.html"];
+}
