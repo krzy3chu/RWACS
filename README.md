@@ -1,8 +1,18 @@
 # :artificial_satellite: Reaction Wheel Attitude Control System :artificial_satellite:
-This project is a platform that simulates a **real spacecraft attitude control**.
 
 
-## Goal
+<p align="center">
+	**RWACS** is a platform that simulates a real spacecraft attitude control.
+</p>
+
+
+<p align="center">
+  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
+</p>
+
+
+## Goal :dart:
 The objective of this project was to design a device that could alter and sustain its position through the utilization of a reaction wheel. The **RWACS** device is able to hold its position steady and move to a predetermined location. The desired position can be set through the use of an **encoder** or a **graphical user interface**. To achieve this, **custom hardware modules** were developed and can be accessed in the "Components" folder.
 <p align="center">
   <img src="/README_FILES/POSITION_STAY.gif" alt="position stay"/>
@@ -12,7 +22,7 @@ The objective of this project was to design a device that could alter and sustai
   <img src="/README_FILES/POSITION_CHANGE.gif" alt="position change"/>
 </p>
 
-## Core components
+## Core components 
 * DRV8825 stepper motor driver
 * NEMA 17 stepper motor
 * Incremental encoder
