@@ -1,4 +1,4 @@
-# Reaction Wheel Attitude Control System
+# :artificial_satellite: Reaction Wheel Attitude Control System :artificial_satellite:
 This project is a platform that simulates a **real spacecraft attitude control**.
 
 
